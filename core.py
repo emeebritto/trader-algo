@@ -1,64 +1,52 @@
 from utils import screen
 from datetime import datetime
 from time import sleep
+import cv2
+import copy
 
 y=1100
 x=287
-h=450
+h=550
 w=25
 
-traceCandleTop=0
-candleBody=0
-red=0
-green=0
-gray=0
-traceCandleBottom=0
-
-def cleanData():
-	global red, green, gray, traceCandleTop, candleBody, traceCandleBottom
-	traceCandleTop=0
-	candleBody=0
-	red=0
-	green=0
-	gray=0
-	traceCandleBottom=0 
+history = []
 
 def detectCandleColor(b, g, r):
-	global red, green, gray
-
-	if r > 240: red = 1
-	if g > 180 and r < 100: green = 1
-	gray = 1 if red == 0 and green == 0 else 0
+	# 1 = Green | -1 = Red
+	if r > 240: return -1
+	if g > 180 and r < 100: return 1
 
 
-def detectCandleTrace(line):
-	global traceCandleTop, candleBody, traceCandleBottom
+def detectCandleMetrics(line, metrics):
+	metrics = copy.deepcopy(metrics)
 
-	for index, (b, g, r) in enumerate(line):
+	for index in range(len(line)):
 		lastPixel = (0, 0, 0) if index == 0 else line[index - 1]
-		currentPixel = (b, g, r)
+		currentPixel = line[index]
 		nextPixel = (0, 0, 0) if len(line) == index + 1 else line[index + 1]
 
-		if currentPixel[0] < 50: continue # ignore empty pixels
+		if currentPixel[0] < 50: continue # ignore empty/black pixels
+		
+		if metrics["body"] == 0 and currentPixel[1] != nextPixel[1]:
+			metrics["traceTop"] += 1
+			return metrics
 
 		if currentPixel[1] == nextPixel[1]:
-			candleBody += 1
-			return
+			metrics["body"] += 1
+			return metrics
 
-		if candleBody == 0 and currentPixel[1] != nextPixel[1]:
-			traceCandleTop += 1
-			return
+		if metrics["body"] > 0 and currentPixel[1] != nextPixel[1]:
+			metrics["traceBottom"] += 1
+			return metrics
 
-		if candleBody > 0 and currentPixel[1] != nextPixel[1]:
-			traceCandleBottom += 1
-			return
+	return metrics
 
 
-def line_data(line):
+def line_data(line, candle):
+	candle["metrics"] = detectCandleMetrics(line, candle["metrics"])
 	linePixels = []
-	detectCandleTrace(line)
-	for i, (b, g, r) in enumerate(line):
-		detectCandleColor(b, g, r)
+	for (b, g, r) in line:
+		candle["type"] = detectCandleColor(b, g, r) or candle["type"]
 		linePixels.append((b, g, r))
 	# print(linePixels)
 	return linePixels
@@ -66,16 +54,51 @@ def line_data(line):
 
 while True:
 	print("registering candle..", datetime.now())
+
+	candle = {
+		"type": 0,
+		"metrics": {
+			"traceTop": 0,
+			"body": 0,
+			"traceBottom": 0
+		},
+		"statistics": {
+			"traceTopIsMax": 0,
+			"hasTraceTop": 0,
+			"traceDifference": 0,
+			"hasTraceBottom": 0,
+			"traceBottomIsMax": 0
+		}
+	}
+
 	screenshot = screen.take_screenshot(region=(x, y, w, h))
-	for line in screenshot: line_data(line)
+	for line in screenshot: line_data(line, candle)
 
-	print(traceCandleTop, candleBody, traceCandleBottom)
+	traceCandleTop = candle["metrics"]["traceTop"]
+	traceCandleBottom = candle["metrics"]["traceBottom"]
+	traceDifference = abs(traceCandleTop - traceCandleBottom)
+	traceTopIsMax = traceDifference > 10 and traceCandleTop > traceCandleBottom
+	traceBottomIsMax = traceDifference > 10 and traceCandleBottom > traceCandleTop
 
-	print(red, green, gray)
-	print(traceCandleTop > 0, traceCandleBottom > 0)
+	candle["statistics"]["traceDifference"] = traceDifference
+	candle["statistics"]["hasTraceTop"] = traceCandleTop > 0
+	candle["statistics"]["traceTopIsMax"] = traceTopIsMax
+	candle["statistics"]["hasTraceBottom"] = traceCandleBottom > 0
+	candle["statistics"]["traceBottomIsMax"] = traceBottomIsMax
 
-	cleanData()
-	sleep(59)
+	print(candle["type"])
+	print(candle["metrics"])
+	print(candle["statistics"])
+
+	history.insert(0, candle)
+	history = history[0:2] # limiter (2 slots)
+
+	print(history)
+
+	# cv2.imshow("screenshot", screenshot)
+	# cv2.waitKey(0)
+	sleep(59.3)
+
 
 
 # print(screenshot.getpixel((12, 205)))
