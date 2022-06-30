@@ -1,15 +1,47 @@
 from utils import screen
+from tools.fibonacci import Fibonacci
+from analyzer import Analyzer
 from datetime import datetime
 from time import sleep
 import cv2
 import copy
 
-y=1100
+# myFibo = Fibonacci(1000, 900, minDifference=0)
+# myFibo2 = Fibonacci(900, 1000, minDifference=0)
+# myFibo.show()
+# myFibo2.show()
+# myFibo.match(530.5, tolerance=10)
+
+analyzer = Analyzer()
+
+y=1055
 x=287
 h=550
 w=25
 
+maxPrice = 10000
+price = 10000
+minPrice = 10000
+
 history = []
+
+
+def updatePrice(candleType, candleMetrics):
+	global maxPrice, price, minPrice
+
+	traceCandleTop = candleMetrics["traceTop"]
+	candleBody = candleMetrics["body"]
+	traceCandleBottom = candleMetrics["traceBottom"]
+
+	if candleType == 0: return
+	if candleType == 1: price += candleBody
+	if candleType == -1: price -= candleBody
+
+	if price + traceCandleTop > maxPrice:
+		maxPrice = price + traceCandleTop
+	if price - traceCandleBottom < minPrice:
+		minPrice = price - traceCandleBottom
+
 
 def detectCandleColor(b, g, r):
 	# 1 = Green | -1 = Red
@@ -86,9 +118,14 @@ while True:
 	candle["statistics"]["hasTraceBottom"] = traceCandleBottom > 0
 	candle["statistics"]["traceBottomIsMax"] = traceBottomIsMax
 
+	updatePrice(candle["type"], candle["metrics"])
+
 	print(candle["type"])
 	print(candle["metrics"])
 	print(candle["statistics"])
+	print(maxPrice, price, minPrice)
+
+	analyzer.setValues(maxV=maxPrice, minV=minPrice)
 
 	history.insert(0, candle)
 	history = history[0:2] # limiter (2 slots)
