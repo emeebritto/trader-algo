@@ -43,6 +43,27 @@ def updatePrice(candleType, candleMetrics):
 		minPrice = price - traceCandleBottom
 
 
+def metricsPrice(price, candlePrice, candleMetrics, candleType):
+	candlePrice = copy.deepcopy(candlePrice)
+	traceCandleTop = candleMetrics["traceTop"]
+	candleBody = candleMetrics["body"]
+	traceCandleBottom = candleMetrics["traceBottom"]
+
+	if candleType == 1:
+		candlePrice["maxTraced"] = price + traceCandleTop
+		candlePrice["start"] = price - candleBody
+		candlePrice["end"] = price
+		candlePrice["endTraced"] = price + traceCandleTop
+		candlePrice["minTraced"] = (price - candleBody) - traceCandleBottom
+	else:
+		candlePrice["minTraced"] = (price + candleBody) + traceCandleTop
+		candlePrice["start"] = price + candleBody
+		candlePrice["end"] = price
+		candlePrice["maxTraced"] = price - traceCandleBottom
+
+	return candlePrice
+
+
 def detectCandleColor(b, g, r):
 	# 1 = Green | -1 = Red
 	if r > 240: return -1
@@ -89,10 +110,16 @@ while True:
 
 	candle = {
 		"type": 0,
+		"price": {
+			"minTraced": 0,
+			"start": 0,
+			"end": 0,
+			"maxTraced": 0,
+		},
 		"metrics": {
 			"traceTop": 0,
 			"body": 0,
-			"traceBottom": 0
+			"traceBottom": 0,
 		},
 		"statistics": {
 			"traceTopIsMax": 0,
@@ -106,26 +133,37 @@ while True:
 	screenshot = screen.take_screenshot(region=(x, y, w, h))
 	for line in screenshot: line_data(line, candle)
 
+	updatePrice(candle["type"], candle["metrics"])
+
 	traceCandleTop = candle["metrics"]["traceTop"]
 	traceCandleBottom = candle["metrics"]["traceBottom"]
 	traceDifference = abs(traceCandleTop - traceCandleBottom)
 	traceTopIsMax = traceDifference > 10 and traceCandleTop > traceCandleBottom
 	traceBottomIsMax = traceDifference > 10 and traceCandleBottom > traceCandleTop
 
+	candle["price"] = metricsPrice(
+		price=price,
+		candlePrice=candle["price"],
+		candleMetrics=candle["metrics"],
+		candleType=candle["type"]
+	)
 	candle["statistics"]["traceDifference"] = traceDifference
 	candle["statistics"]["hasTraceTop"] = traceCandleTop > 0
 	candle["statistics"]["traceTopIsMax"] = traceTopIsMax
 	candle["statistics"]["hasTraceBottom"] = traceCandleBottom > 0
 	candle["statistics"]["traceBottomIsMax"] = traceBottomIsMax
 
-	updatePrice(candle["type"], candle["metrics"])
-
 	print(candle["type"])
 	print(candle["metrics"])
 	print(candle["statistics"])
 	print(maxPrice, price, minPrice)
 
-	analyzer.setValues(maxV=maxPrice, minV=minPrice)
+	analyzer.setValues(
+		currentValue=price,
+		maxV=maxPrice,
+		minV=minPrice,
+		candle=copy.deepcopy(candle)
+	)
 
 	history.insert(0, candle)
 	history = history[0:2] # limiter (2 slots)

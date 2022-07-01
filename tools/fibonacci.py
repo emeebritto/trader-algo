@@ -9,11 +9,9 @@ class Fibonacci:
 
 	def processValues(self):
 		self.difference = abs(self.start - self.end)
+		if self.difference < self.minDifference: self.inactive = True
 
-		if self.difference < self.minDifference:
-			self.inactive = True
-			return
-		elif self.start > self.end:
+		if self.start > self.end:
 			self.inactive = False
 			self.f100 = self.end + self.difference
 			self.f61x8 = self.end + ((self.difference * 61.8) / 100)
@@ -33,6 +31,26 @@ class Fibonacci:
 		self.start = start or self.start
 		self.end = end or self.end
 		self.processValues()
+
+
+	def isOutRange(self, value):
+		"""return (outF100, outF0)"""
+		if self.start > self.end:
+			if value > self.f100:
+				# out of range on top (f100)
+				return (True, False)
+			elif value < self.f0:
+				# out of range on bottom (f0)
+				return (False, True)
+		else:
+			if value < self.f100:
+				# out of range on bottom (f100)
+				return (True, False)
+			elif value > self.f0:
+				# out of range on top (f0)
+				return (False, True)
+
+		return (False, False)
 
 
 	def match(self, value, tolerance=0):
@@ -71,18 +89,3 @@ class Fibonacci:
 			"0": self.f0
 		}
 		print(fibo)
-
-
-
-
-
-
-
-
-
-
-# 1000 | 100
-# 300  |  x
-
-# 100  | 10000
-# 61.8 |   x
