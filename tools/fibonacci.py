@@ -1,10 +1,26 @@
 class Fibonacci:
-	def __init__(self, start, end, minDifference=0):
+	def __init__(self, name, start, end, minDifference=0):
+		self.name = name
 		self.start = start
 		self.end = end
 		self.minDifference = minDifference
 		self.inactive = False
 		self.processValues()
+
+
+	def __repr__(self):
+		return f"""
+  name: {self.name}
+  inactive: {self.inactive}
+  start": {self.start}
+  end: {self.end}
+  > metrics =======================
+   - 100: {self.f100}
+   - 61.8: {self.f61x8}
+   - 50: {self.f50}
+   - 38.2: {self.f38x2}
+   - 0: {self.f0}
+"""
 
 
 	@property

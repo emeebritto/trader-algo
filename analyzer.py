@@ -47,7 +47,7 @@ class Analyzer:
 
 
 	def createFibo(self, start, end):
-		fibo = Fibonacci(start, end, minDifference=300)
+		fibo = Fibonacci(f"Fibo_{len(self.fibonaccis)}", start, end, minDifference=300)
 		self.fibonaccis.insert(0, fibo)
 
 

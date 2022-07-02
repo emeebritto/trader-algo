@@ -75,7 +75,7 @@ class Candle:
 
 	@property
 	def exitTraceLength(self):
-		return self.traceLength["entry"]
+		return self.traceLength["exit"]
 
 
 	@property
@@ -107,16 +107,10 @@ class Candle:
 
 
 	def processTracesLength(self):
-		if self._type == -1:
-			self.traceLength = {
-				"entry": abs(self.entry - self.minTraced),
-				"exit": abs(self.exit - self.maxTraced)
-			}
-		else:
-			self.traceLength = {
-				"entry": abs(self.entry - self.minTraced),
-				"exit": abs(self.exit - self.maxTraced)
-			}
+		self.traceLength = {
+			"entry": abs(self.entry - self.minTraced),
+			"exit": abs(self.exit - self.maxTraced)
+		}
 
 
 	def processTraces(self):

@@ -17,7 +17,7 @@ analyzer = Analyzer()
 
 y=1055
 x=287
-h=540
+h=520
 w=25
 
 maxPrice = 10000
@@ -35,39 +35,33 @@ def detectCandleColor(b, g, r):
 
 
 def line_data(line, candle):
-	linePixels = []
+	# linePixels = []
 	for (b, g, r) in line:
 		candle.cType = detectCandleColor(b, g, r) or candle.cType
-		linePixels.append((b, g, r))
-	print(linePixels)
-
-	# candle.cType = 1
-	# candle.exitTraceLength = 6
-	# candle.bodyLength = 100
-	# candle.entryTraceLength = 20
-
+		# linePixels.append((b, g, r))
+	# print(linePixels)
 
 	for index in range(len(line)):
-		lastPixelRGB = (0, 0, 0) if index == 0 else line[index - 1]
-		currentPixelRGB = line[index]
-		nextPixelRGB = (0, 0, 0) if len(line) == index + 1 else line[index + 1]
+		lastPixelBGR = (0, 0, 0) if index == 0 else line[index - 1]
+		currentPixelBGR = line[index]
+		nextPixelBGR = (0, 0, 0) if len(line) == index + 1 else line[index + 1]
 
 		lastPixel = {
-			"isGray": lastPixelRGB[0] < 50,
-			"isGreen": lastPixelRGB[1] > 180 and lastPixelRGB[2] < 100,
-			"isRed": lastPixelRGB[2] > 240
+			"isGray": lastPixelBGR[0] < 50 and lastPixelBGR[1] < 50,
+			"isGreen": lastPixelBGR[1] > 180 and lastPixelBGR[2] < 100,
+			"isRed": lastPixelBGR[2] > 240 and lastPixelBGR[1] < 130
 		}
 
 		currentPixel = {
-			"isGray": currentPixelRGB[0] < 50,
-			"isGreen": currentPixelRGB[1] > 180 and currentPixelRGB[2] < 100,
-			"isRed": currentPixelRGB[2] > 240
+			"isGray": currentPixelBGR[0] < 50 and currentPixelBGR[1] < 50,
+			"isGreen": currentPixelBGR[1] > 180 and currentPixelBGR[2] < 100,
+			"isRed": currentPixelBGR[2] > 240 and currentPixelBGR[1] < 130
 		}
 
 		nextPixel = {
-			"isGray": nextPixelRGB[0] < 50,
-			"isGreen": nextPixelRGB[1] > 180 and nextPixelRGB[2] < 100,
-			"isRed": nextPixelRGB[2] > 240
+			"isGray": nextPixelBGR[0] < 50 and nextPixelBGR[1] < 50,
+			"isGreen": nextPixelBGR[1] > 180 and nextPixelBGR[2] < 100,
+			"isRed": nextPixelBGR[2] > 240 and nextPixelBGR[1] < 130
 		}
 
 		currentPixelIsCandle = currentPixel["isGreen"] or currentPixel["isRed"]
@@ -75,7 +69,9 @@ def line_data(line, candle):
 		isCandleTrace = lastPixel["isGray"] and currentPixelIsCandle and nextPixel["isGray"]
 		isCandleBody = currentPixelIsCandle and nextPixelIsCandle
 
-		if currentPixelRGB[0] < 50: continue # ignore empty/black pixels
+		if currentPixel["isGray"]: continue # ignore empty/black pixels
+
+		# NOTE:  VOCê está na branch "unstable"
 		
 		if candle.cType == 1:
 			if candle.bodyLength == 0 and isCandleTrace:
@@ -102,7 +98,6 @@ def line_data(line, candle):
 				candle.exitTraceLength += 1
 				break
 
-
 	# return linePixels
 
 
@@ -112,7 +107,6 @@ while True:
 
 	screenshot = screen.take_screenshot(region=(x, y, w, h))
 	for line in screenshot: line_data(line, candle)
-	print(candle.metrics)
 
 	entryTraceLength = candle.entryTraceLength
 	exitTraceLength = candle.exitTraceLength
@@ -138,6 +132,8 @@ while True:
 		candle=candle
 	)
 
+	print(analyzer.fibonaccis)
+
 	history.insert(0, candle)
 	history = history[0:2] # limiter (2 slots)
 
@@ -162,3 +158,16 @@ while True:
 # (121, 198, 20) VERDE
 # (108, 100, 255) VERMELHO
 # (34, 31, 30) EMPTY
+
+# print("exitTraceLengthPOSITIVO", exitTraceLengthPOSITIVO)
+# print("exitTraceLengthNEGATIVE", exitTraceLengthNEGATIVE)
+# print("entryTraceLengthPOSITIVO", entryTraceLengthPOSITIVO)
+# print("entryTraceLengthNEGATIVO", entryTraceLengthNEGATIVO)
+# print(candle.metrics)
+
+# candle.cType = 1
+# print(candle)
+# candle.entryTraceLength += 20
+# candle.bodyLength = 100
+# candle.exitTraceLength += 6
+# candle.exitTraceLength += 1
