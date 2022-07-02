@@ -1,5 +1,6 @@
 from utils import screen
 from tools.fibonacci import Fibonacci
+from entities.candle import Candle
 from analyzer import Analyzer
 from datetime import datetime
 from time import sleep
@@ -16,7 +17,7 @@ analyzer = Analyzer()
 
 y=1055
 x=287
-h=550
+h=540
 w=25
 
 maxPrice = 10000
@@ -26,149 +27,121 @@ minPrice = 10000
 history = []
 
 
-def updatePrice(candleType, candleMetrics):
-	global maxPrice, price, minPrice
-
-	traceCandleTop = candleMetrics["traceTop"]
-	candleBody = candleMetrics["body"]
-	traceCandleBottom = candleMetrics["traceBottom"]
-
-	if candleType == 0: return
-	if candleType == 1: price += candleBody
-	if candleType == -1: price -= candleBody
-
-	if price + traceCandleTop > maxPrice:
-		maxPrice = price + traceCandleTop
-	if price - traceCandleBottom < minPrice:
-		minPrice = price - traceCandleBottom
-
-
-def metricsPrice(price, candlePrice, candleMetrics, candleType):
-	candlePrice = copy.deepcopy(candlePrice)
-	traceCandleTop = candleMetrics["traceTop"]
-	candleBody = candleMetrics["body"]
-	traceCandleBottom = candleMetrics["traceBottom"]
-
-	if candleType == 1:
-		candlePrice["maxTraced"] = price + traceCandleTop
-		candlePrice["start"] = price - candleBody
-		candlePrice["end"] = price
-		candlePrice["endTraced"] = price + traceCandleTop
-		candlePrice["minTraced"] = (price - candleBody) - traceCandleBottom
-	else:
-		candlePrice["minTraced"] = (price + candleBody) + traceCandleTop
-		candlePrice["start"] = price + candleBody
-		candlePrice["end"] = price
-		candlePrice["maxTraced"] = price - traceCandleBottom
-
-	return candlePrice
-
-
 def detectCandleColor(b, g, r):
-	# 1 = Green | -1 = Red
-	if r > 240: return -1
-	if g > 180 and r < 100: return 1
-
-
-def detectCandleMetrics(line, metrics):
-	metrics = copy.deepcopy(metrics)
-
-	for index in range(len(line)):
-		lastPixel = (0, 0, 0) if index == 0 else line[index - 1]
-		currentPixel = line[index]
-		nextPixel = (0, 0, 0) if len(line) == index + 1 else line[index + 1]
-
-		if currentPixel[0] < 50: continue # ignore empty/black pixels
-		
-		if metrics["body"] == 0 and currentPixel[1] != nextPixel[1]:
-			metrics["traceTop"] += 1
-			return metrics
-
-		if currentPixel[1] == nextPixel[1]:
-			metrics["body"] += 1
-			return metrics
-
-		if metrics["body"] > 0 and currentPixel[1] != nextPixel[1]:
-			metrics["traceBottom"] += 1
-			return metrics
-
-	return metrics
+	isRed = r > 240
+	isGreen = g > 180 and r < 100
+	if isRed: return -1
+	if isGreen: return 1
 
 
 def line_data(line, candle):
-	candle["metrics"] = detectCandleMetrics(line, candle["metrics"])
 	linePixels = []
 	for (b, g, r) in line:
-		candle["type"] = detectCandleColor(b, g, r) or candle["type"]
+		candle.cType = detectCandleColor(b, g, r) or candle.cType
 		linePixels.append((b, g, r))
-	# print(linePixels)
-	return linePixels
+	print(linePixels)
+
+	# candle.cType = 1
+	# candle.exitTraceLength = 6
+	# candle.bodyLength = 100
+	# candle.entryTraceLength = 20
+
+
+	for index in range(len(line)):
+		lastPixelRGB = (0, 0, 0) if index == 0 else line[index - 1]
+		currentPixelRGB = line[index]
+		nextPixelRGB = (0, 0, 0) if len(line) == index + 1 else line[index + 1]
+
+		lastPixel = {
+			"isGray": lastPixelRGB[0] < 50,
+			"isGreen": lastPixelRGB[1] > 180 and lastPixelRGB[2] < 100,
+			"isRed": lastPixelRGB[2] > 240
+		}
+
+		currentPixel = {
+			"isGray": currentPixelRGB[0] < 50,
+			"isGreen": currentPixelRGB[1] > 180 and currentPixelRGB[2] < 100,
+			"isRed": currentPixelRGB[2] > 240
+		}
+
+		nextPixel = {
+			"isGray": nextPixelRGB[0] < 50,
+			"isGreen": nextPixelRGB[1] > 180 and nextPixelRGB[2] < 100,
+			"isRed": nextPixelRGB[2] > 240
+		}
+
+		currentPixelIsCandle = currentPixel["isGreen"] or currentPixel["isRed"]
+		nextPixelIsCandle = nextPixel["isGreen"] or nextPixel["isRed"]
+		isCandleTrace = lastPixel["isGray"] and currentPixelIsCandle and nextPixel["isGray"]
+		isCandleBody = currentPixelIsCandle and nextPixelIsCandle
+
+		if currentPixelRGB[0] < 50: continue # ignore empty/black pixels
+		
+		if candle.cType == 1:
+			if candle.bodyLength == 0 and isCandleTrace:
+				candle.exitTraceLength += 1
+				break
+
+			if isCandleBody:
+				candle.bodyLength += 1
+				break
+
+			if candle.bodyLength > 0 and isCandleTrace:
+				candle.entryTraceLength += 1
+				break
+		else:
+			if candle.bodyLength == 0 and isCandleTrace:
+				candle.entryTraceLength += 1
+				break
+
+			if isCandleBody and candle.cType == -1:
+				candle.bodyLength += 1
+				break
+
+			if candle.bodyLength > 0 and isCandleTrace:
+				candle.exitTraceLength += 1
+				break
+
+
+	# return linePixels
 
 
 while True:
 	print("registering candle..", datetime.now())
-
-	candle = {
-		"type": 0,
-		"price": {
-			"minTraced": 0,
-			"start": 0,
-			"end": 0,
-			"maxTraced": 0,
-		},
-		"metrics": {
-			"traceTop": 0,
-			"body": 0,
-			"traceBottom": 0,
-		},
-		"statistics": {
-			"traceTopIsMax": 0,
-			"hasTraceTop": 0,
-			"traceDifference": 0,
-			"hasTraceBottom": 0,
-			"traceBottomIsMax": 0
-		}
-	}
+	candle = Candle()
 
 	screenshot = screen.take_screenshot(region=(x, y, w, h))
 	for line in screenshot: line_data(line, candle)
+	print(candle.metrics)
 
-	updatePrice(candle["type"], candle["metrics"])
+	entryTraceLength = candle.entryTraceLength
+	exitTraceLength = candle.exitTraceLength
 
-	traceCandleTop = candle["metrics"]["traceTop"]
-	traceCandleBottom = candle["metrics"]["traceBottom"]
-	traceDifference = abs(traceCandleTop - traceCandleBottom)
-	traceTopIsMax = traceDifference > 10 and traceCandleTop > traceCandleBottom
-	traceBottomIsMax = traceDifference > 10 and traceCandleBottom > traceCandleTop
+	if candle.cType == 1: price += candle.body
+	if candle.cType == -1: price -= candle.body
 
-	candle["price"] = metricsPrice(
-		price=price,
-		candlePrice=candle["price"],
-		candleMetrics=candle["metrics"],
-		candleType=candle["type"]
-	)
-	candle["statistics"]["traceDifference"] = traceDifference
-	candle["statistics"]["hasTraceTop"] = traceCandleTop > 0
-	candle["statistics"]["traceTopIsMax"] = traceTopIsMax
-	candle["statistics"]["hasTraceBottom"] = traceCandleBottom > 0
-	candle["statistics"]["traceBottomIsMax"] = traceBottomIsMax
+	candle.processPrices(exitPrice=price)
 
-	print(candle["type"])
-	print(candle["metrics"])
-	print(candle["statistics"])
+	if candle.maxValue > maxPrice:
+		maxPrice = candle.maxValue
+	if candle.minValue < minPrice:
+		minPrice = candle.minValue
+
+
+	print(candle)
 	print(maxPrice, price, minPrice)
 
 	analyzer.setValues(
 		currentValue=price,
 		maxV=maxPrice,
 		minV=minPrice,
-		candle=copy.deepcopy(candle)
+		candle=candle
 	)
 
 	history.insert(0, candle)
 	history = history[0:2] # limiter (2 slots)
 
-	print(history)
+	# print(history)
 
 	# cv2.imshow("screenshot", screenshot)
 	# cv2.waitKey(0)

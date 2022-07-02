@@ -11,8 +11,8 @@ class Analyzer:
 
 	def process(self):
 		if len(self.fibonaccis) == 0:
-			maxTraced = self.currentCandle["price"]["maxTraced"]
-			minTraced = self.currentCandle["price"]["minTraced"] 
+			maxTraced = self.currentCandle.maxTraced
+			minTraced = self.currentCandle.minTraced
 			self.createFibo(maxTraced, minTraced)
 
 		matches = self.checkMatches()
@@ -35,15 +35,14 @@ class Analyzer:
 
 
 	def updateCurrentFibo(self):
-		candleType = self.currentCandle["type"] 
-		candlePrice = self.currentCandle["price"]
+		candleType = self.currentCandle.cType
 		currentFibo = self.fibonaccis[0]
-		outF100, outF0 = currentFibo.isOutRange(candlePrice["maxTraced"])
+		outF100, outF0 = currentFibo.isOutRange(self.currentCandle.maxTraced)
 
 		if outF0:
-			currentFibo.update(end=candlePrice["maxTraced"])
+			currentFibo.update(end=self.currentCandle.maxTraced)
 		if outF100:
-			self.createFibo(currentFibo.end, candlePrice["maxTraced"])
+			self.createFibo(currentFibo.end, self.currentCandle.maxTraced)
 			self.fibonaccis.pop()
 
 

@@ -7,6 +7,22 @@ class Fibonacci:
 		self.processValues()
 
 
+	@property
+	def fiboMetrics(self):
+		if self.inactive:
+			print("inactive Fibonacci")
+			return
+
+		fibo = {
+			"100": self.f100,
+			"61.8": self.f61x8,
+			"50": self.f50,
+			"38.2": self.f38x2,
+			"0": self.f0
+		}
+		return fibo
+
+
 	def processValues(self):
 		self.difference = abs(self.start - self.end)
 		if self.difference < self.minDifference: self.inactive = True
@@ -74,18 +90,3 @@ class Fibonacci:
 		else:
 			print("not detected any touch")
 			return None
-
-
-	def show(self):
-		if self.inactive:
-			print("inactive Fibonacci")
-			return
-
-		fibo = {
-			"100": self.f100,
-			"61.8": self.f61x8,
-			"50": self.f50,
-			"38.2": self.f38x2,
-			"0": self.f0
-		}
-		print(fibo)
