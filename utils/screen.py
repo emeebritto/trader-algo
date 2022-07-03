@@ -4,5 +4,6 @@ import cv2
 
 def take_screenshot(region):
 	screenshot = pg.screenshot(region=region)
+	screenshot.save("algo-view.png")
 	screenshot = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
 	return screenshot
