@@ -1,6 +1,8 @@
 from utils import screen
 from tools.fibonacci import Fibonacci
+from tools.time import seconds
 from entities.candle import Candle
+from entities.price import Price
 from analyzer import Analyzer
 from datetime import datetime
 from time import sleep
@@ -15,15 +17,12 @@ import copy
 
 analyzer = Analyzer()
 
-y=1055
+y=1029
 x=287
 h=520
 w=25
 
-maxPrice = 10000
-price = 10000
-minPrice = 10000
-
+price = Price(10000)
 history = []
 
 
@@ -111,26 +110,18 @@ while True:
 	entryTraceLength = candle.entryTraceLength
 	exitTraceLength = candle.exitTraceLength
 
-	if candle.cType == 1: price += candle.body
-	if candle.cType == -1: price -= candle.body
+	if candle.cType == 1: price.value += candle.body
+	if candle.cType == -1: price.value -= candle.body
 
-	candle.processPrices(exitPrice=price)
+	candle.processPrices(exitPrice=price.value)
 
-	if candle.maxValue > maxPrice:
-		maxPrice = candle.maxValue
-	if candle.minValue < minPrice:
-		minPrice = candle.minValue
-
+	price.maxValue = candle.maxValue
+	price.minValue = candle.minValue
 
 	print(candle)
-	print(maxPrice, price, minPrice)
+	print(price)
 
-	analyzer.setValues(
-		currentValue=price,
-		maxV=maxPrice,
-		minV=minPrice,
-		candle=candle
-	)
+	analyzer.setValues(price=price, candle=candle)
 
 	print(analyzer.fibonaccis)
 
@@ -141,7 +132,9 @@ while True:
 
 	# cv2.imshow("screenshot", screenshot)
 	# cv2.waitKey(0)
-	sleep(59.3)
+
+	print("waiting next candle...")
+	while seconds() != 00: sleep(1)
 
 
 

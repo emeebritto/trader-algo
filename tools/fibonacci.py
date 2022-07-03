@@ -12,14 +12,10 @@ class Fibonacci:
 		return f"""
   name: {self.name}
   inactive: {self.inactive}
-  start": {self.start}
+  difference: {self.difference} (require: {self.minDifference})
+  start: {self.start}
   end: {self.end}
-  > metrics =======================
-   - 100: {self.f100}
-   - 61.8: {self.f61x8}
-   - 50: {self.f50}
-   - 38.2: {self.f38x2}
-   - 0: {self.f0}
+{self.strMetrics()}
 """
 
 
@@ -39,19 +35,41 @@ class Fibonacci:
 		return fibo
 
 
+	def strMetrics(self):
+		if self.start > self.end:
+			return f"""
+  | metrics =====================
+  | 100: {self.f100}
+  | 61.8: {self.f61x8}
+  | 50: {self.f50}
+  | 38.2: {self.f38x2}
+  v 0: {self.f0}
+"""
+		else:
+			return f"""
+  ^ metrics =====================
+  | 0: {self.f0}
+  | 38.2: {self.f38x2}
+  | 50: {self.f50}
+  | 61.8: {self.f61x8}
+  | 100: {self.f100}
+"""			
+
+
 	def processValues(self):
 		self.difference = abs(self.start - self.end)
-		if self.difference < self.minDifference: self.inactive = True
+		if self.difference < self.minDifference:
+			self.inactive = True
+		else:
+			self.inactive = False
 
 		if self.start > self.end:
-			self.inactive = False
 			self.f100 = self.end + self.difference
 			self.f61x8 = self.end + ((self.difference * 61.8) / 100)
 			self.f50 = self.end + ((self.difference * 50) / 100)
 			self.f38x2 = self.end + ((self.difference * 38.2) / 100)
 			self.f0 = self.end + ((self.difference * 0) / 100)
 		else:
-			self.inactive = False
 			self.f100 = self.end - self.difference
 			self.f61x8 = self.end - ((self.difference * 61.8) / 100)
 			self.f50 = self.end - ((self.difference * 50) / 100)

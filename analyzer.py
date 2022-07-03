@@ -19,10 +19,10 @@ class Analyzer:
 		self.updateCurrentFibo()
 
 
-	def setValues(self, candle, maxV=None, currentValue=None, minV=None):
-		self.maxValue = maxV if maxV != None else self.maxValue
-		self.currentValue = currentValue if currentValue != None else self.currentValue
-		self.minValue = minV if minV != None else self.minValue
+	def setValues(self, candle, price=None):
+		self.maxValue = price.maxValue if price != None else self.maxValue
+		self.currentValue = price.value if price != None else self.currentValue
+		self.minValue = price.minValue if price != None else self.minValue
 		self.currentCandle = candle
 		self.process()
 

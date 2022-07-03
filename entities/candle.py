@@ -17,7 +17,7 @@ class Candle:
 	def __repr__(self):
 		return f"""
   type: {self._type}
-  entryTraceIsMax": {self.entryTraceIsMax}
+  entryTraceIsMax: {self.entryTraceIsMax}
   hasEntryTrace: {self.hasEntryTrace}
   traceDifference: {self.traceDifference}
   hasExitTrace: {self.hasExitTrace}
