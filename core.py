@@ -9,11 +9,9 @@ from time import sleep
 import cv2
 import copy
 
-# myFibo = Fibonacci(1000, 900, minDifference=0)
-# myFibo2 = Fibonacci(900, 1000, minDifference=0)
-# myFibo.show()
-# myFibo2.show()
-# myFibo.match(530.5, tolerance=10)
+# myFibo = Fibonacci("test", 10000, 1000, minDifference=300)
+# print(myFibo)
+# myFibo.match(6572, tolerance=30)
 
 analyzer = Analyzer()
 
@@ -101,6 +99,9 @@ def line_data(line, candle):
 
 
 while True:
+	print("waiting next candle...")
+	while seconds() != 00: sleep(1)
+
 	print("registering candle..", datetime.now())
 	candle = Candle()
 
@@ -132,9 +133,6 @@ while True:
 
 	# cv2.imshow("screenshot", screenshot)
 	# cv2.waitKey(0)
-
-	print("waiting next candle...")
-	while seconds() != 00: sleep(1)
 
 
 

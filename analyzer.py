@@ -1,4 +1,5 @@
 from tools.fibonacci import Fibonacci
+from itertools import count
 
 class Analyzer:
 	def __init__(self):
@@ -7,6 +8,7 @@ class Analyzer:
 		self.minValue = 0
 		self.currentCandle = {}
 		self.fibonaccis = []
+		self.counter = count()
 
 
 	def process(self):
@@ -30,7 +32,7 @@ class Analyzer:
 	def checkMatches(self):
 		matches = []
 		for fibo in self.fibonaccis:
-			matches.append(fibo.match(0, tolerance=20))
+			matches.append(fibo.match(self.currentValue, tolerance=30))
 		print(matches)
 
 
@@ -47,7 +49,7 @@ class Analyzer:
 
 
 	def createFibo(self, start, end):
-		fibo = Fibonacci(f"Fibo_{len(self.fibonaccis)}", start, end, minDifference=300)
+		fibo = Fibonacci(f"Fibo_{next(self.counter)}", start, end, minDifference=400)
 		self.fibonaccis.insert(0, fibo)
 
 
