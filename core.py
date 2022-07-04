@@ -1,5 +1,4 @@
 from utils.screen import Screen
-from tools.fibonacci import Fibonacci
 from tools.time import seconds
 from entities.candle import Candle
 from entities.price import Price
@@ -7,7 +6,6 @@ from speculator import Speculator
 from datetime import datetime
 from time import sleep
 import os
-import cv2
 import copy
 
 # myFibo = Fibonacci("test", 10000, 1000, minDifference=300)
@@ -16,90 +14,17 @@ import copy
 
 screen = Screen()
 speculator = Speculator()
+price = Price(10000)
 
-selectedArea = {
+history = []
+speculator.useView(screen)
+
+selectedCandleArea = {
 	"posX": (287 * screen.width) / 900,
 	"posY": (1053 * screen.height) / 1600,
 	"width": (25 * screen.width) / 900,
 	"height": (520 * screen.height) / 1600
 }
-
-price = Price(10000)
-history = []
-
-
-def detectCandleColor(b, g, r):
-	isRed = r > 240
-	isGreen = g > 180 and r < 100
-	if isRed: return -1
-	if isGreen: return 1
-
-
-def line_data(line, candle):
-	# linePixels = []
-	for (b, g, r) in line:
-		candle.cType = detectCandleColor(b, g, r) or candle.cType
-		# linePixels.append((b, g, r))
-	# print(linePixels)
-
-	for index in range(len(line)):
-		lastPixelBGR = (0, 0, 0) if index == 0 else line[index - 1]
-		currentPixelBGR = line[index]
-		nextPixelBGR = (0, 0, 0) if len(line) == index + 1 else line[index + 1]
-
-		lastPixel = {
-			"isGray": lastPixelBGR[0] < 50 and lastPixelBGR[1] < 50,
-			"isGreen": lastPixelBGR[1] > 180 and lastPixelBGR[2] < 100,
-			"isRed": lastPixelBGR[2] > 240 and lastPixelBGR[1] < 130
-		}
-
-		currentPixel = {
-			"isGray": currentPixelBGR[0] < 50 and currentPixelBGR[1] < 50,
-			"isGreen": currentPixelBGR[1] > 180 and currentPixelBGR[2] < 100,
-			"isRed": currentPixelBGR[2] > 240 and currentPixelBGR[1] < 130
-		}
-
-		nextPixel = {
-			"isGray": nextPixelBGR[0] < 50 and nextPixelBGR[1] < 50,
-			"isGreen": nextPixelBGR[1] > 180 and nextPixelBGR[2] < 100,
-			"isRed": nextPixelBGR[2] > 240 and nextPixelBGR[1] < 130
-		}
-
-		currentPixelIsCandle = currentPixel["isGreen"] or currentPixel["isRed"]
-		nextPixelIsCandle = nextPixel["isGreen"] or nextPixel["isRed"]
-		isCandleTrace = lastPixel["isGray"] and currentPixelIsCandle and nextPixel["isGray"]
-		isCandleBody = currentPixelIsCandle and nextPixelIsCandle
-
-		if currentPixel["isGray"]: continue # ignore empty/black pixels
-
-		# NOTE:  VOCê está na branch "unstable"
-		
-		if candle.cType == 1:
-			if candle.bodyLength == 0 and isCandleTrace:
-				candle.exitTraceLength += 1
-				break
-
-			if isCandleBody:
-				candle.bodyLength += 1
-				break
-
-			if candle.bodyLength > 0 and isCandleTrace:
-				candle.entryTraceLength += 1
-				break
-		else:
-			if candle.bodyLength == 0 and isCandleTrace:
-				candle.entryTraceLength += 1
-				break
-
-			if isCandleBody and candle.cType == -1:
-				candle.bodyLength += 1
-				break
-
-			if candle.bodyLength > 0 and isCandleTrace:
-				candle.exitTraceLength += 1
-				break
-
-	# return linePixels
 
 
 while True:
@@ -109,13 +34,8 @@ while True:
 	os.system("clear")
 
 	print("registering candle..", datetime.now())
-	candle = Candle()
-
-	screenshot = screen.take_screenshot(region=selectedArea)
-	for line in screenshot: line_data(line, candle)
-
-	entryTraceLength = candle.entryTraceLength
-	exitTraceLength = candle.exitTraceLength
+	screenshot = speculator.readView(region=selectedCandleArea)
+	candle = speculator.analyzeCandle(screenshot)
 
 	if candle.cType == 1: price.current += candle.body
 	if candle.cType == -1: price.current -= candle.body
@@ -128,7 +48,7 @@ while True:
 	print(candle)
 	print(price)
 
-	speculator.setValues(price=price, candle=candle)
+	speculator.speculate(candle=candle, price=price)
 
 	print(speculator.fibonaccis)
 
@@ -137,13 +57,10 @@ while True:
 
 	# print(history)
 
-	# cv2.imshow("screenshot", screenshot)
-	# cv2.waitKey(0)
 
 
 
 # print(screenshot.getpixel((12, 205)))
-# screenshot = cv2.imread("screenshot.png")
 # screenshot = cv2.imread("screenshot.png")
 # screenshot[y:y+h, x:x+w] = (0, 0, 255)
 # croped = screenshot[y:y+h, x:x+w]
@@ -163,8 +80,6 @@ while True:
 # print(candle.metrics)
 
 # candle.cType = 1
-# print(candle)
 # candle.entryTraceLength += 20
 # candle.bodyLength = 100
 # candle.exitTraceLength += 6
-# candle.exitTraceLength += 1

@@ -1,5 +1,9 @@
 from tools.fibonacci import Fibonacci
+from entities.candle import Candle
 from itertools import count
+import numpy as np
+import cv2
+
 
 class Speculator:
 	def __init__(self):
@@ -9,6 +13,89 @@ class Speculator:
 		self.currentCandle = {}
 		self.fibonaccis = []
 		self.counter = count()
+		self.view = None
+
+
+	def useView(self, view):
+		self.view = view
+
+
+	def readView(self, region):
+		region = (region["posX"], region["posY"], region["width"], region["height"])
+		screenshot = self.view.take_screenshot(region=region)
+		screenshot.save("algo-view.png")
+		screenshot = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
+		return screenshot
+
+
+	def __detectCandleColor(self, b, g, r):
+		isRed = r > 240
+		isGreen = g > 180 and r < 100
+		if isRed: return -1
+		if isGreen: return 1
+
+
+	def analyzeCandle(self, frame):
+		candle = Candle()
+		for line in frame: 
+			for (b, g, r) in line:
+				candle.cType = self.__detectCandleColor(b, g, r) or candle.cType
+
+			for index in range(len(line)):
+				lastPixelBGR = (0, 0, 0) if index == 0 else line[index - 1]
+				currentPixelBGR = line[index]
+				nextPixelBGR = (0, 0, 0) if len(line) == index + 1 else line[index + 1]
+
+				lastPixel = {
+					"isGray": lastPixelBGR[0] < 50 and lastPixelBGR[1] < 50,
+					"isGreen": lastPixelBGR[1] > 180 and lastPixelBGR[2] < 100,
+					"isRed": lastPixelBGR[2] > 240 and lastPixelBGR[1] < 130
+				}
+
+				currentPixel = {
+					"isGray": currentPixelBGR[0] < 50 and currentPixelBGR[1] < 50,
+					"isGreen": currentPixelBGR[1] > 180 and currentPixelBGR[2] < 100,
+					"isRed": currentPixelBGR[2] > 240 and currentPixelBGR[1] < 130
+				}
+
+				nextPixel = {
+					"isGray": nextPixelBGR[0] < 50 and nextPixelBGR[1] < 50,
+					"isGreen": nextPixelBGR[1] > 180 and nextPixelBGR[2] < 100,
+					"isRed": nextPixelBGR[2] > 240 and nextPixelBGR[1] < 130
+				}
+
+				currentPixelIsCandle = currentPixel["isGreen"] or currentPixel["isRed"]
+				nextPixelIsCandle = nextPixel["isGreen"] or nextPixel["isRed"]
+				isCandleTrace = lastPixel["isGray"] and currentPixelIsCandle and nextPixel["isGray"]
+				isCandleBody = currentPixelIsCandle and nextPixelIsCandle
+
+				if currentPixel["isGray"]: continue # ignore empty/black pixels
+				
+				if candle.cType == 1:
+					if candle.bodyLength == 0 and isCandleTrace:
+						candle.exitTraceLength += 1
+						break
+
+					if isCandleBody:
+						candle.bodyLength += 1
+						break
+
+					if candle.bodyLength > 0 and isCandleTrace:
+						candle.entryTraceLength += 1
+						break
+				else:
+					if candle.bodyLength == 0 and isCandleTrace:
+						candle.entryTraceLength += 1
+						break
+
+					if isCandleBody and candle.cType == -1:
+						candle.bodyLength += 1
+						break
+
+					if candle.bodyLength > 0 and isCandleTrace:
+						candle.exitTraceLength += 1
+						break
+		return candle
 
 
 	def process(self):
@@ -21,7 +108,7 @@ class Speculator:
 		self.updateCurrentFibo()
 
 
-	def setValues(self, candle, price=None):
+	def speculate(self, candle, price=None):
 		self.maxValue = price.maxValue if price != None else self.maxValue
 		self.currentValue = price.current if price != None else self.currentValue
 		self.minValue = price.minValue if price != None else self.minValue
