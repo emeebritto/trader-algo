@@ -111,10 +111,10 @@ while True:
 	entryTraceLength = candle.entryTraceLength
 	exitTraceLength = candle.exitTraceLength
 
-	if candle.cType == 1: price.value += candle.body
-	if candle.cType == -1: price.value -= candle.body
+	if candle.cType == 1: price.current += candle.body
+	if candle.cType == -1: price.current -= candle.body
 
-	candle.processPrices(exitPrice=price.value)
+	candle.processPrices(exitPrice=price.current)
 
 	price.maxValue = candle.maxValue
 	price.minValue = candle.minValue

@@ -23,7 +23,7 @@ class Analyzer:
 
 	def setValues(self, candle, price=None):
 		self.maxValue = price.maxValue if price != None else self.maxValue
-		self.currentValue = price.value if price != None else self.currentValue
+		self.currentValue = price.current if price != None else self.currentValue
 		self.minValue = price.minValue if price != None else self.minValue
 		self.currentCandle = candle
 		self.process()
