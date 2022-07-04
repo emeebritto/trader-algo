@@ -1,7 +1,7 @@
 from tools.fibonacci import Fibonacci
 from itertools import count
 
-class Analyzer:
+class Speculator:
 	def __init__(self):
 		self.maxValue = 0
 		self.currentValue = 0

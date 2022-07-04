@@ -1,11 +1,12 @@
-from utils import screen
+from utils.screen import Screen
 from tools.fibonacci import Fibonacci
 from tools.time import seconds
 from entities.candle import Candle
 from entities.price import Price
-from analyzer import Analyzer
+from speculator import Speculator
 from datetime import datetime
 from time import sleep
+import os
 import cv2
 import copy
 
@@ -13,12 +14,15 @@ import copy
 # print(myFibo)
 # myFibo.match(6572, tolerance=30)
 
-analyzer = Analyzer()
+screen = Screen()
+speculator = Speculator()
 
-y=1029
-x=287
-h=520
-w=25
+selectedArea = {
+	"posX": (287 * screen.width) / 900,
+	"posY": (1053 * screen.height) / 1600,
+	"width": (25 * screen.width) / 900,
+	"height": (520 * screen.height) / 1600
+}
 
 price = Price(10000)
 history = []
@@ -102,10 +106,12 @@ while True:
 	print("waiting next candle...")
 	while seconds() != 00: sleep(1)
 
+	os.system("clear")
+
 	print("registering candle..", datetime.now())
 	candle = Candle()
 
-	screenshot = screen.take_screenshot(region=(x, y, w, h))
+	screenshot = screen.take_screenshot(region=selectedArea)
 	for line in screenshot: line_data(line, candle)
 
 	entryTraceLength = candle.entryTraceLength
@@ -122,9 +128,9 @@ while True:
 	print(candle)
 	print(price)
 
-	analyzer.setValues(price=price, candle=candle)
+	speculator.setValues(price=price, candle=candle)
 
-	print(analyzer.fibonaccis)
+	print(speculator.fibonaccis)
 
 	history.insert(0, candle)
 	history = history[0:2] # limiter (2 slots)
