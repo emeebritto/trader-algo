@@ -4,6 +4,7 @@ class Fibonacci:
 		self.start = start
 		self.end = end
 		self.minDifference = minDifference
+		self.direction = -1 if self.start >= self.end else 1
 		self.inactive = False
 		self.processValues()
 
@@ -80,6 +81,7 @@ class Fibonacci:
 	def update(self, start=None, end=None):
 		self.start = start or self.start
 		self.end = end or self.end
+		self.direction = -1 if self.start >= self.end else 1
 		self.processValues()
 
 

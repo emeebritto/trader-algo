@@ -17,6 +17,11 @@ class Speculator:
 		self.controller = None
 
 
+	@property
+	def currentFibo(self):
+		return self.fibonaccis[0]
+
+
 	def useView(self, view):
 		self.view = view
 
@@ -47,12 +52,17 @@ class Speculator:
 		self.minValue = price.minValue if price != None else self.minValue
 		self.currentCandle = candle
 
-		if len(self.fibonaccis) == 0:
-			maxTraced = self.currentCandle.maxTraced
-			minTraced = self.currentCandle.minTraced
-			self.createFibo(maxTraced, minTraced)
+		if len(self.fibonaccis) == 0: self.createFiboFromCandle(self.currentCandle)
+		fiboMatches = self.checkMatches()
 
-		matches = self.checkMatches()
+		print("fiboMatches", fiboMatches)
+
+		if fiboMatches[0] in [61.8, 38.2]:
+			# if self.currentCandle.cType == -1 and self.currentFibo.direction == 1:
+			# 	self.purchase()
+			if self.currentCandle.cType == -1: self.purchase()
+			else: self.sell()
+			self.createFibo(self.currentFibo.end, candle.maxTraced)
 		self.updateCurrentFibo()
 
 
@@ -71,8 +81,8 @@ class Speculator:
 	def checkMatches(self):
 		matches = []
 		for fibo in self.fibonaccis:
-			matches.append(fibo.match(self.currentValue, tolerance=30))
-		print(matches)
+			matches.append(fibo.match(self.currentValue, tolerance=45))
+		return matches
 
 
 	def updateCurrentFibo(self):
@@ -83,12 +93,16 @@ class Speculator:
 		if outF0:
 			currentFibo.update(end=self.currentCandle.maxTraced)
 		if outF100:
-			self.createFibo(currentFibo.end, self.currentCandle.maxTraced)
-			self.fibonaccis.pop()
+			currentFibo.update(start=currentFibo.end, end=self.currentCandle.maxTraced)
+
+
+	def createFiboFromCandle(self, candle):
+		self.createFibo(candle.minTraced, candle.maxTraced)
 
 
 	def createFibo(self, start, end):
-		fibo = Fibonacci(f"Fibo_{next(self._counter)}", start, end, minDifference=400)
+		fiboName = f"Fibo_{next(self._counter)}"
+		fibo = Fibonacci(fiboName, start, end, minDifference=400)
 		self.fibonaccis.insert(0, fibo)
 
 
