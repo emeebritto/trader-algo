@@ -1,12 +1,11 @@
 from utils.screen import Screen
 from tools.time import seconds
-from entities.candle import Candle
 from entities.price import Price
 from speculator import Speculator
 from datetime import datetime
 from time import sleep
+import pyautogui as ctr
 import os
-import copy
 
 # myFibo = Fibonacci("test", 10000, 1000, minDifference=300)
 # print(myFibo)
@@ -18,6 +17,7 @@ price = Price(10000)
 
 history = []
 speculator.useView(screen)
+speculator.useController(ctr)
 
 selectedCandleArea = {
 	"posX": (287 * screen.width) / 900,
