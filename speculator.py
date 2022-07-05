@@ -1,5 +1,6 @@
 from tools.fibonacci import Fibonacci
 from entities.candle import Candle
+from random import randint
 from itertools import count
 import numpy as np
 import cv2
@@ -27,7 +28,7 @@ class Speculator:
 
 
 	def useController(self, ctr):
-		ctr.moveTo(self.view.width / 2.5, self.view.height / 3, 0.3)
+		# ctr.moveTo(self.view.width / 2.5, self.view.height / 3, 0.3)
 		self.controller = ctr
 
 
@@ -68,13 +69,17 @@ class Speculator:
 
 	def purchase(self):
 		lastMousePosition = self.controller.position()
-		self.controller.click(x=780, y=1280)
+		posX = (randint(750, 860) * self.view.width) / 900
+		posY = (randint(1275, 1290) * self.view.height) / 1600
+		self.controller.click(x=posX, y=posY)
 		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 
 
 	def sell(self):
 		lastMousePosition = self.controller.position()
-		self.controller.click(x=780, y=1340)
+		posX = (randint(750, 860) * self.view.width) / 900
+		posY = (randint(1335, 1350) * self.view.height) / 1600
+		self.controller.click(x=posX, y=posY)
 		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 
 
@@ -117,30 +122,16 @@ class Speculator:
 				currentPixelBGR = line[index]
 				nextPixelBGR = (0, 0, 0) if len(line) == index + 1 else line[index + 1]
 
-				lastPixel = {
-					"isGray": lastPixelBGR[0] < 50 and lastPixelBGR[1] < 50,
-					"isGreen": lastPixelBGR[1] > 180 and lastPixelBGR[2] < 100,
-					"isRed": lastPixelBGR[2] > 240 and lastPixelBGR[1] < 130
-				}
+				isGray = lambda pixelBGR: pixelBGR[0] < 50 and pixelBGR[1] < 50
+				isGreen = lambda pixelBGR: pixelBGR[1] > 180 and pixelBGR[2] < 100
+				isRed = lambda pixelBGR: pixelBGR[2] > 240 and pixelBGR[1] < 130
 
-				currentPixel = {
-					"isGray": currentPixelBGR[0] < 50 and currentPixelBGR[1] < 50,
-					"isGreen": currentPixelBGR[1] > 180 and currentPixelBGR[2] < 100,
-					"isRed": currentPixelBGR[2] > 240 and currentPixelBGR[1] < 130
-				}
-
-				nextPixel = {
-					"isGray": nextPixelBGR[0] < 50 and nextPixelBGR[1] < 50,
-					"isGreen": nextPixelBGR[1] > 180 and nextPixelBGR[2] < 100,
-					"isRed": nextPixelBGR[2] > 240 and nextPixelBGR[1] < 130
-				}
-
-				currentPixelIsCandle = currentPixel["isGreen"] or currentPixel["isRed"]
-				nextPixelIsCandle = nextPixel["isGreen"] or nextPixel["isRed"]
-				isCandleTrace = lastPixel["isGray"] and currentPixelIsCandle and nextPixel["isGray"]
+				currentPixelIsCandle = isGreen(currentPixelBGR) or isRed(currentPixelBGR)
+				nextPixelIsCandle = isGreen(nextPixelBGR) or isRed(nextPixelBGR)
+				isCandleTrace = isGray(lastPixelBGR) and currentPixelIsCandle and isGray(nextPixelBGR)
 				isCandleBody = currentPixelIsCandle and nextPixelIsCandle
 
-				if currentPixel["isGray"]: continue # ignore empty/black pixels
+				if isGray(currentPixelBGR): continue # ignore empty/black pixels
 				
 				if candle.cType == 1:
 					if candle.bodyLength == 0 and isCandleTrace:
