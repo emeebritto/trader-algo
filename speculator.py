@@ -29,7 +29,7 @@ class Speculator:
 
 
 	def useController(self, ctr):
-		# ctr.moveTo(self.view.width / 2.5, self.view.height / 3, 0.3)
+		ctr.moveTo(self.view.width / 2.5, self.view.height / 3, 0.3)
 		self.controller = ctr
 
 
@@ -109,6 +109,7 @@ class Speculator:
 		fiboName = f"Fibo_{next(self._counter)}"
 		fibo = FibonacciFactory.create(fiboName, start, end, minDifference=400)
 		self.fibonaccis.insert(0, fibo)
+		self.fibonaccis = self.fibonaccis[0:3]
 
 
 	def analyzeCandle(self, frame):

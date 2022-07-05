@@ -144,7 +144,7 @@ class Fibonacci:
 		return (False, False)
 
 
-	def _checkChildrenMatches():
+	def _checkChildrenMatches(self, value, tolerance):
 		if self._startChild:
 			startChildMatches = self._startChild.match(value, tolerance)
 			if startChildMatches in [61.8, 38.2]:
@@ -160,7 +160,7 @@ class Fibonacci:
 	def match(self, value, tolerance=0):
 		if self.inactive: return None
 
-		hasChildrenMatches = self._checkChildrenMatches()
+		hasChildrenMatches = self._checkChildrenMatches(value, tolerance)
 		if hasChildrenMatches: return hasChildrenMatches
 
 		if abs(value - self.f50) <= tolerance:
