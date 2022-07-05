@@ -1,3 +1,45 @@
+from collections import deque
+
+
+class FibonacciLine:
+	def __init__(self, value=0, matchInterval=None):
+		self._isActive = True
+		self.value = value
+		self._sleep = 0
+
+
+	@property
+	def isActive(self):
+		return self._isActive
+
+
+	@property
+	def sleep(self):
+		return self._sleep
+
+
+	@sleep.setter
+	def sleep(self, val):
+		if type(val) != int: return
+		self._sleep = val
+		self.isActive = not bool(self._sleep)
+
+
+	def __repr__(self):
+		if self.isActive: return f"""{self.value}"""
+		return f"""{self.value} [inactive]"""
+
+
+	def isMatch(self, value, tolerance=0):
+		"""Return 'None' if FibonacciLine is inactive"""
+		"""Return 'True/False' if FibonacciLine is active"""
+		if not self.isActive:
+			self.sleep -= 1
+			return None
+		return abs(value - self.value) <= tolerance
+		
+
+
 class Fibonacci:
 	def __init__(self, name, start=0, end=0, minDifference=0):
 		self.name = name
@@ -5,9 +47,17 @@ class Fibonacci:
 		self.end = end
 		self._minDifference = minDifference
 		self.direction = -1 if self.start >= self.end else 1
-		self.inactive = False
+		self.inactive = False  # fibonacci status
+		self.matchesHistoric = deque([], maxlen=2)
 		self._startChild = None
 		self._endChild = None
+
+		self.f100 = FibonacciLine(value=0)
+		self.f61x8 = FibonacciLine(value=0)
+		self.f50 = FibonacciLine(value=0)
+		self.f38x2 = FibonacciLine(value=0)
+		self.f0 = FibonacciLine(value=0)
+
 		self.processValues()
 
 
@@ -29,11 +79,11 @@ class Fibonacci:
 			return
 
 		fibo = {
-			"100": self.f100,
-			"61.8": self.f61x8,
-			"50": self.f50,
-			"38.2": self.f38x2,
-			"0": self.f0
+			"100": self.f100.value,
+			"61.8": self.f61x8.value,
+			"50": self.f50.value,
+			"38.2": self.f38x2.value,
+			"0": self.f0.value
 		}
 		return fibo
 
@@ -51,8 +101,8 @@ class Fibonacci:
 	@startChild.setter
 	def startChild(self, child):
 		child.update(
-			start=self.f100,
-			end=self.f61x8,
+			start=self.f100.value,
+			end=self.f61x8.value,
 			minDifference=self._minDifference
 		)
 		self._startChild = child
@@ -61,8 +111,8 @@ class Fibonacci:
 	@endChild.setter
 	def endChild(self, child):
 		child.update(
-			start=self.f38x2,
-			end=self.f0,
+			start=self.f38x2.value,
+			end=self.f0.value,
 			minDifference=self._minDifference
 		)
 		self._endChild = child
@@ -97,22 +147,22 @@ class Fibonacci:
 			self.inactive = False
 
 		if self.start > self.end:
-			self.f100 = self.end + self.difference
-			self.f61x8 = self.end + ((self.difference * 61.8) / 100)
-			self.f50 = self.end + ((self.difference * 50) / 100)
-			self.f38x2 = self.end + ((self.difference * 38.2) / 100)
-			self.f0 = self.end + ((self.difference * 0) / 100)
+			self.f100.value = self.end + self.difference
+			self.f61x8.value = self.end + ((self.difference * 61.8) / 100)
+			self.f50.value = self.end + ((self.difference * 50) / 100)
+			self.f38x2.value = self.end + ((self.difference * 38.2) / 100)
+			self.f0.value = self.end + ((self.difference * 0) / 100)
 		else:
-			self.f100 = self.end - self.difference
-			self.f61x8 = self.end - ((self.difference * 61.8) / 100)
-			self.f50 = self.end - ((self.difference * 50) / 100)
-			self.f38x2 = self.end - ((self.difference * 38.2) / 100)
-			self.f0 = self.end - ((self.difference * 0) / 100)
+			self.f100.value = self.end - self.difference
+			self.f61x8.value = self.end - ((self.difference * 61.8) / 100)
+			self.f50.value = self.end - ((self.difference * 50) / 100)
+			self.f38x2.value = self.end - ((self.difference * 38.2) / 100)
+			self.f0.value = self.end - ((self.difference * 0) / 100)
 
 
 	def updateChildren(self):
-		if self._startChild: self._startChild.update(start=self.f100, end=self.f61x8)
-		if self._endChild: self._endChild.update(start=self.f38x2, end=self.f0)
+		if self._startChild: self._startChild.update(start=self.f100.value, end=self.f61x8.value)
+		if self._endChild: self._endChild.update(start=self.f38x2.value, end=self.f0.value)
 
 
 	def update(self, start=None, end=None, minDifference=None):
@@ -127,17 +177,17 @@ class Fibonacci:
 	def isOutRange(self, value):
 		"""return (outF100, outF0)"""
 		if self.start > self.end:
-			if value > self.f100:
+			if value > self.f100.value:
 				# out of range on top (f100)
 				return (True, False)
-			elif value < self.f0:
+			elif value < self.f0.value:
 				# out of range on bottom (f0)
 				return (False, True)
 		else:
-			if value < self.f100:
+			if value < self.f100.value:
 				# out of range on bottom (f100)
 				return (True, False)
-			elif value > self.f0:
+			elif value > self.f0.value:
 				# out of range on top (f0)
 				return (False, True)
 
@@ -163,24 +213,36 @@ class Fibonacci:
 		hasChildrenMatches = self._checkChildrenMatches(value, tolerance)
 		if hasChildrenMatches: return hasChildrenMatches
 
-		if abs(value - self.f50) <= tolerance:
+		if self.f50.isMatch(value, tolerance):
+			self.matchesHistoric.append(50)
+			self.f50.sleep = 2
 			print("detected touch at f50")
 			return 50
-		elif abs(value - self.f61x8) <= tolerance:
+		elif self.f61x8.isMatch(value, tolerance):
+			self.matchesHistoric.append(61.8)
+			self.f61x8.sleep = 2
 			print("detected touch at f61.8")
 			return 61.8
-		elif abs(value - self.f38x2) <= tolerance:
+		elif self.f38x2.isMatch(value, tolerance):
+			self.matchesHistoric.append(38.2)
+			self.f38x2.sleep = 2
 			print("detected touch at f38.2")
 			return 38.2
-		elif abs(value - self.f100) <= tolerance:
+		elif self.f100.isMatch(value, tolerance):
+			self.matchesHistoric.append(100)
+			self.f100.sleep = 2
 			print("detected touch at f100")
 			return 100
-		elif abs(value - self.f0) <= tolerance:
+		elif self.f0.isMatch(value, tolerance):
+			self.matchesHistoric.append(0)
+			self.f0.sleep = 2
 			print("detected touch at f0")
 			return 0
 		else:
+			self.matchesHistoric.append(None)
 			print("not detected any touch")
 			return None
+
 
 
 class FibonacciFactory:
