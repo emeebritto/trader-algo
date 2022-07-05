@@ -1,4 +1,4 @@
-from tools.fibonacci import Fibonacci
+from tools.fibonacci import FibonacciFactory
 from entities.candle import Candle
 from random import randint
 from itertools import count
@@ -13,6 +13,7 @@ class Speculator:
 		self.minValue = 0
 		self.currentCandle = {}
 		self.fibonaccis = []
+		self.ignoreLastFiboZone = 0
 		self._counter = count()
 		self.view = None
 		self.controller = None
@@ -58,9 +59,8 @@ class Speculator:
 
 		print("fiboMatches", fiboMatches)
 
-		if fiboMatches[0] in [61.8, 38.2]:
-			# if self.currentCandle.cType == -1 and self.currentFibo.direction == 1:
-			# 	self.purchase()
+		if fiboMatches[0] in [61.8, 38.2] and fiboMatches[0] != self.ignoreLastFiboZone:
+			self.ignoreLastFiboZone = fiboMatches[0]
 			if self.currentCandle.cType == -1: self.purchase()
 			else: self.sell()
 			self.createFibo(self.currentFibo.end, candle.maxTraced)
@@ -107,7 +107,7 @@ class Speculator:
 
 	def createFibo(self, start, end):
 		fiboName = f"Fibo_{next(self._counter)}"
-		fibo = Fibonacci(fiboName, start, end, minDifference=400)
+		fibo = FibonacciFactory.create(fiboName, start, end, minDifference=400)
 		self.fibonaccis.insert(0, fibo)
 
 
@@ -159,6 +159,9 @@ class Speculator:
 						break
 		return candle
 
+
+# if self.currentCandle.cType == -1 and self.currentFibo.direction == 1:
+# 	self.purchase()
 
 # f0Difference = abs(self.fibonaccis[0].f0 - candlePrice["maxTraced"])
 # f38x2Difference = abs(self.fibonaccis[0].f38x2 - candlePrice["maxTraced"])

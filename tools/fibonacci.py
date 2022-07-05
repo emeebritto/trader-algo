@@ -1,11 +1,13 @@
 class Fibonacci:
-	def __init__(self, name, start, end, minDifference=0):
+	def __init__(self, name, start=0, end=0, minDifference=0):
 		self.name = name
 		self.start = start
 		self.end = end
-		self.minDifference = minDifference
+		self._minDifference = minDifference
 		self.direction = -1 if self.start >= self.end else 1
 		self.inactive = False
+		self._startChild = None
+		self._endChild = None
 		self.processValues()
 
 
@@ -13,7 +15,7 @@ class Fibonacci:
 		return f"""
   name: {self.name}
   inactive: {self.inactive}
-  difference: {self.difference} (require: {self.minDifference})
+  difference: {self.difference} (require: {self._minDifference})
   start: {self.start}
   end: {self.end}
 {self.strMetrics()}
@@ -34,6 +36,36 @@ class Fibonacci:
 			"0": self.f0
 		}
 		return fibo
+
+
+	@property
+	def startChild(self):
+		return self._startChild
+
+
+	@property
+	def endChild(self):
+		return self._endChild
+
+
+	@startChild.setter
+	def startChild(self, child):
+		child.update(
+			start=self.f100,
+			end=self.f61x8,
+			minDifference=self._minDifference
+		)
+		self._startChild = child
+
+
+	@endChild.setter
+	def endChild(self, child):
+		child.update(
+			start=self.f38x2,
+			end=self.f0,
+			minDifference=self._minDifference
+		)
+		self._endChild = child
 
 
 	def strMetrics(self):
@@ -59,7 +91,7 @@ class Fibonacci:
 
 	def processValues(self):
 		self.difference = abs(self.start - self.end)
-		if self.difference < self.minDifference:
+		if self.difference < self._minDifference:
 			self.inactive = True
 		else:
 			self.inactive = False
@@ -78,11 +110,18 @@ class Fibonacci:
 			self.f0 = self.end - ((self.difference * 0) / 100)
 
 
-	def update(self, start=None, end=None):
+	def updateChildren(self):
+		if self._startChild: self._startChild.update(start=self.f100, end=self.f61x8)
+		if self._endChild: self._endChild.update(start=self.f38x2, end=self.f0)
+
+
+	def update(self, start=None, end=None, minDifference=None):
 		self.start = start or self.start
 		self.end = end or self.end
+		self._minDifference = minDifference or self._minDifference
 		self.direction = -1 if self.start >= self.end else 1
 		self.processValues()
+		self.updateChildren()
 
 
 	def isOutRange(self, value):
@@ -105,8 +144,24 @@ class Fibonacci:
 		return (False, False)
 
 
+	def _checkChildrenMatches():
+		if self._startChild:
+			startChildMatches = self._startChild.match(value, tolerance)
+			if startChildMatches in [61.8, 38.2]:
+				self._startChild = None
+				return startChildMatches
+		if self._endChild:
+			endChildMatches = self._endChild.match(value, tolerance)
+			if endChildMatches in [61.8, 38.2]:
+				self._endChild = None
+				return endChildMatches
+
+
 	def match(self, value, tolerance=0):
 		if self.inactive: return None
+
+		hasChildrenMatches = self._checkChildrenMatches()
+		if hasChildrenMatches: return hasChildrenMatches
 
 		if abs(value - self.f50) <= tolerance:
 			print("detected touch at f50")
@@ -126,3 +181,13 @@ class Fibonacci:
 		else:
 			print("not detected any touch")
 			return None
+
+
+class FibonacciFactory:
+	@staticmethod
+	def create(name, start, end, minDifference):
+		fibonacci =  Fibonacci(name, start, end, minDifference)
+		fibonacci.startChild = Fibonacci("start_child_1")
+		fibonacci.endChild = Fibonacci("end_child_2")
+		return fibonacci
+		
