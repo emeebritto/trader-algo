@@ -1,3 +1,5 @@
+from collections import deque
+
 class FibonacciLine:
 	def __init__(self, value=0):
 		self._isActive = True
@@ -30,7 +32,7 @@ class FibonacciLine:
 	def countSleep(func):
 		def function(*args, **kwargs):
 			returnFc = func(*args, **kwargs)
-			if self._sleep: self.sleep -= 1
+			if args[0]._sleep: args[0].sleep -= 1
 			return returnFc
 		return function
 
@@ -41,7 +43,7 @@ class FibonacciLine:
 		"""Return 'True/False' if FibonacciLine is active"""
 		if not self.isActive: return None
 		return abs(value - self.value) <= tolerance
-		
+
 
 
 class Fibonacci:
@@ -54,6 +56,7 @@ class Fibonacci:
 		self.inactive = False  # fibonacci status
 		self._startChild = None
 		self._endChild = None
+		self._matchesHistoric = deque([], maxlen=3)
 
 		self.f100 = FibonacciLine(value=0)
 		self.f61x8 = FibonacciLine(value=0)
@@ -210,6 +213,18 @@ class Fibonacci:
 				return endChildMatches
 
 
+	def registerHistoric(func):
+		def function(*args, **kwargs):
+			returnFc = func(*args, **kwargs)
+			if not returnFc in args[0]._matchesHistoric:
+				args[0]._matchesHistoric.append(returnFc)
+				return returnFc
+			else:
+				return None
+		return function
+
+
+	@registerHistoric
 	def match(self, value, tolerance=0):
 		if self.inactive: return None
 
@@ -217,23 +232,18 @@ class Fibonacci:
 		if hasChildrenMatches: return hasChildrenMatches
 
 		if self.f50.isMatch(value, tolerance):
-			self.f50.sleep = 2
 			print("detected touch at f50")
 			return 50
 		elif self.f61x8.isMatch(value, tolerance):
-			self.f61x8.sleep = 2
 			print("detected touch at f61.8")
 			return 61.8
 		elif self.f38x2.isMatch(value, tolerance):
-			self.f38x2.sleep = 2
 			print("detected touch at f38.2")
 			return 38.2
 		elif self.f100.isMatch(value, tolerance):
-			self.f100.sleep = 2
 			print("detected touch at f100")
 			return 100
 		elif self.f0.isMatch(value, tolerance):
-			self.f0.sleep = 2
 			print("detected touch at f0")
 			return 0
 		else:

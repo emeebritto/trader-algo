@@ -13,7 +13,6 @@ class Speculator:
 		self.minValue = 0
 		self.currentCandle = {}
 		self.fibonaccis = []
-		self.ignoreLastFiboZone = 0
 		self._counter = count()
 		self.view = None
 		self.controller = None
@@ -59,10 +58,11 @@ class Speculator:
 
 		print("fiboMatches", fiboMatches)
 
-		if fiboMatches[0] in [61.8, 38.2] and fiboMatches[0] != self.ignoreLastFiboZone:
-			self.ignoreLastFiboZone = fiboMatches[0]
-			if self.currentCandle.cType == -1: self.purchase()
-			else: self.sell()
+		if fiboMatches[0] in [61.8, 38.2]:
+			if self.currentCandle.cType == -1 and self.currentFibo.direction == 1:
+				self.purchase()
+			elif self.currentCandle.cType == 1 and self.currentFibo.direction == -1:
+				self.sell()
 			self.createFibo(self.currentFibo.end, candle.maxTraced)
 		self.updateCurrentFibo()
 
