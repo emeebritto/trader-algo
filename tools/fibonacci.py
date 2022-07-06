@@ -251,6 +251,21 @@ class Fibonacci:
 			return None
 
 
+	def matchRange(self, start, end):
+		matches = []
+		if start >= self.f50.value and end <= self.f50.value and not 50 in self._matchesHistoric:
+			matches.append(50)
+		if start >= self.f61x8.value and end <= self.f61x8.value and not 61.8 in self._matchesHistoric:
+			matches.append(61.8)
+		if start >= self.f38x2.value and end <= self.f38x2.value and not 38.2 in self._matchesHistoric:
+			matches.append(38.2)
+		if start >= self.f100.value and end <= self.f100.value and not 100 in self._matchesHistoric:
+			matches.append(100)
+		if start >= self.f0.value and end <= self.f0.value and not 0 in self._matchesHistoric:
+			matches.append(0)
+		return matches
+
+
 
 class FibonacciFactory:
 	@staticmethod

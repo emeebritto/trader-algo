@@ -45,11 +45,10 @@ while True:
 	price.maxValue = candle.maxValue
 	price.minValue = candle.minValue
 
-	print(candle)
-	print(price)
-
 	speculator.speculate(candle=candle, price=price)
 
+	print(candle)
+	print(price)
 	print(speculator.fibonaccis)
 
 	history.insert(0, candle)

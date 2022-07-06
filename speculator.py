@@ -54,16 +54,31 @@ class Speculator:
 		self.currentCandle = candle
 
 		if len(self.fibonaccis) == 0: self.createFiboFromCandle(self.currentCandle)
-		fiboMatches = self.checkMatches()
+		allFiboMatches = self.checkFiboMatches(self.currentValue)
+		currentFiboMatches = self.currentFibo.matchRange(
+			start=self.currentCandle.entry,
+			end=self.currentCandle.exit
+		)
 
-		print("fiboMatches", fiboMatches)
+		print("allFiboMatches", allFiboMatches)
+		print("currentFiboMatches", currentFiboMatches)
 
-		if fiboMatches[0] in [61.8, 38.2]:
-			if self.currentCandle.cType == -1 and self.currentFibo.direction == 1:
-				self.purchase()
-			elif self.currentCandle.cType == 1 and self.currentFibo.direction == -1:
-				self.sell()
-			self.createFibo(self.currentFibo.end, candle.maxTraced)
+		isInitialState = len(allFiboMatches) == 1 and len(self.fibonaccis) == 1
+		hasMinMatches = len(allFiboMatches) > 1 and len(self.fibonaccis) > 1
+
+		if isInitialState or hasMinMatches:
+			if allFiboMatches[0] in [61.8, 38.2]:
+				if self.currentCandle.cType == -1 and self.currentFibo.direction == 1:
+					self.purchase()
+				elif self.currentCandle.cType == 1 and self.currentFibo.direction == -1:
+					self.sell()
+				self.createFibo(self.currentFibo.end, candle.maxTraced)
+			if allFiboMatches[0] in [50] and 38.2 in currentFiboMatches:
+				if self.currentCandle.cType == -1:
+					self.purchase()
+				elif self.currentCandle.cType == 1:
+					self.sell()
+				self.createFibo(self.currentFibo.end, candle.maxTraced)
 		self.updateCurrentFibo()
 
 
@@ -83,10 +98,11 @@ class Speculator:
 		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 
 
-	def checkMatches(self):
+	def checkFiboMatches(self, value):
 		matches = []
 		for fibo in self.fibonaccis:
-			matches.append(fibo.match(self.currentValue, tolerance=45))
+			result = fibo.match(value, tolerance=45)
+			if result != None: matches.append(result)
 		return matches
 
 
