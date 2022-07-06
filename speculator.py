@@ -54,29 +54,36 @@ class Speculator:
 		self.currentCandle = candle
 
 		if len(self.fibonaccis) == 0: self.createFiboFromCandle(self.currentCandle)
-		allFiboMatches = self.checkFiboMatches(self.currentValue)
+		fibosMatches = self.checkFiboMatches(self.currentValue)
 		currentFiboMatches = self.currentFibo.matchRange(
 			start=self.currentCandle.entry,
 			end=self.currentCandle.exit
 		)
 
-		print("allFiboMatches", allFiboMatches)
+		print("fibosMatches", fibosMatches)
 		print("currentFiboMatches", currentFiboMatches)
 
-		isInitialState = len(allFiboMatches) == 1 and len(self.fibonaccis) == 1
-		hasMinMatches = len(allFiboMatches) > 1 and len(self.fibonaccis) > 1
+		# isInitialState = len(fibosMatches) == 1 and len(self.fibonaccis) == 1
+		# hasMinMatches = len(fibosMatches) > 1 and len(self.fibonaccis) > 1
+		hasValidMatches = bool(fibosMatches[0])
+		hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) > 1
+		isGreenCandle = candle.cType == 1
+		isRedCandle = candle.cType == -1
+		isUpTrend = self.currentFibo.direction == 1
+		isDownTrend = self.currentFibo.direction == -1
+		isFirstFiboSaturatedZone = fibosMatches[0] and fibosMatches[0].isSaturated
 
-		if isInitialState or hasMinMatches:
-			if allFiboMatches[0] in [61.8, 38.2]:
-				if self.currentCandle.cType == -1 and self.currentFibo.direction == 1:
+		if hasValidMatches and isFirstFiboSaturatedZone:
+			if fibosMatches[0].label in ["f61x8", "f38x2"]:
+				if hasMinMatches and isRedCandle and isUpTrend:
 					self.purchase()
-				elif self.currentCandle.cType == 1 and self.currentFibo.direction == -1:
+				elif hasMinMatches and isGreenCandle and isDownTrend:
 					self.sell()
 				self.createFibo(self.currentFibo.end, candle.maxTraced)
-			if allFiboMatches[0] in [50] and 38.2 in currentFiboMatches:
-				if self.currentCandle.cType == -1:
+			if fibosMatches[0].label in ["f50"] and 38.2 in currentFiboMatches:
+				if hasMinMatches and isRedCandle:
 					self.purchase()
-				elif self.currentCandle.cType == 1:
+				elif hasMinMatches and isGreenCandle:
 					self.sell()
 				self.createFibo(self.currentFibo.end, candle.maxTraced)
 		self.updateCurrentFibo()
@@ -102,7 +109,7 @@ class Speculator:
 		matches = []
 		for fibo in self.fibonaccis:
 			result = fibo.match(value, tolerance=45)
-			if result != None: matches.append(result)
+			matches.append(result)
 		return matches
 
 
@@ -125,7 +132,7 @@ class Speculator:
 		fiboName = f"Fibo_{next(self._counter)}"
 		fibo = FibonacciFactory.create(fiboName, start, end, minDifference=400)
 		self.fibonaccis.insert(0, fibo)
-		self.fibonaccis = self.fibonaccis[0:3]
+		self.fibonaccis = self.fibonaccis[0:4]
 
 
 	def analyzeCandle(self, frame):

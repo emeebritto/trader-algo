@@ -1,10 +1,19 @@
 from collections import deque
 
 class FibonacciLine:
-	def __init__(self, value=0):
+	def __init__(self, parent, label, value=0):
 		self._isActive = True
+		self.isSaturated = False
+		self.parent = parent
+		self.label = label
 		self.value = value
 		self._sleep = 0
+
+
+	def __repr__(self):
+		if not self._isActive: return f"""{self.value} [inactive]"""
+		if self.isSaturated: return f"""{self.value} [saturated]"""
+		return f"""{self.value}"""
 
 
 	@property
@@ -22,11 +31,6 @@ class FibonacciLine:
 		if type(val) != int: return
 		self._sleep = val
 		self.isActive = not bool(self._sleep)
-
-
-	def __repr__(self):
-		if self.isActive: return f"""{self.value}"""
-		return f"""{self.value} [inactive]"""
 
 
 	def countSleep(func):
@@ -58,11 +62,11 @@ class Fibonacci:
 		self._endChild = None
 		self._matchesHistoric = deque([], maxlen=3)
 
-		self.f100 = FibonacciLine(value=0)
-		self.f61x8 = FibonacciLine(value=0)
-		self.f50 = FibonacciLine(value=0)
-		self.f38x2 = FibonacciLine(value=0)
-		self.f0 = FibonacciLine(value=0)
+		self.f100 = FibonacciLine(parent=self, label="f100", value=0)
+		self.f61x8 = FibonacciLine(parent=self, label="f61x8", value=0)
+		self.f50 = FibonacciLine(parent=self, label="f50", value=0)
+		self.f38x2 = FibonacciLine(parent=self, label="f38x2", value=0)
+		self.f0 = FibonacciLine(parent=self, label="f0", value=0)
 
 		self.processValues()
 
@@ -216,11 +220,15 @@ class Fibonacci:
 	def registerHistoric(func):
 		def function(*args, **kwargs):
 			returnFc = func(*args, **kwargs)
-			if not returnFc in args[0]._matchesHistoric:
-				args[0]._matchesHistoric.append(returnFc)
+			if not returnFc:
+				return None
+			elif not returnFc.label in args[0]._matchesHistoric:
+				returnFc.isSaturated = False
+				args[0]._matchesHistoric.append(returnFc.label)
 				return returnFc
 			else:
-				return None
+				returnFc.isSaturated = True
+				return returnFc
 		return function
 
 
@@ -233,19 +241,19 @@ class Fibonacci:
 
 		if self.f50.isMatch(value, tolerance):
 			print("detected touch at f50")
-			return 50
+			return self.f50
 		elif self.f61x8.isMatch(value, tolerance):
 			print("detected touch at f61.8")
-			return 61.8
+			return self.f61x8
 		elif self.f38x2.isMatch(value, tolerance):
 			print("detected touch at f38.2")
-			return 38.2
+			return self.f38x2
 		elif self.f100.isMatch(value, tolerance):
 			print("detected touch at f100")
-			return 100
+			return self.f100
 		elif self.f0.isMatch(value, tolerance):
 			print("detected touch at f0")
-			return 0
+			return self.f0
 		else:
 			print("not detected any touch")
 			return None
