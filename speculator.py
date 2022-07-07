@@ -1,9 +1,11 @@
+from pytesseract import pytesseract
 from tools.fibonacci import FibonacciFactory
 from entities.candle import Candle
 from random import randint
 from itertools import count
 import numpy as np
 import cv2
+import re
 
 
 class Speculator:
@@ -38,6 +40,26 @@ class Speculator:
 		screenshot.save("algo-view.png")
 		screenshot = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
 		return screenshot
+
+
+	def readPrice(self, region):
+		priceBarRegion = (region["posX"], region["posY"], region["width"], region["height"])
+		priceBar = self.view.locateOnScreen(
+			'priceBar_target.png',
+			confidence=.6,
+			region=priceBarRegion
+		)
+
+		priceBarPosition = (priceBar.left, priceBar.top, priceBar.width, priceBar.height)
+		screenshot = self.view.take_screenshot(region=priceBarPosition)
+		thresh = cv2.threshold(np.array(screenshot), 150, 0, 76, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+		rawStr = pytesseract.image_to_string(thresh, config='--psm 6')
+		priceFormat = r"[0-9]*\.[0-9]*"
+		matches = re.findall(priceFormat, rawStr)
+		if len(matches):
+			price = format(float(matches[len(matches) -1]), ".6f")
+			print(price)
+			return price
 
 
 	def __detectCandleColor(self, b, g, r):
@@ -189,3 +211,11 @@ class Speculator:
 
 # f0Difference = abs(self.fibonaccis[0].f0 - candlePrice["maxTraced"])
 # f38x2Difference = abs(self.fibonaccis[0].f38x2 - candlePrice["maxTraced"])
+
+# priceBar = self.view.locateOnScreen(
+# 	'priceBar_target.png',
+# 	confidence=.6,
+# 	region=priceBarRegion
+# )
+
+# priceBarPosition = (priceBar.left, priceBar.top, priceBar.width, priceBar.height)

@@ -64,4 +64,4 @@ class Price:
 		else:
 			return f"""
   | price (last): {self._values[1]}
-  v price (current): {self._values[0]}"""	
+  v price (current): {self._values[0]}"""

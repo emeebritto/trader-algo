@@ -12,6 +12,7 @@ import os
 # myFibo.match(6572, tolerance=30)
 
 screen = Screen()
+
 speculator = Speculator()
 price = Price(10000)
 
@@ -26,6 +27,15 @@ selectedCandleArea = {
 	"height": (520 * screen.height) / 1600
 }
 
+selectedPriceBarArea = {
+	"posX": (596 * screen.width) // 900,
+	"posY": (1053 * screen.height) // 1600,
+	"width": (110 * screen.width) // 900,
+	"height": (520 * screen.height) // 1600
+}
+
+# while True:
+# 	speculator.readPrice(region=selectedPriceBarArea)
 
 while True:
 	print("waiting next candle...")
