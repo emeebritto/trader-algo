@@ -1,6 +1,7 @@
 from utils.screen import Screen
 from tools.time import seconds
 from entities.price import Price
+from entities.graphic import Graphic
 from speculator import Speculator
 from datetime import datetime
 from time import sleep
@@ -11,8 +12,9 @@ import os
 # print(myFibo)
 # myFibo.match(6572, tolerance=30)
 
+graphic = Graphic()
+graphic.start()
 screen = Screen()
-
 speculator = Speculator()
 price = Price(10000)
 
@@ -33,6 +35,13 @@ selectedPriceBarArea = {
 	"width": (110 * screen.width) // 900,
 	"height": (520 * screen.height) // 1600
 }
+
+
+# def test(price, close):
+# 	print(price)
+
+# graphic.tradingWindow(test, interval=1)
+
 
 # while True:
 # 	speculator.readPrice(region=selectedPriceBarArea)

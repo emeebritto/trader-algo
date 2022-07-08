@@ -16,12 +16,12 @@ class Price:
 
 	@property
 	def current(self):
-		return self._values[0]
+		return self._values[-1]
 
 
 	@property
 	def last(self):
-		return self._values[1]
+		return self._values[-2]
 
 
 	@property
@@ -36,8 +36,8 @@ class Price:
 
 	@current.setter
 	def current(self, val):
-		self._values.insert(0, val)
-		self._values = self._values[0:2] 
+		self._values.append(val)
+		self._values = self._values[-2:] 
 
 
 	@maxValue.setter
@@ -52,16 +52,26 @@ class Price:
 			self._minValue = val
 
 
+	def update(self, value):
+		value = float(value)
+		self._values.append(value)
+		self._values = self._values[-2:]
+		if value > self._maxValue:
+			self._maxValue = value
+		if value < self._minValue or self._minValue == 0:
+			self._minValue = value
+
+
 	def strPrice(self):
-		if self._values[0] > self._values[1]:
+		if self._values[-1] > self._values[-2]:
 			return f"""
-  ^ price (current): {self._values[0]}
-  | price (last): {self._values[1]}"""
-		elif self._values[0] == self._values[1]:
+  ^ price (current): {self._values[-1]}
+  | price (last): {self._values[-2]}"""
+		elif self._values[-1] == self._values[-2]:
 			return f"""
-  - price (current): {self._values[0]}
-  - price (last): {self._values[1]}"""
+  - price (current): {self._values[-1]}
+  - price (last): {self._values[-2]}"""
 		else:
 			return f"""
-  | price (last): {self._values[1]}
-  v price (current): {self._values[0]}"""
+  | price (last): {self._values[-2]}
+  v price (current): {self._values[-1]}"""

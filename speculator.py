@@ -57,7 +57,7 @@ class Speculator:
 		priceFormat = r"[0-9]*\.[0-9]*"
 		matches = re.findall(priceFormat, rawStr)
 		if len(matches):
-			price = format(float(matches[len(matches) -1]), ".6f")
+			price = format(float(matches[len(matches) -1]), ".7f")
 			print(price)
 			return price
 
