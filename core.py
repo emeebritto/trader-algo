@@ -6,9 +6,6 @@ from datetime import datetime
 import pyautogui as ctr
 import os
 
-# myFibo = Fibonacci("test", 10000, 1000, minDifference=300)
-# print(myFibo)
-# myFibo.match(6572, tolerance=30)
 
 graphic = Graphic()
 graphic.start()
@@ -28,7 +25,7 @@ selectedCandleArea = {
 
 
 def main(historic, price, candle, close):
-	if not seconds() in [31, 41, 59]: return
+	if not seconds() in [00, 31, 41, 51]: return
 
 	os.system("clear")
 

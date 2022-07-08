@@ -90,7 +90,7 @@ class Graphic(Screen):
 			if len(matches) and matches[len(matches) -1]:
 				try:
 					price = int(matches[len(matches) -1].replace(".", ""))
-					if not self.price.last or abs(self.price.last - price) < 50000:
+					if not self.price.last or abs(self.price.last - price) < 5000:
 						self.price.update(price)
 				except ValueError as e:
 					print("not detected price. skipping interaction")
