@@ -1,10 +1,8 @@
 from utils.screen import Screen
 from tools.time import seconds
-from entities.price import Price
 from entities.graphic import Graphic
 from speculator import Speculator
 from datetime import datetime
-from time import sleep
 import pyautogui as ctr
 import os
 
@@ -16,7 +14,6 @@ graphic = Graphic()
 graphic.start()
 screen = Screen()
 speculator = Speculator()
-price = Price(10000)
 
 history = []
 speculator.useView(screen)
@@ -29,51 +26,21 @@ selectedCandleArea = {
 	"height": (520 * screen.height) / 1600
 }
 
-selectedPriceBarArea = {
-	"posX": (596 * screen.width) // 900,
-	"posY": (1053 * screen.height) // 1600,
-	"width": (110 * screen.width) // 900,
-	"height": (520 * screen.height) // 1600
-}
 
-
-# def test(price, close):
-# 	print(price)
-
-# graphic.tradingWindow(test, interval=1)
-
-
-# while True:
-# 	speculator.readPrice(region=selectedPriceBarArea)
-
-while True:
-	print("waiting next candle...")
-	while seconds() != 00: sleep(1)
+def main(historic, price, candle, close):
+	if not seconds() in [31, 41, 59]: return
 
 	os.system("clear")
 
 	print("registering candle..", datetime.now())
-	screenshot = speculator.readView(region=selectedCandleArea)
-	candle = speculator.analyzeCandle(screenshot)
-
-	if candle.cType == 1: price.current += candle.body
-	if candle.cType == -1: price.current -= candle.body
-
-	candle.processPrices(exitPrice=price.current)
-
-	price.maxValue = candle.maxValue
-	price.minValue = candle.minValue
-
 	speculator.speculate(candle=candle, price=price)
 
 	print(candle)
 	print(price)
 	print(speculator.fibonaccis)
 
-	history.insert(0, candle)
-	history = history[0:2] # limiter (2 slots)
 
-	# print(history)
+graphic.tradingWindow(main, interval=1)
 
 
 

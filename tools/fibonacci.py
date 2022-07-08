@@ -60,7 +60,7 @@ class Fibonacci:
 		self.inactive = False  # fibonacci status
 		self._startChild = None
 		self._endChild = None
-		self._matchesHistoric = deque([], maxlen=3)
+		self._matchesHistoric = deque([], maxlen=9)
 
 		self.f100 = FibonacciLine(parent=self, label="f100", value=0)
 		self.f61x8 = FibonacciLine(parent=self, label="f61x8", value=0)

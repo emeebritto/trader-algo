@@ -1,11 +1,6 @@
-from pytesseract import pytesseract
 from tools.fibonacci import FibonacciFactory
-from entities.candle import Candle
 from random import randint
 from itertools import count
-import numpy as np
-import cv2
-import re
 
 
 class Speculator:
@@ -32,41 +27,6 @@ class Speculator:
 	def useController(self, ctr):
 		ctr.moveTo(self.view.width / 2.5, self.view.height / 3, 0.3)
 		self.controller = ctr
-
-
-	def readView(self, region):
-		region = (region["posX"], region["posY"], region["width"], region["height"])
-		screenshot = self.view.take_screenshot(region=region)
-		screenshot.save("algo-view.png")
-		screenshot = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
-		return screenshot
-
-
-	def readPrice(self, region):
-		priceBarRegion = (region["posX"], region["posY"], region["width"], region["height"])
-		priceBar = self.view.locateOnScreen(
-			'priceBar_target.png',
-			confidence=.6,
-			region=priceBarRegion
-		)
-
-		priceBarPosition = (priceBar.left, priceBar.top, priceBar.width, priceBar.height)
-		screenshot = self.view.take_screenshot(region=priceBarPosition)
-		thresh = cv2.threshold(np.array(screenshot), 150, 0, 76, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
-		rawStr = pytesseract.image_to_string(thresh, config='--psm 6')
-		priceFormat = r"[0-9]*\.[0-9]*"
-		matches = re.findall(priceFormat, rawStr)
-		if len(matches):
-			price = format(float(matches[len(matches) -1]), ".7f")
-			print(price)
-			return price
-
-
-	def __detectCandleColor(self, b, g, r):
-		isRed = r > 240
-		isGreen = g > 180 and r < 100
-		if isRed: return -1
-		if isGreen: return 1
 
 
 	def speculate(self, candle, price=None):
@@ -130,7 +90,7 @@ class Speculator:
 	def checkFiboMatches(self, value):
 		matches = []
 		for fibo in self.fibonaccis:
-			result = fibo.match(value, tolerance=45)
+			result = fibo.match(value, tolerance=70)
 			matches.append(result)
 		return matches
 
@@ -152,58 +112,9 @@ class Speculator:
 
 	def createFibo(self, start, end):
 		fiboName = f"Fibo_{next(self._counter)}"
-		fibo = FibonacciFactory.create(fiboName, start, end, minDifference=400)
+		fibo = FibonacciFactory.create(fiboName, start, end, minDifference=600)
 		self.fibonaccis.insert(0, fibo)
 		self.fibonaccis = self.fibonaccis[0:4]
-
-
-	def analyzeCandle(self, frame):
-		candle = Candle()
-		for line in frame: 
-			for (b, g, r) in line:
-				candle.cType = self.__detectCandleColor(b, g, r) or candle.cType
-
-			for index in range(len(line)):
-				lastPixelBGR = (0, 0, 0) if index == 0 else line[index - 1]
-				currentPixelBGR = line[index]
-				nextPixelBGR = (0, 0, 0) if len(line) == index + 1 else line[index + 1]
-
-				isGray = lambda pixelBGR: pixelBGR[0] < 50 and pixelBGR[1] < 50
-				isGreen = lambda pixelBGR: pixelBGR[1] > 180 and pixelBGR[2] < 100
-				isRed = lambda pixelBGR: pixelBGR[2] > 240 and pixelBGR[1] < 130
-
-				currentPixelIsCandle = isGreen(currentPixelBGR) or isRed(currentPixelBGR)
-				nextPixelIsCandle = isGreen(nextPixelBGR) or isRed(nextPixelBGR)
-				isCandleTrace = isGray(lastPixelBGR) and currentPixelIsCandle and isGray(nextPixelBGR)
-				isCandleBody = currentPixelIsCandle and nextPixelIsCandle
-
-				if isGray(currentPixelBGR): continue # ignore empty/black pixels
-				
-				if candle.cType == 1:
-					if candle.bodyLength == 0 and isCandleTrace:
-						candle.exitTraceLength += 1
-						break
-
-					if isCandleBody:
-						candle.bodyLength += 1
-						break
-
-					if candle.bodyLength > 0 and isCandleTrace:
-						candle.entryTraceLength += 1
-						break
-				else:
-					if candle.bodyLength == 0 and isCandleTrace:
-						candle.entryTraceLength += 1
-						break
-
-					if isCandleBody and candle.cType == -1:
-						candle.bodyLength += 1
-						break
-
-					if candle.bodyLength > 0 and isCandleTrace:
-						candle.exitTraceLength += 1
-						break
-		return candle
 
 
 # if self.currentCandle.cType == -1 and self.currentFibo.direction == 1:

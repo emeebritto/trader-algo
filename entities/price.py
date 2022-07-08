@@ -1,7 +1,9 @@
+from collections import deque
+
 class Price:
 	def __init__(self, value, maxV=None, minV=None):
 		self.startedAt = value
-		self._values = [value, value]
+		self._values = deque([value], maxlen=2)
 		self._maxValue = maxV or value
 		self._minValue = minV or value
 
@@ -21,7 +23,10 @@ class Price:
 
 	@property
 	def last(self):
-		return self._values[-2]
+		try:
+			return self._values[-2]
+		except IndexError as e:
+			return None
 
 
 	@property
@@ -36,8 +41,7 @@ class Price:
 
 	@current.setter
 	def current(self, val):
-		self._values.append(val)
-		self._values = self._values[-2:] 
+		self._values.append(val) 
 
 
 	@maxValue.setter
@@ -53,9 +57,8 @@ class Price:
 
 
 	def update(self, value):
-		value = float(value)
+		value = value
 		self._values.append(value)
-		self._values = self._values[-2:]
 		if value > self._maxValue:
 			self._maxValue = value
 		if value < self._minValue or self._minValue == 0:
@@ -63,15 +66,17 @@ class Price:
 
 
 	def strPrice(self):
-		if self._values[-1] > self._values[-2]:
+		if not self.last: return f"""
+  - price (current): {self.current}"""
+		if self.current > self.last:
 			return f"""
-  ^ price (current): {self._values[-1]}
-  | price (last): {self._values[-2]}"""
-		elif self._values[-1] == self._values[-2]:
+  ^ price (current): {self.current}
+  | price (last): {self.last}"""
+		elif self.current == self.last:
 			return f"""
-  - price (current): {self._values[-1]}
-  - price (last): {self._values[-2]}"""
+  - price (current): {self.current}
+  - price (last): {self.last}"""
 		else:
 			return f"""
-  | price (last): {self._values[-2]}
-  v price (current): {self._values[-1]}"""
+  | price (last): {self.last}
+  v price (current): {self.current}"""
