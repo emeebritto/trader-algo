@@ -1,0 +1,31 @@
+{
+	"buttons": {
+		"purchase": {
+			"posY": null,
+			"posX": null
+		},
+		"sell": {
+			"posY": null,
+			"posX": null
+		}
+	},
+	"fibonacci": {
+		"dequeMaxLen": 9,
+		"activeIfHeight": 1400,
+		"zoneTolerance": 70
+	},
+	"speculator": {
+		"maxActiveFibonaccis": 3
+	},
+	"graphic": {
+		"priceBarArea": {
+			"posX": null,
+			"posY": null,
+			"width": null,
+			"height": null
+		},
+		"priceListener": {
+			"maxPriceVariation": 5000
+		}
+	}
+}

@@ -3,25 +3,19 @@ from tools.time import seconds
 from entities.graphic import Graphic
 from speculator import Speculator
 from datetime import datetime
+from configer import configer
 import pyautogui as ctr
 import os
 
+configer.init("config/default.json")
 
 graphic = Graphic()
 graphic.start()
 screen = Screen()
 speculator = Speculator()
 
-history = []
 speculator.useView(screen)
 speculator.useController(ctr)
-
-selectedCandleArea = {
-	"posX": (287 * screen.width) / 900,
-	"posY": (1053 * screen.height) / 1600,
-	"width": (25 * screen.width) / 900,
-	"height": (520 * screen.height) / 1600
-}
 
 
 def main(historic, price, candle, close):

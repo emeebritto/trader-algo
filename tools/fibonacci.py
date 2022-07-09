@@ -1,4 +1,5 @@
 from collections import deque
+from configer import configer
 
 class FibonacciLine:
 	def __init__(self, parent, label, value=0):
@@ -60,7 +61,8 @@ class Fibonacci:
 		self.inactive = False  # fibonacci status
 		self._startChild = None
 		self._endChild = None
-		self._matchesHistoric = deque([], maxlen=9)
+		dequeMaxLen = configer.get("fibonacci.dequeMaxLen")
+		self._matchesHistoric = deque([], maxlen=dequeMaxLen)
 
 		self.f100 = FibonacciLine(parent=self, label="f100", value=0)
 		self.f61x8 = FibonacciLine(parent=self, label="f61x8", value=0)
@@ -221,6 +223,7 @@ class Fibonacci:
 		def function(*args, **kwargs):
 			returnFc = func(*args, **kwargs)
 			if not returnFc:
+				args[0]._matchesHistoric.append(None)
 				return None
 			elif not returnFc.label in args[0]._matchesHistoric:
 				returnFc.isSaturated = False
@@ -240,22 +243,22 @@ class Fibonacci:
 		if hasChildrenMatches: return hasChildrenMatches
 
 		if self.f50.isMatch(value, tolerance):
-			print("detected touch at f50")
+			print(f"{self.name} -> detected touch at f50")
 			return self.f50
 		elif self.f61x8.isMatch(value, tolerance):
-			print("detected touch at f61.8")
+			print(f"{self.name} -> detected touch at f61.8")
 			return self.f61x8
 		elif self.f38x2.isMatch(value, tolerance):
-			print("detected touch at f38.2")
+			print(f"{self.name} -> detected touch at f38.2")
 			return self.f38x2
 		elif self.f100.isMatch(value, tolerance):
-			print("detected touch at f100")
+			print(f"{self.name} -> detected touch at f100")
 			return self.f100
 		elif self.f0.isMatch(value, tolerance):
-			print("detected touch at f0")
+			print(f"{self.name} -> detected touch at f0")
 			return self.f0
 		else:
-			print("not detected any touch")
+			print(f"{self.name} -> not detected any touch")
 			return None
 
 
@@ -274,7 +277,6 @@ class Fibonacci:
 		return matches
 
 
-
 class FibonacciFactory:
 	@staticmethod
 	def create(name, start, end, minDifference):
@@ -282,4 +284,3 @@ class FibonacciFactory:
 		fibonacci.startChild = Fibonacci("start_child_1")
 		fibonacci.endChild = Fibonacci("end_child_2")
 		return fibonacci
-		

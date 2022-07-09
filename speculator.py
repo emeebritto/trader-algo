@@ -1,6 +1,7 @@
 from tools.fibonacci import FibonacciFactory
 from random import randint
 from itertools import count
+from configer import configer
 
 
 class Speculator:
@@ -73,24 +74,27 @@ class Speculator:
 
 	def purchase(self):
 		lastMousePosition = self.controller.position()
-		posX = (randint(750, 860) * self.view.width) / 900
-		posY = (randint(1275, 1290) * self.view.height) / 1600
+		positionBtn = configer.get("buttons.purchase")
+		posX = positionBtn["posX"] or (randint(750, 860) * self.view.width) / 900
+		posY = positionBtn["posY"] or (randint(1275, 1290) * self.view.height) / 1600
 		self.controller.click(x=posX, y=posY)
 		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 
 
 	def sell(self):
 		lastMousePosition = self.controller.position()
-		posX = (randint(750, 860) * self.view.width) / 900
-		posY = (randint(1335, 1350) * self.view.height) / 1600
+		positionBtn = configer.get("buttons.sell")
+		posX = positionBtn["posX"] or (randint(750, 860) * self.view.width) / 900
+		posY = positionBtn["posY"] or (randint(1335, 1350) * self.view.height) / 1600
 		self.controller.click(x=posX, y=posY)
 		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 
 
 	def checkFiboMatches(self, value):
 		matches = []
+		tolerance = configer.get("fibonacci.zoneTolerance")
 		for fibo in self.fibonaccis:
-			result = fibo.match(value, tolerance=70)
+			result = fibo.match(value, tolerance=tolerance)
 			matches.append(result)
 		return matches
 
@@ -112,9 +116,13 @@ class Speculator:
 
 	def createFibo(self, start, end):
 		fiboName = f"Fibo_{next(self._counter)}"
-		fibo = FibonacciFactory.create(fiboName, start, end, minDifference=1400)
+		minDifference = configer.get("fibonacci.activeIfHeight")
+		maxActiveFibonaccis = configer.get("speculator.maxActiveFibonaccis")
+		fibo = FibonacciFactory.create(fiboName, start, end, minDifference=minDifference)
 		self.fibonaccis.insert(0, fibo)
-		self.fibonaccis = self.fibonaccis[0:4]
+		self.fibonaccis = self.fibonaccis[0:maxActiveFibonaccis -1]
+
+
 
 
 # if self.currentCandle.cType == -1 and self.currentFibo.direction == 1:

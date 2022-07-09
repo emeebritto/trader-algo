@@ -4,6 +4,7 @@ from entities.candle import Candle
 from time import sleep
 from tools.time import seconds, wait
 from pytesseract import pytesseract
+from configer import configer
 import threading
 import numpy as np
 import cv2
@@ -19,11 +20,12 @@ class Graphic(Screen):
 		self.price = Price(0)
 		self.currentCandle = None
 		self._candles = []
+		priceBarArea = configer.get("graphic.priceBarArea")
 		self.priceBarArea = {
-			"posX": (596 * self.width) // 900,
-			"posY": (1050 * self.height) // 1600,
-			"width": (110 * self.width) // 900,
-			"height": (520 * self.height) // 1600
+			"posX": priceBarArea["posX"] or (596 * self.width) // 900,
+			"posY": priceBarArea["posY"] or (1050 * self.height) // 1600,
+			"width": priceBarArea["width"] or (110 * self.width) // 900,
+			"height": priceBarArea["height"] or (520 * self.height) // 1600
 		}
 
 
@@ -90,20 +92,21 @@ class Graphic(Screen):
 			if len(matches) and matches[len(matches) -1]:
 				try:
 					price = int(matches[len(matches) -1].replace(".", ""))
-					if not self.price.last or abs(self.price.last - price) < 5000:
+					maxVariation = configer.get("graphic.priceListener.maxPriceVariation")
+					if not self.price.last or abs(self.price.last - price) < maxVariation:
 						self.price.update(price)
 				except ValueError as e:
 					print("not detected price. skipping interaction")
 
 
 	def _nextCandle(self):
-		self._candles.append(self.currentCandle)
+		if self.currentCandle: self._candles.append(self.currentCandle)
 		self.currentCandle = Candle(entry=self.price.current)
 
 
 	def _processCandles(self):
 		wait(lambda: self.price.current != 0)
-		self.currentCandle = Candle(entry=self.price.current)
+		self._nextCandle()
 		while self.active:
 			sleep(1)
 			if seconds() == 00:
@@ -113,6 +116,7 @@ class Graphic(Screen):
 
 
 	def _listenTrading(self, callback, interval):
+		wait(lambda: self.price.current != 0 and self.currentCandle != None)
 		while self.trading:
 			callback(
 				historic=self._candles,
