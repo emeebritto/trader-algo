@@ -7,12 +7,13 @@ from configer import configer
 class Speculator:
 	def __init__(self):
 		self.maxValue = 0
-		self.currentValue = 0
 		self.minValue = 0
-		self.currentCandle = {}
+		self.currentCandle = None
+		self.price = None
 		self.fibonaccis = []
 		self._counter = count()
 		self.view = None
+		self.graphic = None
 		self.controller = None
 
 
@@ -21,8 +22,17 @@ class Speculator:
 		return self.fibonaccis[0]
 
 
+	@property
+	def currentValue(self):
+		return self.price.current
+
+
 	def useView(self, view):
 		self.view = view
+
+
+	def useGraphic(self, graphic):
+		self.graphic = graphic
 
 
 	def useController(self, ctr):
@@ -30,10 +40,8 @@ class Speculator:
 		self.controller = ctr
 
 
-	def speculate(self, candle, price=None):
-		self.maxValue = price.maxValue if price != None else self.maxValue
-		self.currentValue = price.current if price != None else self.currentValue
-		self.minValue = price.minValue if price != None else self.minValue
+	def speculate(self, candle, price):
+		self.price = price
 		self.currentCandle = candle
 
 		if len(self.fibonaccis) == 0: self.createFiboFromCandle(self.currentCandle)
@@ -118,7 +126,13 @@ class Speculator:
 		fiboName = f"Fibo_{next(self._counter)}"
 		minDifference = configer.get("fibonacci.activeIfHeight")
 		maxActiveFibonaccis = configer.get("speculator.maxActiveFibonaccis")
-		fibo = FibonacciFactory.create(fiboName, start, end, minDifference=minDifference)
+		fibo = FibonacciFactory.create(
+			name=fiboName,
+			start=start,
+			end=end,
+			minDifference=minDifference,
+			validateWith=[candle.maxTraced for candle in self.graphic.candles]
+		)
 		self.fibonaccis.insert(0, fibo)
 		self.fibonaccis = self.fibonaccis[0:maxActiveFibonaccis -1]
 

@@ -1,5 +1,5 @@
 from utils.screen import Screen
-from tools.time import seconds
+from utils.time import seconds
 from entities.graphic import Graphic
 from speculator import Speculator
 from datetime import datetime
@@ -10,11 +10,13 @@ import os
 configer.init("config/default.json")
 
 graphic = Graphic()
-graphic.start()
 screen = Screen()
 speculator = Speculator()
 
+graphic.start()
+
 speculator.useView(screen)
+speculator.useGraphic(graphic)
 speculator.useController(ctr)
 
 

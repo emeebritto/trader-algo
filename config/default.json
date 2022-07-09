@@ -10,7 +10,7 @@
 		}
 	},
 	"fibonacci": {
-		"dequeMaxLen": 9,
+		"dequeMaxLen": 12,
 		"activeIfHeight": 1400,
 		"zoneTolerance": 70
 	},

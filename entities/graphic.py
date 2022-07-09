@@ -1,8 +1,9 @@
 from entities.price import Price
 from utils.screen import Screen
 from entities.candle import Candle
+from collections import deque
 from time import sleep
-from tools.time import seconds, wait
+from utils.time import seconds, wait
 from pytesseract import pytesseract
 from configer import configer
 import threading
@@ -19,7 +20,7 @@ class Graphic(Screen):
 		self.trading = False
 		self.price = Price(0)
 		self.currentCandle = None
-		self._candles = []
+		self._candles = deque([], maxlen=180)
 		priceBarArea = configer.get("graphic.priceBarArea")
 		self.priceBarArea = {
 			"posX": priceBarArea["posX"] or (596 * self.width) // 900,
@@ -27,6 +28,11 @@ class Graphic(Screen):
 			"width": priceBarArea["width"] or (110 * self.width) // 900,
 			"height": priceBarArea["height"] or (520 * self.height) // 1600
 		}
+
+
+	@property
+	def candles(self):
+		return self._candles
 
 
 	def getPrice(self):

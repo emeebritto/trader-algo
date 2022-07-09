@@ -1,53 +1,18 @@
 from collections import deque
 from configer import configer
+from entities.resistance import Resistance
 
-class FibonacciLine:
+
+class FibonacciLine(Resistance):
 	def __init__(self, parent, label, value=0):
-		self._isActive = True
-		self.isSaturated = False
+		super().__init__(label, value)
 		self.parent = parent
-		self.label = label
-		self.value = value
-		self._sleep = 0
 
 
 	def __repr__(self):
-		if not self._isActive: return f"""{self.value} [inactive]"""
-		if self.isSaturated: return f"""{self.value} [saturated]"""
-		return f"""{self.value}"""
-
-
-	@property
-	def isActive(self):
-		return self._isActive
-
-
-	@property
-	def sleep(self):
-		return self._sleep
-
-
-	@sleep.setter
-	def sleep(self, val):
-		if type(val) != int: return
-		self._sleep = val
-		self.isActive = not bool(self._sleep)
-
-
-	def countSleep(func):
-		def function(*args, **kwargs):
-			returnFc = func(*args, **kwargs)
-			if args[0]._sleep: args[0].sleep -= 1
-			return returnFc
-		return function
-
-
-	@countSleep
-	def isMatch(self, value, tolerance=0):
-		"""Return 'None' if FibonacciLine is inactive"""
-		"""Return 'True/False' if FibonacciLine is active"""
-		if not self.isActive: return None
-		return abs(value - self.value) <= tolerance
+		if not self._isActive: return f"""{self.value} (matches: {self.matchesNumber}) [inactive]"""
+		if self.isSaturated: return f"""{self.value} (matches: {self.matchesNumber}) [saturated]"""
+		return f"""{self.value} (matches: {self.matchesNumber})"""
 
 
 
@@ -64,11 +29,11 @@ class Fibonacci:
 		dequeMaxLen = configer.get("fibonacci.dequeMaxLen")
 		self._matchesHistoric = deque([], maxlen=dequeMaxLen)
 
-		self.f100 = FibonacciLine(parent=self, label="f100", value=0)
-		self.f61x8 = FibonacciLine(parent=self, label="f61x8", value=0)
-		self.f50 = FibonacciLine(parent=self, label="f50", value=0)
-		self.f38x2 = FibonacciLine(parent=self, label="f38x2", value=0)
-		self.f0 = FibonacciLine(parent=self, label="f0", value=0)
+		self.f100 = FibonacciLine(parent=self, label="f100")
+		self.f61x8 = FibonacciLine(parent=self, label="f61x8")
+		self.f50 = FibonacciLine(parent=self, label="f50")
+		self.f38x2 = FibonacciLine(parent=self, label="f38x2")
+		self.f0 = FibonacciLine(parent=self, label="f0")
 
 		self.processValues()
 
@@ -149,6 +114,11 @@ class Fibonacci:
   | 61.8: {self.f61x8}
   | 100: {self.f100}
 """			
+
+
+	def validateZoneWith(self, values):
+		for zone in [self.f100, self.f61x8, self.f50, self.f38x2, self.f0]:
+			zone.validateWith(values)
 
 
 	def processValues(self):
@@ -277,10 +247,12 @@ class Fibonacci:
 		return matches
 
 
+
 class FibonacciFactory:
 	@staticmethod
-	def create(name, start, end, minDifference):
+	def create(name, start, end, minDifference, validateWith):
 		fibonacci =  Fibonacci(name, start, end, minDifference)
+		fibonacci.validateZoneWith(validateWith)
 		fibonacci.startChild = Fibonacci("start_child_1")
 		fibonacci.endChild = Fibonacci("end_child_2")
 		return fibonacci
