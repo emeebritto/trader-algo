@@ -1,5 +1,6 @@
 from collections import deque
 from configer import configer
+from logger import logger
 from entities.resistance import Resistance
 
 
@@ -23,7 +24,7 @@ class Fibonacci:
 		self.end = end
 		self._minDifference = minDifference
 		self.direction = -1 if self.start >= self.end else 1
-		self.inactive = False  # fibonacci status
+		self._inactive = False  # fibonacci status
 		self._startChild = None
 		self._endChild = None
 		dequeMaxLen = configer.get("fibonacci.dequeMaxLen")
@@ -50,6 +51,11 @@ class Fibonacci:
 
 
 	@property
+	def inactive(self):
+		return self._inactive
+
+
+	@property
 	def fiboMetrics(self):
 		if self.inactive:
 			print("inactive Fibonacci")
@@ -73,6 +79,16 @@ class Fibonacci:
 	@property
 	def endChild(self):
 		return self._endChild
+
+
+	@inactive.setter
+	def inactive(self, val):
+		self._inactive = val
+		if not self._inactive:
+			logger.log([
+				f"{self.name} -> Fibonacci is active now",
+				f"{self.name} -> Fibonacci heigth is {self.difference}"
+			])
 
 
 	@startChild.setter
@@ -148,6 +164,7 @@ class Fibonacci:
 
 
 	def update(self, start=None, end=None, minDifference=None):
+		logger.log(f"updating Fibonacci ({self.name} - From {start} to {end}))")
 		self.start = start or self.start
 		self.end = end or self.end
 		self._minDifference = minDifference or self._minDifference
@@ -214,18 +231,23 @@ class Fibonacci:
 
 		if self.f50.isMatch(value, tolerance):
 			print(f"{self.name} -> detected touch at f50")
+			logger.log(f"{self.name} -> detected touch at f50")
 			return self.f50
 		elif self.f61x8.isMatch(value, tolerance):
 			print(f"{self.name} -> detected touch at f61.8")
+			logger.log(f"{self.name} -> detected touch at f61.8")
 			return self.f61x8
 		elif self.f38x2.isMatch(value, tolerance):
 			print(f"{self.name} -> detected touch at f38.2")
+			logger.log(f"{self.name} -> detected touch at f38.2")
 			return self.f38x2
 		elif self.f100.isMatch(value, tolerance):
 			print(f"{self.name} -> detected touch at f100")
+			logger.log(f"{self.name} -> detected touch at f100")
 			return self.f100
 		elif self.f0.isMatch(value, tolerance):
 			print(f"{self.name} -> detected touch at f0")
+			logger.log(f"{self.name} -> detected touch at f0")
 			return self.f0
 		else:
 			print(f"{self.name} -> not detected any touch")
@@ -244,6 +266,8 @@ class Fibonacci:
 			matches.append(100)
 		if start >= self.f0.value and end <= self.f0.value and not 0 in self._matchesHistoric:
 			matches.append(0)
+
+		if len(matches): logger.log(f"{self.name} -> detected match range {matches}")
 		return matches
 
 
@@ -251,8 +275,9 @@ class Fibonacci:
 class FibonacciFactory:
 	@staticmethod
 	def create(name, start, end, minDifference, validateWith):
-		fibonacci =  Fibonacci(name, start, end, minDifference)
+		logger.log(f"creating Fibonacci ({name} - From {start} to {end})")
+		fibonacci = Fibonacci(name, start, end, minDifference)
 		fibonacci.validateZoneWith(validateWith)
-		fibonacci.startChild = Fibonacci("start_child_1")
-		fibonacci.endChild = Fibonacci("end_child_2")
+		fibonacci.startChild = Fibonacci("start_child_1", minDifference=minDifference)
+		fibonacci.endChild = Fibonacci("end_child_2", minDifference=minDifference)
 		return fibonacci

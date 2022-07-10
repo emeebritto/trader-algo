@@ -3,6 +3,7 @@ from utils.screen import Screen
 from entities.candle import Candle
 from collections import deque
 from time import sleep
+from logger import logger
 from utils.time import seconds, wait
 from pytesseract import pytesseract
 from configer import configer
@@ -53,6 +54,7 @@ class Graphic(Screen):
 		)
 		priceThr.start()
 		candlesThr.start()
+		logger.log("Graphic was started")
 
 
 	def tradingWindow(self, callback, interval=0):
@@ -63,6 +65,7 @@ class Graphic(Screen):
 			kwargs={}
 		)
 		tradingThr.start()
+		logger.log("Trading window was opened")
 
 
 	def __closeWindow(self):
@@ -75,6 +78,7 @@ class Graphic(Screen):
 
 
 	def _listenPrice(self):
+		logger.log("listening price")
 		while self.active:
 			priceBar = self.locateOnScreen(
 				'priceBar_target.png',
@@ -103,6 +107,7 @@ class Graphic(Screen):
 						self.price.update(price)
 				except ValueError as e:
 					print("not detected price. skipping interaction")
+					logger.log("not detected price. skipping interaction")
 
 
 	def _nextCandle(self):

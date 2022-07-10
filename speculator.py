@@ -2,6 +2,7 @@ from tools.fibonacci import FibonacciFactory
 from random import randint
 from itertools import count
 from configer import configer
+from logger import logger
 
 
 class Speculator:
@@ -46,13 +47,13 @@ class Speculator:
 
 		if len(self.fibonaccis) == 0: self.createFiboFromCandle(self.currentCandle)
 		fibosMatches = self.checkFiboMatches(self.currentValue)
-		currentFiboMatches = self.currentFibo.matchRange(
+		curFiboMatchRange = self.currentFibo.matchRange(
 			start=self.currentCandle.entry,
 			end=self.currentCandle.exit
 		)
 
 		print("fibosMatches", fibosMatches)
-		print("currentFiboMatches", currentFiboMatches)
+		print("curFiboMatchRange", curFiboMatchRange)
 
 		isInitialState = len(fibosMatches) == 1 and len(self.fibonaccis) == 1
 		# hasMinMatches = len(fibosMatches) > 1 and len(self.fibonaccis) > 1
@@ -62,16 +63,18 @@ class Speculator:
 		isRedCandle = candle.cType == -1
 		isUpTrend = self.currentFibo.direction == 1
 		isDownTrend = self.currentFibo.direction == -1
-		isFirstFiboSaturatedZone = fibosMatches[0] and not fibosMatches[0].isSaturated
+		isNotSaturatedZone = fibosMatches[0] and not fibosMatches[0].isSaturated
 
-		if hasValidMatches and isFirstFiboSaturatedZone:
+		if hasValidMatches and isNotSaturatedZone:
 			if fibosMatches[0].label in ["f61x8", "f38x2"]:
+				logger.log("speculator -> detected current fibonacci matches (f61x8 - f38x2)")
 				if (hasMinMatches or isInitialState) and isRedCandle and isUpTrend:
 					self.purchase()
 				elif (hasMinMatches or isInitialState) and isGreenCandle and isDownTrend:
 					self.sell()
 				self.createFibo(self.currentFibo.end, candle.maxTraced)
-			if fibosMatches[0].label in ["f50"] and 38.2 in currentFiboMatches:
+			if fibosMatches[0].label in ["f50"] and 38.2 in curFiboMatchRange:
+				logger.log("speculator -> detected current fibonacci matches (f50)")
 				if (hasMinMatches or isInitialState) and isRedCandle:
 					self.purchase()
 				elif (hasMinMatches or isInitialState) and isGreenCandle:
@@ -86,6 +89,7 @@ class Speculator:
 		posX = positionBtn["posX"] or (randint(750, 860) * self.view.width) / 900
 		posY = positionBtn["posY"] or (randint(1275, 1290) * self.view.height) / 1600
 		self.controller.click(x=posX, y=posY)
+		logger.log("speculator -> bought")
 		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 
 
@@ -95,6 +99,7 @@ class Speculator:
 		posX = positionBtn["posX"] or (randint(750, 860) * self.view.width) / 900
 		posY = positionBtn["posY"] or (randint(1335, 1350) * self.view.height) / 1600
 		self.controller.click(x=posX, y=posY)
+		logger.log("speculator -> sold")
 		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 
 
@@ -113,8 +118,10 @@ class Speculator:
 		outF100, outF0 = currentFibo.isOutRange(self.currentCandle.maxTraced)
 
 		if outF0:
+			logger.log("price was out of range (f0) of the current fibonacci")
 			currentFibo.update(end=self.currentCandle.maxTraced)
 		if outF100:
+			logger.log("price was out of range (f100) of the current fibonacci")
 			currentFibo.update(start=currentFibo.end, end=self.currentCandle.maxTraced)
 
 
