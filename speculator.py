@@ -3,6 +3,7 @@ from random import randint
 from itertools import count
 from configer import configer
 from logger import logger
+from utils.sound import sound
 
 
 class Speculator:
@@ -67,14 +68,14 @@ class Speculator:
 
 		if hasValidMatches and isNotSaturatedZone:
 			if fibosMatches[0].label in ["f61x8", "f38x2"]:
-				logger.log("speculator -> detected current fibonacci matches (f61x8 - f38x2)")
+				logger.log(f"speculator -> detected current fibonacci matches ({fibosMatches[0].label} - {fibosMatches[0]})")
 				if (hasMinMatches or isInitialState) and isRedCandle and isUpTrend:
 					self.purchase()
 				elif (hasMinMatches or isInitialState) and isGreenCandle and isDownTrend:
 					self.sell()
 				self.createFibo(self.currentFibo.end, candle.maxTraced)
 			if fibosMatches[0].label in ["f50"] and 38.2 in curFiboMatchRange:
-				logger.log("speculator -> detected current fibonacci matches (f50)")
+				logger.log(f"speculator -> detected current fibonacci matches ({fibosMatches[0].label} - {fibosMatches[0]})")
 				if (hasMinMatches or isInitialState) and isRedCandle:
 					self.purchase()
 				elif (hasMinMatches or isInitialState) and isGreenCandle:
@@ -89,6 +90,7 @@ class Speculator:
 		posX = positionBtn["posX"] or (randint(750, 860) * self.view.width) / 900
 		posY = positionBtn["posY"] or (randint(1275, 1290) * self.view.height) / 1600
 		self.controller.click(x=posX, y=posY)
+		sound.play("notifications_11.mp3")
 		logger.log("speculator -> bought")
 		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 
@@ -99,6 +101,7 @@ class Speculator:
 		posX = positionBtn["posX"] or (randint(750, 860) * self.view.width) / 900
 		posY = positionBtn["posY"] or (randint(1335, 1350) * self.view.height) / 1600
 		self.controller.click(x=posX, y=posY)
+		sound.play("notifications_11.mp3")
 		logger.log("speculator -> sold")
 		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 

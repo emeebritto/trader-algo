@@ -1,5 +1,6 @@
 from utils.screen import Screen
 from utils.time import seconds
+from utils.sound import sound
 from entities.graphic import Graphic
 from speculator import Speculator
 from datetime import datetime
@@ -10,6 +11,7 @@ import os
 
 configer.init("config/default.json")
 logger.init(folderPath="logs")
+sound.folder("sounds")
 
 graphic = Graphic()
 screen = Screen()

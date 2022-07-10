@@ -1,6 +1,7 @@
 from collections import deque
 from configer import configer
 from logger import logger
+from utils.sound import sound
 from entities.resistance import Resistance
 
 
@@ -85,6 +86,7 @@ class Fibonacci:
 	def inactive(self, val):
 		self._inactive = val
 		if not self._inactive:
+			sound.play("notice.mp3")
 			logger.log([
 				f"{self.name} -> Fibonacci is active now",
 				f"{self.name} -> Fibonacci heigth is {self.difference}"
