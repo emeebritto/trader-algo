@@ -119,13 +119,21 @@ class Speculator:
 		candleType = self.currentCandle.cType
 		currentFibo = self.fibonaccis[0]
 		outF100, outF0 = currentFibo.isOutRange(self.currentCandle.maxTraced)
+		revalidateWith = [candle.maxTraced for candle in self.graphic.candles]
 
 		if outF0:
 			logger.log("price was out of range (f0) of the current fibonacci")
-			currentFibo.update(end=self.currentCandle.maxTraced)
+			currentFibo.update(
+				end=self.currentCandle.maxTraced,
+				revalidateWith=revalidateWith
+			)
 		if outF100:
 			logger.log("price was out of range (f100) of the current fibonacci")
-			currentFibo.update(start=currentFibo.end, end=self.currentCandle.maxTraced)
+			currentFibo.update(
+				start=currentFibo.end,
+				end=self.currentCandle.maxTraced,
+				revalidateWith=revalidateWith
+			)
 
 
 	def createFiboFromCandle(self, candle):

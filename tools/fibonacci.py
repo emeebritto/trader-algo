@@ -84,6 +84,7 @@ class Fibonacci:
 
 	@inactive.setter
 	def inactive(self, val):
+		if self._inactive == val: return
 		self._inactive = val
 		if not self._inactive:
 			sound.play("notice.mp3")
@@ -141,10 +142,8 @@ class Fibonacci:
 
 	def processValues(self):
 		self.difference = abs(self.start - self.end)
-		if self.difference < self._minDifference:
-			self.inactive = True
-		else:
-			self.inactive = False
+		if self.difference < self._minDifference: self.inactive = True
+		else: self.inactive = False
 
 		if self.start > self.end:
 			self.f100.value = self.end + self.difference
@@ -165,13 +164,14 @@ class Fibonacci:
 		if self._endChild: self._endChild.update(start=self.f38x2.value, end=self.f0.value)
 
 
-	def update(self, start=None, end=None, minDifference=None):
+	def update(self, start=None, end=None, minDifference=None, revalidateWith=None):
 		logger.log(f"updating Fibonacci ({self.name} - From {start} to {end}))")
 		self.start = start or self.start
 		self.end = end or self.end
 		self._minDifference = minDifference or self._minDifference
 		self.direction = -1 if self.start >= self.end else 1
 		self.processValues()
+		if revalidateWith: self.validateZoneWith(revalidateWith)
 		self.updateChildren()
 
 

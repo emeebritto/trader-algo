@@ -56,5 +56,6 @@ class Resistance:
 	@updateStatus
 	def validateWith(self, values, tolerance=70):
 		self.forceActive = False
+		self.__valuesMatches = []
 		for value in values:
 			self.isMatch(value, tolerance)
