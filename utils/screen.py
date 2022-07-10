@@ -6,7 +6,7 @@ class Screen:
 		screenSize = pg.size()
 		self.width = screenSize.width
 		self.height = screenSize.height
-		
+	
 
 	def take_screenshot(self, region):
 		return pg.screenshot(region=region)
