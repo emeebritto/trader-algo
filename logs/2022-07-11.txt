@@ -161,3 +161,25 @@
 [2022-07-11 05:13:32.049715]: creating Fibonacci (Fibo_0 - From 1012050 to 1012070)
 [2022-07-11 05:13:32.051408]: updating Fibonacci (start_child_1 - From 1012050 to 1012057.64))
 [2022-07-11 05:13:32.051825]: updating Fibonacci (end_child_2 - From 1012062.36 to 1012070.0))
+
+[2022-07-11 05:24:04.388951]: initialized log file.
+[2022-07-11 05:24:04.390403]: listening price
+[2022-07-11 05:24:04.399303]: Graphic was started
+[2022-07-11 05:24:04.402042]: Trading window was opened
+[2022-07-11 05:24:31.694649]: creating Fibonacci (Fibo_0 - From 1011590 to 1011780)
+[2022-07-11 05:24:31.695536]: updating Fibonacci (start_child_1 - From 1011590 to 1011662.58))
+[2022-07-11 05:24:31.695923]: updating Fibonacci (end_child_2 - From 1011707.42 to 1011780.0))
+
+[2022-07-11 06:02:33.740305]: initialized log file.
+[2022-07-11 06:02:33.741397]: listening price
+[2022-07-11 06:02:33.747346]: Graphic was started
+[2022-07-11 06:02:33.800961]: Trading window was opened
+[2022-07-11 06:02:42.164082]: creating Fibonacci (Fibo_0 - From 1011800 to 1011800)
+[2022-07-11 06:02:42.165081]: updating Fibonacci (start_child_1 - From 1011800 to 1011800.0))
+[2022-07-11 06:02:42.165469]: updating Fibonacci (end_child_2 - From 1011800.0 to 1011800.0))
+[2022-07-11 06:02:42.165842]: Fibo_0 -> detected match range [50, 61.8, 38.2, 100, 0]
+[2022-07-11 06:02:51.377950]: Fibo_0 -> detected match range [50, 61.8, 38.2, 100, 0]
+[2022-07-11 06:02:51.379746]: price was out of range (f100) of the current fibonacci
+[2022-07-11 06:02:51.380024]: updating Fibonacci (Fibo_0 - From 1011800 to 1011790))
+[2022-07-11 06:02:51.380313]: updating Fibonacci (start_child_1 - From 1011800 to 1011796.18))
+[2022-07-11 06:02:51.380598]: updating Fibonacci (end_child_2 - From 1011793.82 to 1011790.0))

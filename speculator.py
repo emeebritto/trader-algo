@@ -7,6 +7,43 @@ from utils.sound import sound
 
 
 
+class Vars:
+	def __init__(self):
+		super(Vars, self).__init__()
+		self.__vars = []
+
+
+	def create(self, values):
+		for key, value in values.items():
+			setattr(self, key, value)
+			self.__vars.append(key)
+
+
+	def use(self, key):
+		return getattr(self, key)
+
+
+
+class Actions:
+	def __init__(self, owner):
+		super(Actions, self).__init__()
+		self.owner = owner
+		self.__actions = []
+
+
+	def create(self, name, action, constraints, exceptions):
+		if not name or not action: return
+		func = lambda: action(self=self.owner, vars=self.owner.vars, actions=self)
+		setattr(self, name, func)
+		self.__actions.append(name)
+
+
+	def execute(self, name, args=[], kwargs={}):
+		method = getattr(self, key)
+		return method(*args, **kwargs)
+
+
+
 class Speculator:
 	def __init__(self):
 		self.maxValue = 0
@@ -17,6 +54,7 @@ class Speculator:
 		self._counter = count()
 		self.__modules = []
 		self.vars = Vars()
+		self.actions = Actions(owner=self)
 		self.exceptions = None
 		self.constraints = None
 		self.allowance = None
@@ -38,7 +76,6 @@ class Speculator:
 
 
 	def use(self, name, element):
-		if name == "actions": element.owner = self
 		setattr(self, name, element)
 		self.__modules.append(name)
 
@@ -153,37 +190,7 @@ class Speculator:
 		self.fibonaccis = self.fibonaccis[0:maxActiveFibonaccis -1]
 
 
-
-class Vars:
-	def __init__(self):
-		super(Vars, self).__init__()
-		self.__vars = []
-
-
-	def create(self, values):
-		for key, value in values.items():
-			setattr(self, key, value)
-			self.__vars.append(key)
-
-
-	def use(self, key):
-		return getattr(self, key)
-
-
-
-class Actions:
-	def __init__(self, owner=None):
-		super(Actions, self).__init__()
-		self.owner = owner
-		self.__actions = []
-
-
-	def create(self, name, action, constraints, exceptions):
-		if not name or not action: return
-		func = lambda: action(owner=self.owner, vars=self.owner.vars, actions=self)
-		setattr(self, name, func)
-		self.__actions.append(name)
-
+speculator = Speculator()
 
 
 
@@ -201,37 +208,3 @@ class Actions:
 # )
 
 # priceBarPosition = (priceBar.left, priceBar.top, priceBar.width, priceBar.height)
-
-
-
-
-
-
-
-
-def speculate(self, candle, price):
-	self.price = price
-	self.currentCandle = candle
-
-	if len(self.fibonaccis) == 0: self.createFiboFromCandle(self.currentCandle)
-	fibosMatches = self.checkFiboMatches(self.currentValue)
-	curFiboMatchRange = self.currentFibo.matchRange(
-		start=self.currentCandle.entry,
-		end=self.currentCandle.exit
-	)
-
-	print("fibosMatches", fibosMatches)
-	print("curFiboMatchRange", curFiboMatchRange)
-
-	self.isInitialState = len(fibosMatches) == 1 and len(self.fibonaccis) == 1
-	# self.hasMinMatches = len(fibosMatches) > 1 and len(self.fibonaccis) > 1
-	self.hasValidMatches = bool(fibosMatches[0])
-	self.hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) > 1
-	self.isGreenCandle = candle.cType == 1
-	self.isRedCandle = candle.cType == -1
-	self.isUpTrend = self.currentFibo.direction == 1
-	self.isDownTrend = self.currentFibo.direction == -1
-	self.isNotSaturatedZone = fibosMatches[0] and not fibosMatches[0].isSaturated
-
-	self.action.analyzerFiboZone()
-	self.updateCurrentFibo()

@@ -2,11 +2,11 @@ from utils.screen import Screen
 from utils.time import seconds
 from utils.sound import sound
 from entities.graphic import Graphic
-from actions.strategies import strategies
-from speculator import Speculator
+from speculator import speculator
 from datetime import datetime
 from configer import configer
 from logger import logger
+import actions.strategies
 import pyautogui as ctr
 import os
 
@@ -17,14 +17,12 @@ sound.folder("sounds")
 
 graphic = Graphic()
 screen = Screen()
-speculator = Speculator()
 
 graphic.start()
 
 speculator.use("view", screen)
 speculator.use("graphic", graphic)
 speculator.use("controller", ctr)
-speculator.use("actions", actions)
 
 
 def main(historic, price, candle, close):
