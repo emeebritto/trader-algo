@@ -19,9 +19,9 @@ speculator = Speculator()
 
 graphic.start()
 
-speculator.useView(screen)
-speculator.useGraphic(graphic)
-speculator.useController(ctr)
+speculator.use("view", screen)
+speculator.use("graphic", graphic)
+speculator.use("controller", ctr)
 
 
 def main(historic, price, candle, close):

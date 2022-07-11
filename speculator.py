@@ -14,9 +14,6 @@ class Speculator:
 		self.price = None
 		self.fibonaccis = []
 		self._counter = count()
-		self.view = None
-		self.graphic = None
-		self.controller = None
 
 
 	@property
@@ -29,17 +26,8 @@ class Speculator:
 		return self.price.current
 
 
-	def useView(self, view):
-		self.view = view
-
-
-	def useGraphic(self, graphic):
-		self.graphic = graphic
-
-
-	def useController(self, ctr):
-		ctr.moveTo(self.view.width / 2.5, self.view.height / 3, 0.3)
-		self.controller = ctr
+	def use(self, name, element):
+		setattr(self, name, element)
 
 
 	def speculate(self, candle, price):
@@ -157,6 +145,8 @@ class Speculator:
 
 
 
+
+# ctr.moveTo(self.view.width / 2.5, self.view.height / 3, 0.3)
 # if self.currentCandle.cType == -1 and self.currentFibo.direction == 1:
 # 	self.purchase()
 

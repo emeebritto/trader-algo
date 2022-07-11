@@ -1,0 +1,30 @@
+
+[2022-07-10 23:03:40.549095]: initialized log file.
+
+[2022-07-10 23:30:18.753505]: initialized log file.
+
+[2022-07-10 23:56:21.418430]: initialized log file.
+
+[2022-07-10 23:56:42.383078]: initialized log file.
+[2022-07-10 23:56:42.384978]: listening price
+[2022-07-10 23:56:42.390113]: Graphic was started
+[2022-07-10 23:56:42.393939]: Trading window was opened
+
+[2022-07-10 23:56:51.290097]: initialized log file.
+[2022-07-10 23:56:51.298625]: listening price
+[2022-07-10 23:56:51.321403]: Graphic was started
+[2022-07-10 23:56:51.337181]: Trading window was opened
+[2022-07-10 23:57:00.536410]: creating Fibonacci (Fibo_0 - From 1190680 to 1190680)
+[2022-07-10 23:57:00.537294]: updating Fibonacci (start_child_1 - From 1190680 to 1190680.0))
+[2022-07-10 23:57:00.537649]: updating Fibonacci (end_child_2 - From 1190680.0 to 1190680.0))
+[2022-07-10 23:57:00.545651]: Fibo_0 -> detected match range [50, 61.8, 38.2, 100, 0]
+
+[2022-07-10 23:57:57.451137]: initialized log file.
+[2022-07-10 23:57:57.452747]: listening price
+[2022-07-10 23:57:57.452982]: Graphic was started
+[2022-07-10 23:57:57.460878]: Trading window was opened
+
+[2022-07-10 23:58:14.692808]: initialized log file.
+[2022-07-10 23:58:14.694281]: listening price
+[2022-07-10 23:58:14.702405]: Graphic was started
+[2022-07-10 23:58:14.712716]: Trading window was opened
