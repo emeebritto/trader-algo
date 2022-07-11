@@ -2,12 +2,14 @@ from utils.screen import Screen
 from utils.time import seconds
 from utils.sound import sound
 from entities.graphic import Graphic
+from actions.strategies import strategies
 from speculator import Speculator
 from datetime import datetime
 from configer import configer
 from logger import logger
 import pyautogui as ctr
 import os
+
 
 configer.init("config/default.json")
 logger.init(folderPath="logs")
@@ -22,6 +24,7 @@ graphic.start()
 speculator.use("view", screen)
 speculator.use("graphic", graphic)
 speculator.use("controller", ctr)
+speculator.use("actions", actions)
 
 
 def main(historic, price, candle, close):
@@ -41,6 +44,8 @@ graphic.tradingWindow(main, interval=1)
 
 
 
+# for name, val in strategies.__dict__.items():
+# 	print(name, val)
 
 # print(screenshot.getpixel((12, 205)))
 # screenshot = cv2.imread("screenshot.png")

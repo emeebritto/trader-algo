@@ -1,1 +1,1 @@
-# trader-algo
+# trader-algo (Fiboly)

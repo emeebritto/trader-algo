@@ -6,6 +6,7 @@ from logger import logger
 from utils.sound import sound
 
 
+
 class Speculator:
 	def __init__(self):
 		self.maxValue = 0
@@ -15,6 +16,10 @@ class Speculator:
 		self.fibonaccis = []
 		self._counter = count()
 		self.__modules = []
+		self.vars = Vars()
+		self.exceptions = None
+		self.constraints = None
+		self.allowance = None
 
 
 	@property
@@ -33,6 +38,7 @@ class Speculator:
 
 
 	def use(self, name, element):
+		if name == "actions": element.owner = self
 		setattr(self, name, element)
 		self.__modules.append(name)
 
@@ -56,34 +62,26 @@ class Speculator:
 		print("fibosMatches", fibosMatches)
 		print("curFiboMatchRange", curFiboMatchRange)
 
-		isInitialState = len(fibosMatches) == 1 and len(self.fibonaccis) == 1
-		# hasMinMatches = len(fibosMatches) > 1 and len(self.fibonaccis) > 1
-		hasValidMatches = bool(fibosMatches[0])
-		hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) > 1
-		isGreenCandle = candle.cType == 1
-		isRedCandle = candle.cType == -1
-		isUpTrend = self.currentFibo.direction == 1
-		isDownTrend = self.currentFibo.direction == -1
-		isNotSaturatedZone = fibosMatches[0] and not fibosMatches[0].isSaturated
+		self.vars.create({
+			"fibosMatches": fibosMatches,
+			"isInitialState": len(fibosMatches) == 1 and len(self.fibonaccis) == 1,
+			"hasValidMatches": bool(fibosMatches[0]),
+			"hasMinMatches": (len(fibosMatches) - fibosMatches.count(None)) > 1,
+			"isGreenCandle": candle.cType == 1,
+			"isRedCandle": candle.cType == -1,
+			"isUpTrend": self.currentFibo.direction == 1,
+			"isDownTrend": self.currentFibo.direction == -1,
+			"isNotSaturatedZone": fibosMatches[0] and not fibosMatches[0].isSaturated
+		})
 
-		if hasValidMatches and isNotSaturatedZone:
-			if fibosMatches[0].label in ["f61x8", "f38x2"]:
-				logger.log(f"speculator -> detected current fibonacci matches ({fibosMatches[0].label} - {fibosMatches[0]})")
-				if (hasMinMatches or isInitialState) and isRedCandle and isUpTrend:
-					self.purchase()
-				elif (hasMinMatches or isInitialState) and isGreenCandle and isDownTrend:
-					self.sell()
-				self.createFibo(self.currentFibo.end, candle.maxTraced)
-			if fibosMatches[0].label in ["f50"] and 38.2 in curFiboMatchRange:
-				logger.log(f"speculator -> detected current fibonacci matches ({fibosMatches[0].label} - {fibosMatches[0]})")
-				if (hasMinMatches or isInitialState) and isRedCandle:
-					self.purchase()
-				elif (hasMinMatches or isInitialState) and isGreenCandle:
-					self.sell()
-				self.createFibo(self.currentFibo.end, candle.maxTraced)
+		# self.vars.create({
+		# 	"hasMinMatches": len(fibosMatches) > 1 and len(self.fibonaccis) > 1
+		# })
+
+		self.actions.analyzerFiboZone()
 		self.updateCurrentFibo()
 
-
+	
 	def purchase(self):
 		lastMousePosition = self.controller.position()
 		positionBtn = configer.get("buttons.purchase")
@@ -156,6 +154,37 @@ class Speculator:
 
 
 
+class Vars:
+	def __init__(self):
+		super(Vars, self).__init__()
+		self.__vars = []
+
+
+	def create(self, values):
+		for key, value in values.items():
+			setattr(self, key, value)
+			self.__vars.append(key)
+
+
+	def use(self, key):
+		return getattr(self, key)
+
+
+
+class Actions:
+	def __init__(self, owner=None):
+		super(Actions, self).__init__()
+		self.owner = owner
+		self.__actions = []
+
+
+	def create(self, name, action, constraints, exceptions):
+		if not name or not action: return
+		func = lambda: action(owner=self.owner, vars=self.owner.vars, actions=self)
+		setattr(self, name, func)
+		self.__actions.append(name)
+
+
 
 
 # ctr.moveTo(self.view.width / 2.5, self.view.height / 3, 0.3)
@@ -172,3 +201,37 @@ class Speculator:
 # )
 
 # priceBarPosition = (priceBar.left, priceBar.top, priceBar.width, priceBar.height)
+
+
+
+
+
+
+
+
+def speculate(self, candle, price):
+	self.price = price
+	self.currentCandle = candle
+
+	if len(self.fibonaccis) == 0: self.createFiboFromCandle(self.currentCandle)
+	fibosMatches = self.checkFiboMatches(self.currentValue)
+	curFiboMatchRange = self.currentFibo.matchRange(
+		start=self.currentCandle.entry,
+		end=self.currentCandle.exit
+	)
+
+	print("fibosMatches", fibosMatches)
+	print("curFiboMatchRange", curFiboMatchRange)
+
+	self.isInitialState = len(fibosMatches) == 1 and len(self.fibonaccis) == 1
+	# self.hasMinMatches = len(fibosMatches) > 1 and len(self.fibonaccis) > 1
+	self.hasValidMatches = bool(fibosMatches[0])
+	self.hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) > 1
+	self.isGreenCandle = candle.cType == 1
+	self.isRedCandle = candle.cType == -1
+	self.isUpTrend = self.currentFibo.direction == 1
+	self.isDownTrend = self.currentFibo.direction == -1
+	self.isNotSaturatedZone = fibosMatches[0] and not fibosMatches[0].isSaturated
+
+	self.action.analyzerFiboZone()
+	self.updateCurrentFibo()
