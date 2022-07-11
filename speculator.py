@@ -14,6 +14,7 @@ class Speculator:
 		self.price = None
 		self.fibonaccis = []
 		self._counter = count()
+		self.__modules = []
 
 
 	@property
@@ -26,8 +27,19 @@ class Speculator:
 		return self.price.current
 
 
+	@property
+	def activeModules(self):
+		return self.__modules
+
+
 	def use(self, name, element):
 		setattr(self, name, element)
+		self.__modules.append(name)
+
+
+	def remove(self, name):
+		delattr(self, name)
+		self.__modules.remove(name)
 
 
 	def speculate(self, candle, price):
