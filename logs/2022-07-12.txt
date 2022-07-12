@@ -53,3 +53,96 @@
 [2022-07-12 00:11:42.017417]: Fibo_0 -> detected match range [50]
 [2022-07-12 00:11:51.180081]: Fibo_0 -> detected match range [50, 38.2]
 [2022-07-12 00:12:00.355048]: Fibo_0 -> detected match range [50, 38.2]
+
+[2022-07-12 02:15:21.843246]: initialized log file.
+
+[2022-07-12 02:16:01.574956]: initialized log file.
+[2022-07-12 02:16:01.577291]: listening price
+[2022-07-12 02:16:01.586097]: Graphic was started
+[2022-07-12 02:16:01.594873]: Trading window was opened
+
+[2022-07-12 02:17:03.516415]: initialized log file.
+[2022-07-12 02:17:03.517665]: listening price
+[2022-07-12 02:17:03.521995]: Graphic was started
+[2022-07-12 02:17:03.530833]: Trading window was opened
+
+[2022-07-12 02:18:32.876865]: initialized log file.
+[2022-07-12 02:18:32.878132]: listening price
+[2022-07-12 02:18:32.878887]: Graphic was started
+[2022-07-12 02:18:32.884624]: Trading window was opened
+
+[2022-07-12 02:19:09.381678]: initialized log file.
+[2022-07-12 02:19:09.382830]: listening price
+[2022-07-12 02:19:09.389438]: Graphic was started
+[2022-07-12 02:19:09.391433]: Trading window was opened
+[2022-07-12 02:19:31.675794]: creating Fibonacci (Fibo_0 - From 1001116 to 1000930)
+[2022-07-12 02:19:31.676422]: updating Fibonacci (start_child_1 - From 1001116 to 1001044.948))
+[2022-07-12 02:19:31.676762]: updating Fibonacci (end_child_2 - From 1001001.052 to 1000930.0))
+[2022-07-12 02:19:31.677154]: Fibo_0 -> detected match range [50, 61.8, 100]
+
+[2022-07-12 02:20:26.406427]: initialized log file.
+[2022-07-12 02:20:26.408673]: listening price
+[2022-07-12 02:20:26.432026]: Graphic was started
+[2022-07-12 02:20:26.437494]: Trading window was opened
+[2022-07-12 02:20:31.814278]: creating Fibonacci (Fibo_0 - From 1001160 to 1001165)
+[2022-07-12 02:20:31.815528]: updating Fibonacci (start_child_1 - From 1001160 to 1001161.91))
+[2022-07-12 02:20:31.815995]: updating Fibonacci (end_child_2 - From 1001163.09 to 1001165.0))
+
+[2022-07-12 02:21:42.777972]: initialized log file.
+[2022-07-12 02:21:42.779150]: listening price
+[2022-07-12 02:21:42.785770]: Graphic was started
+[2022-07-12 02:21:42.789680]: Trading window was opened
+
+[2022-07-12 02:22:34.462455]: initialized log file.
+[2022-07-12 02:22:34.470087]: listening price
+[2022-07-12 02:22:34.500944]: Graphic was started
+[2022-07-12 02:22:34.510523]: Trading window was opened
+
+[2022-07-12 02:37:40.479240]: initialized log file.
+[2022-07-12 02:37:40.481536]: listening price
+[2022-07-12 02:37:40.487392]: Graphic was started
+[2022-07-12 02:37:40.489107]: Trading window was opened
+[2022-07-12 02:37:51.694754]: creating Fibonacci (Fibo_0 - From 1001418 to 1001470)
+
+[2022-07-12 02:39:00.744794]: initialized log file.
+[2022-07-12 02:39:00.745796]: listening price
+[2022-07-12 02:39:00.750591]: Graphic was started
+[2022-07-12 02:39:00.756736]: Trading window was opened
+[2022-07-12 02:39:30.437119]: not detected price. skipping interaction
+[2022-07-12 02:39:32.188199]: creating Fibonacci (Fibo_0 - From 1001421 to 1001270)
+
+[2022-07-12 02:40:32.087493]: initialized log file.
+[2022-07-12 02:40:32.088905]: listening price
+[2022-07-12 02:40:32.093588]: Graphic was started
+[2022-07-12 02:40:32.094990]: Trading window was opened
+[2022-07-12 02:40:41.332387]: creating Fibonacci (Fibo_0 - From 1001230 to 1001267)
+
+[2022-07-12 03:09:00.885558]: initialized log file.
+[2022-07-12 03:09:00.886574]: listening price
+[2022-07-12 03:09:00.892406]: Graphic was started
+[2022-07-12 03:09:00.894564]: Trading window was opened
+[2022-07-12 03:09:32.345184]: creating Fibonacci (Fibo_0 - From 1001610 to 1001740)
+
+[2022-07-12 03:10:26.505497]: initialized log file.
+[2022-07-12 03:10:26.514855]: listening price
+[2022-07-12 03:10:26.521366]: Graphic was started
+[2022-07-12 03:10:26.525306]: Trading window was opened
+[2022-07-12 03:10:31.669549]: creating Fibonacci (Fibo_0 - From 1001730 to 1001730)
+[2022-07-12 03:10:31.670176]: updating Fibonacci (start_child_1 - From 1001730 to 1001730.0))
+[2022-07-12 03:10:31.671515]: updating Fibonacci (end_child_2 - From 1001730.0 to 1001730.0))
+[2022-07-12 03:10:31.671923]: Fibo_0 -> detected match range [50, 61.8, 38.2, 100, 0]
+[2022-07-12 03:10:41.814831]: Fibo_0 -> detected match range [50, 61.8, 38.2, 100, 0]
+[2022-07-12 03:10:41.817983]: price was out of range (f100) of the current fibonacci
+[2022-07-12 03:10:41.818264]: updating Fibonacci (Fibo_0 - From 1001730 to 1001670))
+[2022-07-12 03:10:41.818523]: updating Fibonacci (start_child_1 - From 1001730 to 1001707.08))
+[2022-07-12 03:10:41.819489]: updating Fibonacci (end_child_2 - From 1001692.92 to 1001670.0))
+[2022-07-12 03:10:45.149310]: not detected price. skipping interaction
+
+[2022-07-12 03:12:11.920727]: initialized log file.
+[2022-07-12 03:12:11.921761]: listening price
+[2022-07-12 03:12:11.929107]: Graphic was started
+[2022-07-12 03:12:11.929860]: Trading window was opened
+[2022-07-12 03:12:32.261761]: creating Fibonacci (Fibo_0 - From 1002308 to 1002308)
+[2022-07-12 03:12:32.262385]: updating Fibonacci (start_child_1 - From 1002308 to 1002308.0))
+[2022-07-12 03:12:32.265247]: updating Fibonacci (end_child_2 - From 1002308.0 to 1002308.0))
+[2022-07-12 03:12:32.265702]: Fibo_0 -> detected match range [50, 61.8, 38.2, 100, 0]

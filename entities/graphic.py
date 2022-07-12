@@ -1,6 +1,7 @@
 from entities.price import Price
 from utils.screen import Screen
 from entities.candle import Candle
+from entities.candleHistoric import CandleHistoric
 from collections import deque
 from time import sleep
 from logger import logger
@@ -21,7 +22,7 @@ class Graphic(Screen):
 		self.trading = False
 		self.price = Price(0)
 		self.currentCandle = None
-		self._candles = deque([], maxlen=240)
+		self._candles = CandleHistoric([], maxlen=240)
 		priceBarArea = configer.get("graphic.priceBarArea")
 		self.priceBarArea = {
 			"posX": priceBarArea["posX"] or (596 * self.width) // 900,

@@ -23,9 +23,8 @@ class Fibonacci:
 		self.name = name
 		self.start = start
 		self.end = end
-		self.width = 0
 		self.height = 0
-		self._minDifference = minDifference
+		self._minHeight = minDifference
 		self.direction = -1 if self.start >= self.end else 1
 		self._inactive = False  # fibonacci status
 		self._startChild = None
@@ -46,7 +45,7 @@ class Fibonacci:
 		return f"""
   name: {self.name}
   inactive: {self.inactive}
-  difference: {self.height} (require: {self._minDifference})
+  height: {self.height} (require: {self._minHeight})
   start: {self.start}
   end: {self.end}
 {self.strMetrics()}
@@ -101,7 +100,7 @@ class Fibonacci:
 		child.update(
 			start=self.f100.value,
 			end=self.f61x8.value,
-			minDifference=self._minDifference
+			minDifference=self._minHeight
 		)
 		self._startChild = child
 
@@ -111,7 +110,7 @@ class Fibonacci:
 		child.update(
 			start=self.f38x2.value,
 			end=self.f0.value,
-			minDifference=self._minDifference
+			minDifference=self._minHeight
 		)
 		self._endChild = child
 
@@ -144,7 +143,7 @@ class Fibonacci:
 
 	def processValues(self):
 		self.height = abs(self.start - self.end)
-		if self.height < self._minDifference: self.inactive = True
+		if self.height < self._minHeight: self.inactive = True
 		else: self.inactive = False
 
 		if self.start > self.end:
@@ -170,7 +169,7 @@ class Fibonacci:
 		self.start = start or self.start
 		self.end = end or self.end
 		logger.log(f"updating Fibonacci ({self.name} - From {self.start} to {self.end}))")
-		self._minDifference = minDifference or self._minDifference
+		self._minHeight = minDifference or self._minHeight
 		self.direction = -1 if self.start >= self.end else 1
 		self.processValues()
 		if revalidateWith: self.validateZoneWith(revalidateWith)
@@ -233,7 +232,7 @@ class Fibonacci:
 		hasChildrenMatches = self._checkChildrenMatches(value, tolerance)
 		if hasChildrenMatches: return hasChildrenMatches
 
-		isShortFibonacci = self.height <= 1300
+		isShortFibonacci = self.height <= 1600
 
 		if self.f50.isMatch(value, tolerance):
 			print(f"{self.name} -> detected touch at f50")
