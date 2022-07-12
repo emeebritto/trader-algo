@@ -11,7 +11,7 @@
 	},
 	"fibonacci": {
 		"dequeMaxLen": 8,
-		"activeIfHeight": 1000,
+		"activeIfHeight": 1400,
 		"activeZoneByHeight": {
 			"100": 1100,
 			"61.8": 1100,
@@ -19,7 +19,7 @@
 			"38.2": 1100,
 			"0": 1100
 		},
-		"zoneTolerance": 60
+		"zoneTolerance": 80
 	},
 	"speculator": {
 		"maxActiveFibonaccis": 3

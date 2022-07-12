@@ -232,7 +232,7 @@ class Fibonacci:
 		hasChildrenMatches = self._checkChildrenMatches(value, tolerance)
 		if hasChildrenMatches: return hasChildrenMatches
 
-		isShortFibonacci = self.height <= 1600
+		isShortFibonacci = self.height <= 2000
 
 		if self.f50.isMatch(value, tolerance):
 			print(f"{self.name} -> detected touch at f50")
@@ -243,6 +243,7 @@ class Fibonacci:
 			logger.log(f"{self.name} -> detected touch at f61.8")
 			return self.f61x8
 		elif self.f38x2.isMatch(value, tolerance) and not isShortFibonacci:
+		# elif self.f38x2.isMatch(value, tolerance):
 			print(f"{self.name} -> detected touch at f38.2")
 			logger.log(f"{self.name} -> detected touch at f38.2")
 			return self.f38x2

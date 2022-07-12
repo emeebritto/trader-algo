@@ -71,7 +71,7 @@ class Speculator:
 			self._analyzeOperation(fibosMatches, curFiboMatchRange)
 
 
-	def _analyzeOperation():
+	def _analyzeOperation(self, fibosMatches, curFiboMatchRange):
 		logger.log(f"speculator -> detected current fibonacci matches ({fibosMatches[0].label} - {fibosMatches[0]})")
 		isInitialState = len(fibosMatches) == 1 and len(self.fibonaccis) == 1
 		isGreenCandle = self.currentCandle.cType == 1
