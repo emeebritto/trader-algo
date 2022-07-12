@@ -1,0 +1,55 @@
+[2022-07-12 00:00:06.441107]: not detected price. skipping interaction
+[2022-07-12 00:00:51.271561]: price was out of range (f0) of the current fibonacci
+[2022-07-12 00:00:51.271892]: updating Fibonacci (Fibo_0 - From 1002310 to 1002650))
+[2022-07-12 00:00:51.273367]: updating Fibonacci (start_child_1 - From 1002310 to 1002439.88))
+[2022-07-12 00:00:51.273759]: updating Fibonacci (end_child_2 - From 1002520.12 to 1002650.0))
+[2022-07-12 00:01:00.480677]: price was out of range (f0) of the current fibonacci
+[2022-07-12 00:01:00.480962]: updating Fibonacci (Fibo_0 - From 1002310 to 1002688))
+[2022-07-12 00:01:00.481353]: updating Fibonacci (start_child_1 - From 1002310 to 1002454.396))
+[2022-07-12 00:01:00.481606]: updating Fibonacci (end_child_2 - From 1002543.604 to 1002688.0))
+[2022-07-12 00:01:31.715233]: price was out of range (f0) of the current fibonacci
+[2022-07-12 00:01:31.715476]: updating Fibonacci (Fibo_0 - From 1002310 to 1002850))
+[2022-07-12 00:01:31.715821]: updating Fibonacci (start_child_1 - From 1002310 to 1002516.28))
+[2022-07-12 00:01:31.716038]: updating Fibonacci (end_child_2 - From 1002643.72 to 1002850.0))
+[2022-07-12 00:02:00.335926]: price was out of range (f0) of the current fibonacci
+[2022-07-12 00:02:00.336234]: updating Fibonacci (Fibo_0 - From 1002310 to 1002871))
+[2022-07-12 00:02:00.336691]: updating Fibonacci (start_child_1 - From 1002310 to 1002524.302))
+[2022-07-12 00:02:00.336944]: updating Fibonacci (end_child_2 - From 1002656.698 to 1002871.0))
+[2022-07-12 00:02:31.556135]: Fibo_0 -> detected match range [0]
+[2022-07-12 00:02:41.713651]: Fibo_0 -> detected match range [0]
+[2022-07-12 00:02:51.855295]: Fibo_0 -> detected match range [0]
+[2022-07-12 00:03:01.023946]: Fibo_0 -> detected match range [0]
+[2022-07-12 00:03:41.521347]: Fibo_0 -> detected match range [38.2]
+[2022-07-12 00:03:51.672459]: Fibo_0 -> detected match range [50, 61.8, 38.2]
+[2022-07-12 00:04:00.965069]: Fibo_0 -> detected match range [50, 38.2]
+[2022-07-12 00:04:31.194693]: Fibo_0 -> detected match range [61.8]
+[2022-07-12 00:04:41.421856]: Fibo_0 -> detected match range [61.8]
+[2022-07-12 00:04:51.575583]: Fibo_0 -> detected match range [61.8]
+[2022-07-12 00:05:00.807825]: price was out of range (f100) of the current fibonacci
+[2022-07-12 00:05:00.808162]: updating Fibonacci (Fibo_0 - From 1002871 to 1002290))
+[2022-07-12 00:05:00.808683]: updating Fibonacci (start_child_1 - From 1002871 to 1002649.058))
+[2022-07-12 00:05:00.808963]: updating Fibonacci (end_child_2 - From 1002511.942 to 1002290.0))
+[2022-07-12 00:05:45.642171]: not detected price. skipping interaction
+[2022-07-12 00:06:00.834855]: price was out of range (f0) of the current fibonacci
+[2022-07-12 00:06:00.835216]: updating Fibonacci (Fibo_0 - From 1002871 to 1002289))
+[2022-07-12 00:06:00.835761]: updating Fibonacci (start_child_1 - From 1002871 to 1002648.676))
+[2022-07-12 00:06:00.836124]: updating Fibonacci (end_child_2 - From 1002511.324 to 1002289.0))
+[2022-07-12 00:06:32.075322]: Fibo_0 -> detected match range [0]
+[2022-07-12 00:06:32.083842]: price was out of range (f0) of the current fibonacci
+[2022-07-12 00:06:32.090132]: updating Fibonacci (Fibo_0 - From 1002871 to 1002090))
+[2022-07-12 00:06:32.090692]: updating Fibonacci (start_child_1 - From 1002871 to 1002572.658))
+[2022-07-12 00:06:32.091015]: updating Fibonacci (end_child_2 - From 1002388.342 to 1002090.0))
+[2022-07-12 00:06:41.274244]: Fibo_0 -> detected match range [0]
+[2022-07-12 00:06:41.274763]: price was out of range (f0) of the current fibonacci
+[2022-07-12 00:06:41.275062]: updating Fibonacci (Fibo_0 - From 1002871 to 1001981))
+[2022-07-12 00:06:41.275556]: updating Fibonacci (start_child_1 - From 1002871 to 1002531.02))
+[2022-07-12 00:06:41.275858]: updating Fibonacci (end_child_2 - From 1002320.98 to 1001981.0))
+[2022-07-12 00:06:51.442322]: price was out of range (f0) of the current fibonacci
+[2022-07-12 00:06:51.442651]: updating Fibonacci (Fibo_0 - From 1002871 to 1001939))
+[2022-07-12 00:06:51.443117]: updating Fibonacci (start_child_1 - From 1002871 to 1002514.976))
+[2022-07-12 00:06:51.443396]: updating Fibonacci (end_child_2 - From 1002295.024 to 1001939.0))
+[2022-07-12 00:09:51.276981]: Fibo_0 -> detected match range [38.2]
+[2022-07-12 00:11:31.777103]: Fibo_0 -> detected match range [50]
+[2022-07-12 00:11:42.017417]: Fibo_0 -> detected match range [50]
+[2022-07-12 00:11:51.180081]: Fibo_0 -> detected match range [50, 38.2]
+[2022-07-12 00:12:00.355048]: Fibo_0 -> detected match range [50, 38.2]

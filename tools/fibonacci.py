@@ -23,6 +23,8 @@ class Fibonacci:
 		self.name = name
 		self.start = start
 		self.end = end
+		self.width = 0
+		self.height = 0
 		self._minDifference = minDifference
 		self.direction = -1 if self.start >= self.end else 1
 		self._inactive = False  # fibonacci status
@@ -44,7 +46,7 @@ class Fibonacci:
 		return f"""
   name: {self.name}
   inactive: {self.inactive}
-  difference: {self.difference} (require: {self._minDifference})
+  difference: {self.height} (require: {self._minDifference})
   start: {self.start}
   end: {self.end}
 {self.strMetrics()}
@@ -90,7 +92,7 @@ class Fibonacci:
 			sound.play("notice.mp3")
 			logger.log([
 				f"{self.name} -> Fibonacci is active now",
-				f"{self.name} -> Fibonacci heigth is {self.difference}"
+				f"{self.name} -> Fibonacci heigth is {self.height}"
 			])
 
 
@@ -141,22 +143,22 @@ class Fibonacci:
 
 
 	def processValues(self):
-		self.difference = abs(self.start - self.end)
-		if self.difference < self._minDifference: self.inactive = True
+		self.height = abs(self.start - self.end)
+		if self.height < self._minDifference: self.inactive = True
 		else: self.inactive = False
 
 		if self.start > self.end:
-			self.f100.value = self.end + self.difference
-			self.f61x8.value = self.end + ((self.difference * 61.8) / 100)
-			self.f50.value = self.end + ((self.difference * 50) / 100)
-			self.f38x2.value = self.end + ((self.difference * 38.2) / 100)
-			self.f0.value = self.end + ((self.difference * 0) / 100)
+			self.f100.value = self.end + self.height
+			self.f61x8.value = self.end + ((self.height * 61.8) / 100)
+			self.f50.value = self.end + ((self.height * 50) / 100)
+			self.f38x2.value = self.end + ((self.height * 38.2) / 100)
+			self.f0.value = self.end + ((self.height * 0) / 100)
 		else:
-			self.f100.value = self.end - self.difference
-			self.f61x8.value = self.end - ((self.difference * 61.8) / 100)
-			self.f50.value = self.end - ((self.difference * 50) / 100)
-			self.f38x2.value = self.end - ((self.difference * 38.2) / 100)
-			self.f0.value = self.end - ((self.difference * 0) / 100)
+			self.f100.value = self.end - self.height
+			self.f61x8.value = self.end - ((self.height * 61.8) / 100)
+			self.f50.value = self.end - ((self.height * 50) / 100)
+			self.f38x2.value = self.end - ((self.height * 38.2) / 100)
+			self.f0.value = self.end - ((self.height * 0) / 100)
 
 
 	def updateChildren(self):
@@ -165,9 +167,9 @@ class Fibonacci:
 
 
 	def update(self, start=None, end=None, minDifference=None, revalidateWith=None):
-		logger.log(f"updating Fibonacci ({self.name} - From {start} to {end}))")
 		self.start = start or self.start
 		self.end = end or self.end
+		logger.log(f"updating Fibonacci ({self.name} - From {self.start} to {self.end}))")
 		self._minDifference = minDifference or self._minDifference
 		self.direction = -1 if self.start >= self.end else 1
 		self.processValues()
@@ -210,17 +212,17 @@ class Fibonacci:
 
 	def registerHistoric(func):
 		def function(*args, **kwargs):
-			returnFc = func(*args, **kwargs)
-			if not returnFc:
+			fiboZone = func(*args, **kwargs)
+			if not fiboZone:
 				args[0]._matchesHistoric.append(None)
 				return None
-			elif not returnFc.label in args[0]._matchesHistoric:
-				returnFc.isSaturated = False
-				args[0]._matchesHistoric.append(returnFc.label)
-				return returnFc
+			elif not fiboZone.label in args[0]._matchesHistoric:
+				fiboZone.isSaturated = False
+				args[0]._matchesHistoric.append(fiboZone.label)
+				return fiboZone
 			else:
-				returnFc.isSaturated = True
-				return returnFc
+				fiboZone.isSaturated = True
+				return fiboZone
 		return function
 
 
@@ -231,6 +233,8 @@ class Fibonacci:
 		hasChildrenMatches = self._checkChildrenMatches(value, tolerance)
 		if hasChildrenMatches: return hasChildrenMatches
 
+		isShortFibonacci = self.height <= 1300
+
 		if self.f50.isMatch(value, tolerance):
 			print(f"{self.name} -> detected touch at f50")
 			logger.log(f"{self.name} -> detected touch at f50")
@@ -239,7 +243,7 @@ class Fibonacci:
 			print(f"{self.name} -> detected touch at f61.8")
 			logger.log(f"{self.name} -> detected touch at f61.8")
 			return self.f61x8
-		elif self.f38x2.isMatch(value, tolerance):
+		elif self.f38x2.isMatch(value, tolerance) and not isShortFibonacci:
 			print(f"{self.name} -> detected touch at f38.2")
 			logger.log(f"{self.name} -> detected touch at f38.2")
 			return self.f38x2

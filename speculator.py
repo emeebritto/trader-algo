@@ -55,33 +55,37 @@ class Speculator:
 
 		print("fibosMatches", fibosMatches)
 		print("curFiboMatchRange", curFiboMatchRange)
-
-		isInitialState = len(fibosMatches) == 1 and len(self.fibonaccis) == 1
-		# hasMinMatches = len(fibosMatches) > 1 and len(self.fibonaccis) > 1
 		hasValidMatches = bool(fibosMatches[0])
-		hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) > 1
-		isGreenCandle = candle.cType == 1
-		isRedCandle = candle.cType == -1
-		isUpTrend = self.currentFibo.direction == 1
-		isDownTrend = self.currentFibo.direction == -1
 		isNotSaturatedZone = fibosMatches[0] and not fibosMatches[0].isSaturated
 
 		if hasValidMatches and isNotSaturatedZone:
-			if fibosMatches[0].label in ["f61x8", "f38x2"]:
-				logger.log(f"speculator -> detected current fibonacci matches ({fibosMatches[0].label} - {fibosMatches[0]})")
-				if (hasMinMatches or isInitialState) and isRedCandle and isUpTrend:
-					self.purchase()
-				elif (hasMinMatches or isInitialState) and isGreenCandle and isDownTrend:
-					self.sell()
-				self.createFibo(self.currentFibo.end, candle.maxTraced)
-			if fibosMatches[0].label in ["f50"] and 38.2 in curFiboMatchRange:
-				logger.log(f"speculator -> detected current fibonacci matches ({fibosMatches[0].label} - {fibosMatches[0]})")
-				if (hasMinMatches or isInitialState) and isRedCandle:
-					self.purchase()
-				elif (hasMinMatches or isInitialState) and isGreenCandle:
-					self.sell()
-				self.createFibo(self.currentFibo.end, candle.maxTraced)
+			self.analyzeFiboZone(fibosMatches, curFiboMatchRange)
+
 		self.updateCurrentFibo()
+
+
+	def analyzeFiboZone(self, fibosMatches, curFiboMatchRange):
+		isInitialState = len(fibosMatches) == 1 and len(self.fibonaccis) == 1
+		isGreenCandle = self.currentCandle.cType == 1
+		isRedCandle = self.currentCandle.cType == -1
+		isUpTrend = self.currentFibo.direction == 1
+		isDownTrend = self.currentFibo.direction == -1
+		hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) > 1
+
+		if fibosMatches[0].label in ["f61x8", "f38x2"]:
+			logger.log(f"speculator -> detected current fibonacci matches ({fibosMatches[0].label} - {fibosMatches[0]})")
+			if (hasMinMatches or isInitialState) and isRedCandle and isUpTrend:
+				self.purchase()
+			elif (hasMinMatches or isInitialState) and isGreenCandle and isDownTrend:
+				self.sell()
+			self.createFibo(self.currentFibo.end, self.currentCandle.maxTraced)
+		if fibosMatches[0].label in ["f50"] and 38.2 in curFiboMatchRange:
+			logger.log(f"speculator -> detected current fibonacci matches ({fibosMatches[0].label} - {fibosMatches[0]})")
+			if (hasMinMatches or isInitialState) and isRedCandle:
+				self.purchase()
+			elif (hasMinMatches or isInitialState) and isGreenCandle:
+				self.sell()
+			self.createFibo(self.currentFibo.end, self.currentCandle.maxTraced)
 
 
 	def purchase(self):

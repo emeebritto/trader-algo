@@ -21,7 +21,7 @@ class Graphic(Screen):
 		self.trading = False
 		self.price = Price(0)
 		self.currentCandle = None
-		self._candles = deque([], maxlen=180)
+		self._candles = deque([], maxlen=240)
 		priceBarArea = configer.get("graphic.priceBarArea")
 		self.priceBarArea = {
 			"posX": priceBarArea["posX"] or (596 * self.width) // 900,
