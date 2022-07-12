@@ -61,7 +61,8 @@ class Speculator:
 		if hasValidMatches and isNotSaturatedZone:
 			self._analyzeFiboZone(fibosMatches, curFiboMatchRange)
 
-		self.updateCurrentFibo()
+		if self.currentFibo.height >= 3000: self.createFiboFromCandle(self.currentCandle)
+		else: self.updateCurrentFibo()
 
 
 	def _analyzeFiboZone(self, fibosMatches, curFiboMatchRange):
@@ -119,7 +120,6 @@ class Speculator:
 
 
 	def updateCurrentFibo(self):
-		candleType = self.currentCandle.cType
 		currentFibo = self.fibonaccis[0]
 		outF100, outF0 = currentFibo.isOutRange(self.currentCandle.maxTraced)
 		revalidateWith = self.graphic.candles.maxTraced()

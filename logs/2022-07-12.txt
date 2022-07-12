@@ -345,3 +345,16 @@
 [2022-07-12 06:47:01.120192]: updating Fibonacci (Fibo_0 - From 1001347 to 1000019))
 [2022-07-12 06:47:01.121164]: updating Fibonacci (start_child_1 - From 1001347 to 1000839.704))
 [2022-07-12 06:47:01.121534]: updating Fibonacci (end_child_2 - From 1000526.296 to 1000019.0))
+
+[2022-07-12 14:34:15.732051]: initialized log file.
+[2022-07-12 14:34:15.751231]: listening price
+[2022-07-12 14:34:15.757280]: Graphic was started
+[2022-07-12 14:34:15.759727]: Trading window was opened
+[2022-07-12 14:34:32.217170]: creating Fibonacci (Fibo_0 - From 1005310 to 1005410)
+[2022-07-12 14:34:32.218322]: updating Fibonacci (start_child_1 - From 1005310 to 1005348.2))
+[2022-07-12 14:34:32.219488]: updating Fibonacci (end_child_2 - From 1005371.8 to 1005410.0))
+[2022-07-12 14:35:00.825132]: Fibo_0 -> detected match range [100]
+[2022-07-12 14:35:00.825659]: price was out of range (f100) of the current fibonacci
+[2022-07-12 14:35:00.825952]: updating Fibonacci (Fibo_0 - From 1005410 to 1005290))
+[2022-07-12 14:35:00.826425]: updating Fibonacci (start_child_1 - From 1005410 to 1005364.16))
+[2022-07-12 14:35:00.826793]: updating Fibonacci (end_child_2 - From 1005335.84 to 1005290.0))
