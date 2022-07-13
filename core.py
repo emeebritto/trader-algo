@@ -5,6 +5,7 @@ from entities.graphic import Graphic
 from speculator import Speculator
 from datetime import datetime
 from configer import configer
+# from browser import browser
 from logger import logger
 import pyautogui as ctr
 import os
@@ -17,6 +18,7 @@ graphic = Graphic()
 screen = Screen()
 speculator = Speculator()
 
+# browser.openChart()
 graphic.start()
 
 speculator.use("view", screen)

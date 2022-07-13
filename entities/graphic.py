@@ -8,6 +8,7 @@ from logger import logger
 from utils.time import seconds, wait
 from pytesseract import pytesseract
 from configer import configer
+# from browser import browser
 import threading
 import numpy as np
 import cv2
@@ -96,6 +97,7 @@ class Graphic(Screen):
 
 			priceBarPosition = (priceBar.left, priceBar.top, priceBar.width, priceBar.height)
 			screenshot = self.take_screenshot(region=priceBarPosition)
+			# screenshot = browser.chart_screenshot(region=(415, 0, w, h))
 			thresh = cv2.threshold(np.array(screenshot), 150, 0, 76, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
 			rawStr = pytesseract.image_to_string(thresh, config='--psm 6')
 			priceFormat = r"[0-9]*\.[0-9]*"

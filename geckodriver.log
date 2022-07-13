@@ -1,0 +1,303 @@
+1657696762269	geckodriver	INFO	Listening on 127.0.0.1:42937
+1657696762780	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "41661" "-no-remote" "-profile" "/tmp/rust_mozprofiledRqkP6"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657696765584	Marionette	INFO	Marionette enabled
+1657696765608	Marionette	INFO	Listening on port 36717
+WebDriver BiDi listening on ws://localhost:41661
+1657696766782	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofiledRqkP6/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:41661/devtools/browser/fa317f01-4296-4638-901a-c89a5dab5731
+1657696787798	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript warning: https://binomo.com/797-es2015.700383743c8f6e2bd15a.js, line 1: Failed to create WebGL context: WebGL creation failed: 
+* tryNativeGL (FEATURE_FAILURE_EGL_NO_CONFIG)
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+1657696815216	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:234:19
+TimedPromise@chrome://remote/content/marionette/sync.js:219:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+SourceActor threw an exception: [Exception... "Failed to open input source 'chrome://browser/content/certerror/aboutNetErrorCodes.js'"  nsresult: "0x805303f4 (<unknown>)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: mainThreadFetch/< :: line 699"  data: yes]
+Stack: mainThreadFetch/<@resource://devtools/shared/DevToolsUtils.js:699:15
+mainThreadFetch@resource://devtools/shared/DevToolsUtils.js:545:10
+_fetchURLContents@resource://devtools/server/actors/utils/sources-manager.js:446:22
+urlContents@resource://devtools/server/actors/utils/sources-manager.js:410:17
+_resurrectSource@resource://devtools/server/actors/thread.js:2121:35
+addAllSources@resource://devtools/server/actors/thread.js:1482:14
+watch@resource://devtools/server/actors/resources/sources.js:62:17
+watchResources@resource://devtools/server/actors/resources/index.js:288:19
+_watchTargetResources@resource://devtools/server/actors/targets/target-actor-mixin.js:161:24
+addSessionDataEntry@resource://devtools/server/actors/targets/target-actor-mixin.js:53:20
+_addSessionDataEntry@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:556:24
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:465:21
+Line: 699, column: 0
+console.error: ({})
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 596"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:596:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 596, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 699: Failed to open input source 'chrome://browser/content/certerror/aboutNetErrorCodes.js'
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 596: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+console.error: "Error while calling actor 'pagestyle's method 'getLayout'" "node is null"
+console.error: (new TypeError("node is null", "resource://devtools/server/actors/page-style.js", 1005))
+console.error: (new Error("Protocol error (TypeError): node is null from: server0.conn0.windowGlobal4294967298/pagestyle24 (resource://devtools/server/actors/page-style.js:1005:5)", "resource://devtools/shared/protocol/Front.js", 365))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967298/layout345, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967301/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967314/layout24, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967312/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967325/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967330/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967313/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967324/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967331/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967317/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967323/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967355/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967356/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967357/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967362/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967364/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967361/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967367/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Inspector destroyed while executing onReflow callback"
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1657697023689	Marionette	INFO	Stopped listening on port 36717
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1657697034866	geckodriver	INFO	Listening on 127.0.0.1:33773
+1657697034881	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "33371" "-no-remote" "-profile" "/tmp/rust_mozprofileQFuyAC"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657697037282	Marionette	INFO	Marionette enabled
+1657697037293	Marionette	INFO	Listening on port 35899
+WebDriver BiDi listening on ws://localhost:33371
+1657697038417	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileQFuyAC/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:33371/devtools/browser/0bf15985-5686-4423-9546-1251f88c58f3
+1657697053692	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript warning: https://binomo.com/797-es2015.700383743c8f6e2bd15a.js, line 1: Failed to create WebGL context: WebGL creation failed: 
+* tryNativeGL (FEATURE_FAILURE_EGL_NO_CONFIG)
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+1657697110720	Marionette	INFO	Stopped listening on port 35899
+1657697190382	geckodriver	INFO	Listening on 127.0.0.1:51251
+1657697190895	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "35865" "-no-remote" "-profile" "/tmp/rust_mozprofile2Nx1Kj"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657697192658	Marionette	INFO	Marionette enabled
+1657697192682	Marionette	INFO	Listening on port 40019
+WebDriver BiDi listening on ws://localhost:35865
+1657697193445	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile2Nx1Kj/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:35865/devtools/browser/b5d58cc1-630d-44b5-abf5-07967cb342df
+1657697207095	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript warning: https://binomo.com/797-es2015.700383743c8f6e2bd15a.js, line 1: Failed to create WebGL context: WebGL creation failed: 
+* tryNativeGL (FEATURE_FAILURE_EGL_NO_CONFIG)
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1657698447696	geckodriver	INFO	Listening on 127.0.0.1:38289
+1657698447710	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "56707" "-no-remote" "-profile" "/tmp/rust_mozprofileRs2qlh"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657698449607	Marionette	INFO	Marionette enabled
+1657698449620	Marionette	INFO	Listening on port 39495
+WebDriver BiDi listening on ws://localhost:56707
+1657698450542	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileRs2qlh/search.json.mozlz4", (void 0)))
+1657698458970	Marionette	INFO	Stopped listening on port 39495
+1657698459030	CDP	WARN	Failed to remove undefined (Could not parse path (undefined): NS_ERROR_FILE_UNRECOGNIZED_PATH)
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+console.warn: services.settings: main/query-stripping sync interrupted by shutdown
+Exiting due to channel error.
+1657698492979	geckodriver	INFO	Listening on 127.0.0.1:56839
+1657698492991	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "39749" "-no-remote" "-profile" "/tmp/rust_mozprofileSM30Cf"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657698494941	Marionette	INFO	Marionette enabled
+1657698494962	Marionette	INFO	Listening on port 44611
+WebDriver BiDi listening on ws://localhost:39749
+1657698495785	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileSM30Cf/search.json.mozlz4", (void 0)))
+1657698502104	Marionette	INFO	Stopped listening on port 44611
+1657698502189	CDP	WARN	Failed to remove undefined (Could not parse path (undefined): NS_ERROR_FILE_UNRECOGNIZED_PATH)
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+console.warn: services.settings: main/query-stripping sync interrupted by shutdown
+Exiting due to channel error.
+Exiting due to channel error.
+1657698518575	geckodriver	INFO	Listening on 127.0.0.1:49741
+1657698518588	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "33889" "-no-remote" "-profile" "/tmp/rust_mozprofileRJG5yf"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657698520517	Marionette	INFO	Marionette enabled
+1657698520531	Marionette	INFO	Listening on port 37241
+WebDriver BiDi listening on ws://localhost:33889
+1657698521308	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileRJG5yf/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:33889/devtools/browser/8bd28ee5-83fa-49ef-91c0-2ea2fea07117
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1657698617771	geckodriver	INFO	Listening on 127.0.0.1:37487
+1657698618281	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "55625" "-no-remote" "-profile" "/tmp/rust_mozprofileoWFBqf"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657698620527	Marionette	INFO	Marionette enabled
+1657698620542	Marionette	INFO	Listening on port 34711
+WebDriver BiDi listening on ws://localhost:55625
+1657698621848	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileoWFBqf/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55625/devtools/browser/2714bfd3-3979-4f77-afd5-ec2d84cfe184
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1657699280246	geckodriver	INFO	Listening on 127.0.0.1:36857
+1657699280261	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "43223" "-no-remote" "-profile" "/tmp/rust_mozprofilegqF2RN"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657699282494	Marionette	INFO	Marionette enabled
+1657699282509	Marionette	INFO	Listening on port 45485
+WebDriver BiDi listening on ws://localhost:43223
+1657699283518	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilegqF2RN/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:43223/devtools/browser/12bfc6ed-b736-4ea6-b392-8565b3ae3fdb
+1657699295375	Marionette	INFO	Stopped listening on port 45485
+Exiting due to channel error.
+1657699311976	geckodriver	INFO	Listening on 127.0.0.1:55689
+1657699311989	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "37241" "-no-remote" "-profile" "/tmp/rust_mozprofilewVbdkC"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657699313787	Marionette	INFO	Marionette enabled
+1657699313798	Marionette	INFO	Listening on port 42565
+WebDriver BiDi listening on ws://localhost:37241
+1657699315651	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilewVbdkC/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:37241/devtools/browser/579694d7-bfbd-4f84-8ee6-751d1704a958
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1657699349144	geckodriver	INFO	Listening on 127.0.0.1:37219
+1657699349158	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "51203" "-no-remote" "-profile" "/tmp/rust_mozprofileXNfDoc"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657699350822	Marionette	INFO	Marionette enabled
+1657699350839	Marionette	INFO	Listening on port 38295
+WebDriver BiDi listening on ws://localhost:51203
+1657699351579	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileXNfDoc/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51203/devtools/browser/216c585a-f1a0-4311-b659-efa2a6d840b9
+1657699360467	Marionette	INFO	Stopped listening on port 38295
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+console.error: "Could not load engine google@search.mozilla.org: Error: Data is not ready."
+console.error: "Could not load engine amazondotcom@search.mozilla.org: [Exception... \"AddonManager is not initialized\"  nsresult: \"0xc1f30001 (NS_ERROR_NOT_INITIALIZED)\"  location: \"JS frame :: resource://gre/modules/AddonManager.jsm :: installBuiltinAddon :: line 2491\"  data: no]"
+console.error: "Could not load engine wikipedia@search.mozilla.org: [Exception... \"AddonManager is not initialized\"  nsresult: \"0xc1f30001 (NS_ERROR_NOT_INITIALIZED)\"  location: \"JS frame :: resource://gre/modules/AddonManager.jsm :: installBuiltinAddon :: line 2491\"  data: no]"
+console.error: "Could not load engine bing@search.mozilla.org: [Exception... \"AddonManager is not initialized\"  nsresult: \"0xc1f30001 (NS_ERROR_NOT_INITIALIZED)\"  location: \"JS frame :: resource://gre/modules/AddonManager.jsm :: installBuiltinAddon :: line 2491\"  data: no]"
+console.error: "Could not load engine ddg@search.mozilla.org: [Exception... \"AddonManager is not initialized\"  nsresult: \"0xc1f30001 (NS_ERROR_NOT_INITIALIZED)\"  location: \"JS frame :: resource://gre/modules/AddonManager.jsm :: installBuiltinAddon :: line 2491\"  data: no]"
+console.error: SearchService: "Could not find a replacement default engine."
+console.warn: SearchService: "_init: abandoning init due to shutting down"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: uncaught exception: 2147500036
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: uncaught exception: 2147500036
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: uncaught exception: 2147500036
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: uncaught exception: 2147500036
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: uncaught exception: 2147500036
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: uncaught exception: 2147500036
+JavaScript error: resource://gre/modules/CrashManager.jsm, line 906: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+RunWatchdog: Mainthread nested event loops during hang: 
+ --- (no nested event loop active)
+ExceptionHandler::GenerateDump cloned child 29185
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+1657699584504	geckodriver	INFO	Listening on 127.0.0.1:35439
+1657699584523	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "40669" "-no-remote" "-profile" "/tmp/rust_mozprofileNpZkpH"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657699586795	Marionette	INFO	Marionette enabled
+1657699586810	Marionette	INFO	Listening on port 35369
+WebDriver BiDi listening on ws://localhost:40669
+1657699587612	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileNpZkpH/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:40669/devtools/browser/a9f18149-c49a-488b-9775-c5a9d606f173
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1657699666696	geckodriver	INFO	Listening on 127.0.0.1:34157
+1657699666708	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "45107" "-no-remote" "-profile" "/tmp/rust_mozprofileAyEPxH"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657699668401	Marionette	INFO	Marionette enabled
+1657699668413	Marionette	INFO	Listening on port 35997
+WebDriver BiDi listening on ws://localhost:45107
+1657699669193	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileAyEPxH/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:45107/devtools/browser/e4181846-b08e-4b44-82e1-1a53e3debaa4
+1657699697695	Marionette	INFO	Stopped listening on port 35997
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1657699789324	geckodriver	INFO	Listening on 127.0.0.1:44845
+1657699789836	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "46781" "-no-remote" "-profile" "/tmp/rust_mozprofilelN5y0X"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657699791580	Marionette	INFO	Marionette enabled
+1657699791596	Marionette	INFO	Listening on port 38417
+WebDriver BiDi listening on ws://localhost:46781
+1657699792339	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilelN5y0X/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:46781/devtools/browser/f8c6d0a0-fea0-46c6-8a5a-9180c177b824
+1657699808754	Marionette	INFO	Stopped listening on port 38417
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1657699848129	geckodriver	INFO	Listening on 127.0.0.1:48549
+1657699848142	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "55385" "-no-remote" "-profile" "/tmp/rust_mozprofile5XPkk1"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657699849873	Marionette	INFO	Marionette enabled
+1657699849890	Marionette	INFO	Listening on port 33005
+WebDriver BiDi listening on ws://localhost:55385
+1657699850650	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile5XPkk1/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55385/devtools/browser/a53b260b-f959-4c49-976b-c21feb7c238b
+1657699874308	Marionette	INFO	Stopped listening on port 33005
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1657699956644	geckodriver	INFO	Listening on 127.0.0.1:59007
+1657699957152	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "42779" "-no-remote" "-profile" "/tmp/rust_mozprofileT6fJUP"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657699958833	Marionette	INFO	Marionette enabled
+1657699958850	Marionette	INFO	Listening on port 35407
+WebDriver BiDi listening on ws://localhost:42779
+1657699959553	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileT6fJUP/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:42779/devtools/browser/7641d110-5e24-455c-9505-963507bd95f6
+1657699977801	Marionette	INFO	Stopped listening on port 35407
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
