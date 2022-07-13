@@ -43,7 +43,7 @@ class Browser:
     password_input_wrapper = self.instance.find_element(By.TAG_NAME, "vui-input-password")
     password_input = password_input_wrapper.find_element(By.TAG_NAME, "input")
     mail_input.send_keys("emersonbritto987@gmail.com")
-    password_input.send_keys(r"y1q8uw2a")
+    password_input.send_keys(r"MY_PASSWORD")
     mail_input.send_keys(Keys.ENTER)
 
     sleep(15)
