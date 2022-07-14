@@ -29,7 +29,7 @@ speculator.use("controller", ctr)
 def main(historic, price, candle, close):
 	if not seconds() in [00, 31, 41, 51]: return
 
-	# os.system("clear")
+	os.system("clear")
 	ctr.press('shift') # keep screen active
 
 	print("registering candle..", datetime.now())

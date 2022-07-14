@@ -118,7 +118,6 @@ class Graphic(Screen):
 
 			if len(matches) and matches[len(matches) -1]:
 				try:
-					print(matches)
 					price = int(matches[len(matches) -1].replace(".", ""))
 					maxVariation = configer.get("graphic.priceListener.maxPriceVariation")
 					if not self.price.last or abs(self.price.last - price) < maxVariation:
