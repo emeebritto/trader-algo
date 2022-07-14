@@ -1074,3 +1074,92 @@ JavaScript warning: https://binomo.com/797-es2015.700383743c8f6e2bd15a.js, line 
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1657787412861	geckodriver	INFO	Listening on 127.0.0.1:44951
+1657787412879	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--headless" "--remote-debugging-port" "47005" "-no-remote" "-profile" "/tmp/rust_mozprofile8lHevu"
+*** You are running in headless mode.
+1657787413872	Marionette	INFO	Marionette enabled
+1657787413885	Marionette	INFO	Listening on port 45239
+WebDriver BiDi listening on ws://localhost:47005
+1657787414801	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile8lHevu/search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 765))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+DevTools listening on ws://localhost:47005/devtools/browser/2a40c694-6901-41b7-aa18-ab9ae2ca93d8
+1657787431197	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+1657787684585	geckodriver	INFO	Listening on 127.0.0.1:51847
+1657787685096	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "38717" "-no-remote" "-profile" "/tmp/rust_mozprofileTIhugs"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657787688302	Marionette	INFO	Marionette enabled
+1657787688316	Marionette	INFO	Listening on port 35885
+WebDriver BiDi listening on ws://localhost:38717
+1657787690480	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileTIhugs/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:38717/devtools/browser/d31a07fc-68e7-4930-86b3-d579ca83f3ae
+1657787706892	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+1657787728237	Marionette	INFO	Stopped listening on port 35885
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1657787763464	geckodriver	INFO	Listening on 127.0.0.1:41817
+1657787763550	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--headless" "--remote-debugging-port" "39183" "-no-remote" "-profile" "/tmp/rust_mozprofileoYvN0L"
+*** You are running in headless mode.
+1657787765056	Marionette	INFO	Marionette enabled
+1657787765068	Marionette	INFO	Listening on port 36685
+WebDriver BiDi listening on ws://localhost:39183
+1657787765853	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileoYvN0L/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:39183/devtools/browser/d305b9f9-b51a-49c8-a4a4-b28af46ce95d
+1657787778905	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript warning: https://binomo.com/797-es2015.700383743c8f6e2bd15a.js, line 1: Failed to create WebGL context: WebGL creation failed: 
+* tryNativeGL (FEATURE_FAILURE_EGL_NO_CONFIG)
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+1657787817802	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:234:19
+TimedPromise@chrome://remote/content/marionette/sync.js:219:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1657789061580	geckodriver	INFO	Listening on 127.0.0.1:35671
+1657789062041	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--headless" "--remote-debugging-port" "46761" "-no-remote" "-profile" "/tmp/rust_mozprofilecB2840"
+*** You are running in headless mode.
+1657789065771	Marionette	INFO	Marionette enabled
+1657789065837	Marionette	INFO	Listening on port 42203
+WebDriver BiDi listening on ws://localhost:46761
+1657789066907	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilecB2840/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:46761/devtools/browser/c12d15f0-9274-421b-b0bc-64819edceac7
+1657789083621	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+1657789146460	geckodriver	INFO	Listening on 127.0.0.1:56007
+1657789146471	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--remote-debugging-port" "59675" "-no-remote" "-profile" "/tmp/rust_mozprofileXlnvJj"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657789150928	Marionette	INFO	Marionette enabled
+1657789150941	Marionette	INFO	Listening on port 35891
+WebDriver BiDi listening on ws://localhost:59675
+1657789152178	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileXlnvJj/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:59675/devtools/browser/81b66544-263f-4d89-84c1-85ef48500bcf
+1657789166472	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript warning: https://binomo.com/797-es2015.700383743c8f6e2bd15a.js, line 1: Failed to create WebGL context: WebGL creation failed: 
+* tryNativeGL (FEATURE_FAILURE_EGL_NO_CONFIG)
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1657792289440	Marionette	INFO	Stopped listening on port 42203
+1657792289475	Marionette	INFO	Stopped listening on port 45239
+WARNING: At least one completion condition is taking too long to complete. Conditions: [{"name":"Places Connection shutdown","state":{"PlacesShutdownProgress":5},"filename":"/builds/worker/checkouts/gecko/toolkit/components/places/Database.cpp","lineNumber":470,"stack":["resource://gre/modules/nsAsyncShutdown.jsm:addBlocker:162","resource://gre/modules/XPCOMUtils.jsm:XPCU_serviceLambda:161","resource://gre/modules/XPCOMUtils.jsm:get:62","resource:///modules/BrowserGlue.jsm:BG__onFirstWindowLoaded:1685","resource:///modules/BrowserGlue.jsm:BG_observe:926","chrome://browser/content/browser.js:_delayedStartup:2144"]}] Barrier: profile-before-change
+console.error: (new Error("SessionFile is closed", "resource:///modules/sessionstore/SessionFile.jsm", 379))
+Sandbox: Unexpected EOF, op 0 flags 00 path /proc/cpuinfo
