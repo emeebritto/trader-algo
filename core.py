@@ -5,7 +5,7 @@ from entities.graphic import Graphic
 from speculator import Speculator
 from datetime import datetime
 from configer import configer
-# from browser import browser
+from browser import browser
 from logger import logger
 import pyautogui as ctr
 import os
@@ -18,7 +18,7 @@ graphic = Graphic()
 screen = Screen()
 speculator = Speculator()
 
-# browser.openChart()
+browser.openChart()
 graphic.start()
 
 speculator.use("view", screen)
@@ -29,7 +29,7 @@ speculator.use("controller", ctr)
 def main(historic, price, candle, close):
 	if not seconds() in [00, 31, 41, 51]: return
 
-	os.system("clear")
+	# os.system("clear")
 	ctr.press('shift') # keep screen active
 
 	print("registering candle..", datetime.now())

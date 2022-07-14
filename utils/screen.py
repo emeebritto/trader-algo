@@ -1,5 +1,5 @@
 import pyautogui as pg
-
+import pyscreeze
 
 class Screen:
 	def __init__(self):
@@ -14,3 +14,7 @@ class Screen:
 
 	def locateOnScreen(self, baseFile, confidence, region):
 		return pg.locateOnScreen(baseFile, confidence=confidence, region=region)
+
+
+	def locateOnImage(self, image, needleImage, confidence):
+		return pyscreeze.locate(needleImage, image, confidence=confidence)

@@ -8,11 +8,12 @@ from logger import logger
 from utils.time import seconds, wait
 from pytesseract import pytesseract
 from configer import configer
-# from browser import browser
+from browser import browser
 import threading
 import numpy as np
 import cv2
 import re
+
 
 
 class Graphic(Screen):
@@ -82,28 +83,42 @@ class Graphic(Screen):
 	def _listenPrice(self):
 		logger.log("listening price")
 		while self.active:
-			priceBar = self.locateOnScreen(
-				'priceBar_target.png',
-				confidence=.6,
-				region=(
-					self.priceBarArea["posX"],
-					self.priceBarArea["posY"],
-					self.priceBarArea["width"],
-					self.priceBarArea["height"]
-				)
+			screenshot = browser.chart_price_screenshot()
+			priceBar = self.locateOnImage(
+				screenshot,
+				needleImage='priceBar_target.png',
+				confidence=.6
 			)
 
 			if not priceBar: continue
 
-			priceBarPosition = (priceBar.left, priceBar.top, priceBar.width, priceBar.height)
-			screenshot = self.take_screenshot(region=priceBarPosition)
-			# screenshot = browser.chart_screenshot(region=(415, 0, w, h))
-			thresh = cv2.threshold(np.array(screenshot), 150, 0, 76, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+			priceBarPosition = (
+				priceBar.left+23,
+				priceBar.top+10,
+				priceBar.width+priceBar.left,
+				priceBar.top+priceBar.height-4
+			)
+
+			cropped_img = screenshot.crop(priceBarPosition)
+			# 140, 40, 136 or 180, 80, 226
+			thresh = cv2.threshold(np.array(cropped_img), 140, 40, 136, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
 			rawStr = pytesseract.image_to_string(thresh, config='--psm 6')
+			# print("rawStr: ", rawStr)
+			# cv2.imshow("thresh", thresh)
+			# cv2.waitKey(0)
 			priceFormat = r"[0-9]*\.[0-9]*"
 			matches = re.findall(priceFormat, rawStr)
+
+			if not len(matches):
+				print("not detected price. trying second method")
+				thresh = cv2.threshold(np.array(cropped_img), 180, 80, 226, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+				rawStr = pytesseract.image_to_string(thresh, config='--psm 6')
+				matches = re.findall(priceFormat, rawStr)
+
+
 			if len(matches) and matches[len(matches) -1]:
 				try:
+					print(matches)
 					price = int(matches[len(matches) -1].replace(".", ""))
 					maxVariation = configer.get("graphic.priceListener.maxPriceVariation")
 					if not self.price.last or abs(self.price.last - price) < maxVariation:
