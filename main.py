@@ -5,7 +5,7 @@ from entities.graphic import Graphic
 from speculator import Speculator
 from datetime import datetime
 from configer import configer
-from browser import browser
+from utils.browser import browser
 from logger import logger
 import pyautogui as ctr
 import os

@@ -8,7 +8,7 @@ from logger import logger
 from utils.time import seconds, wait
 from pytesseract import pytesseract
 from configer import configer
-from browser import browser
+from utils.browser import browser
 import threading
 import numpy as np
 import cv2

@@ -11,7 +11,7 @@ FIREFOX_DRIVER_PATH = './bin/geckodriver'
 class Browser:
   def __init__(self):
     super(Browser, self).__init__()
-    self.options = ('--none',)
+    self.options = ('--none', '--headless',)
     self.instance = None
     self._init_firefox()
 

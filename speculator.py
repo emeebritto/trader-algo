@@ -3,7 +3,7 @@ from random import randint
 from itertools import count
 from configer import configer
 from logger import logger
-from browser import browser
+from utils.browser import browser
 from utils.sound import sound
 
 
