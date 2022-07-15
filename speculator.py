@@ -4,7 +4,7 @@ from itertools import count
 from configer import configer
 from logger import logger
 from utils.browser import browser
-from utils.sound import sound
+# from utils.sound import sound
 
 
 class Speculator:
@@ -90,27 +90,15 @@ class Speculator:
 
 
 	def purchase(self):
-		# lastMousePosition = self.controller.position()
-		# positionBtn = configer.get("buttons.purchase")
-		# posX = positionBtn["posX"] or (randint(750, 860) * self.view.width) / 900
-		# posY = positionBtn["posY"] or (randint(1275, 1290) * self.view.height) / 1600
-		# self.controller.click(x=posX, y=posY)
 		browser.click_dealUpBtn()
-		sound.play("notifications_11.mp3")
+		# sound.play("notifications_11.mp3")
 		logger.log("speculator -> bought")
-		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 
 
 	def sell(self):
-		# lastMousePosition = self.controller.position()
-		# positionBtn = configer.get("buttons.sell")
-		# posX = positionBtn["posX"] or (randint(750, 860) * self.view.width) / 900
-		# posY = positionBtn["posY"] or (randint(1335, 1350) * self.view.height) / 1600
-		# self.controller.click(x=posX, y=posY)
 		browser.click_dealDownBtn()
-		sound.play("notifications_11.mp3")
+		# sound.play("notifications_11.mp3")
 		logger.log("speculator -> sold")
-		self.controller.moveTo(lastMousePosition[0], lastMousePosition[1], 0.3)
 
 
 	def checkFiboMatches(self, value):

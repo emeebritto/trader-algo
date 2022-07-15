@@ -1,5 +1,4 @@
 from entities.price import Price
-from utils.screen import Screen
 from entities.candle import Candle
 from entities.candleHistoric import CandleHistoric
 from collections import deque
@@ -16,7 +15,7 @@ import re
 
 
 
-class Graphic(Screen):
+class Graphic:
 	def __init__(self):
 		super(Graphic, self).__init__()
 		self.timeframe = 1
@@ -25,13 +24,6 @@ class Graphic(Screen):
 		self.price = Price(0)
 		self.currentCandle = None
 		self._candles = CandleHistoric([], maxlen=240)
-		priceBarArea = configer.get("graphic.priceBarArea")
-		self.priceBarArea = {
-			"posX": priceBarArea["posX"] or (596 * self.width) // 900,
-			"posY": priceBarArea["posY"] or (1050 * self.height) // 1600,
-			"width": priceBarArea["width"] or (110 * self.width) // 900,
-			"height": priceBarArea["height"] or (520 * self.height) // 1600
-		}
 
 
 	@property
