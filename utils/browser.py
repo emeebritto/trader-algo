@@ -1,8 +1,10 @@
 from PIL import Image
+import os
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from time import sleep
 FIREFOX_DRIVER_PATH = './bin/geckodriver'
 
@@ -19,6 +21,7 @@ class Browser:
   def _init_firefox(self):
     print("Browser -> initializing browser.")
     firefox_options = webdriver.FirefoxOptions()
+    binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
 
     # firefox_options.add_argument('--headless')
     if self.options is not None:
@@ -26,11 +29,12 @@ class Browser:
         firefox_options.add_argument(option)
 
     firefox_service = Service(
-      executable_path=FIREFOX_DRIVER_PATH,
+      executable_path=os.environ.get('GECKODRIVER_PATH') or FIREFOX_DRIVER_PATH
     )
 
     browser = webdriver.Firefox(
       service=firefox_service,
+      firefox_binary=binary,
       options=firefox_options
     )
 
