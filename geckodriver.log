@@ -1393,3 +1393,34 @@ DevTools listening on ws://localhost:58123/devtools/browser/7ab326b8-54dd-42bc-9
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1657941776668	geckodriver	INFO	Listening on 127.0.0.1:34087
+1657941804945	geckodriver	INFO	Listening on 127.0.0.1:48567
+1657941805165	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--headless" "--remote-debugging-port" "43413" "-no-remote" "-profile" "/tmp/rust_mozprofileRbjYpk"
+*** You are running in headless mode.
+1657941806841	Marionette	INFO	Marionette enabled
+1657941806863	Marionette	INFO	Listening on port 35665
+WebDriver BiDi listening on ws://localhost:43413
+1657941808055	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileRbjYpk/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:43413/devtools/browser/98b6d46b-cd25-4e10-87a5-b70e96b06b94
+1657941861858	geckodriver	INFO	Listening on 127.0.0.1:38899
+1657941861942	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--none" "--headless" "--remote-debugging-port" "58885" "-no-remote" "-profile" "/tmp/rust_mozprofilee4YCMv"
+*** You are running in headless mode.
+1657941862769	Marionette	INFO	Marionette enabled
+1657941862779	Marionette	INFO	Listening on port 37611
+WebDriver BiDi listening on ws://localhost:58885
+1657941863551	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilee4YCMv/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:58885/devtools/browser/d896321b-d372-47fd-83bd-dbf974a4e7ed
+1657941879088	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://binomo.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript warning: https://binomo.com/797-es2015.700383743c8f6e2bd15a.js, line 1: Failed to create WebGL context: WebGL creation failed: 
+* tryNativeGL (FEATURE_FAILURE_EGL_NO_CONFIG)
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.

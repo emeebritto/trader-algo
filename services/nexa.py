@@ -7,6 +7,7 @@ class Nexa:
 		super(Nexa, self).__init__()
 		self.__token = "5435366586:AAE9L0ZVNTEkAIHg12LssdsVgtV36I7BYVc"
 		self.__author = '1242558424'
+		self.__author_name = "Emerson_Britto"
 
 
 	def _request(self, link):
@@ -20,6 +21,11 @@ class Nexa:
 			if msg["message"]["from"]["username"] == user:
 				filtered_msg.append(msg)
 		return filtered_msg
+
+
+	def input(self, label):
+		self.send_to_author(msg=label)
+		return self.wait_new_message(user=self.__author_name)
 
 
 	def send_to_author(self, msg):
@@ -55,6 +61,6 @@ class Nexa:
 
 
 nexa = Nexa()
-print("waiting your message..")
+# print("waiting your message..")
 # print(nexa.last_message(user="Emerson-Britto"))
-print(nexa.wait_new_message(user="Emerson_Britto"))
+# print(nexa.wait_new_message(user="Emerson_Britto"))

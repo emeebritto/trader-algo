@@ -10,7 +10,7 @@ from logger import logger
 import os
 
 configer.init("config/default.json")
-logger.init(folderPath="logs")
+logger.init() # default folder "logs"
 # sound.folder("sounds")
 
 graphic = Graphic()

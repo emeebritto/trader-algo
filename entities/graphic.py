@@ -7,6 +7,7 @@ from logger import logger
 from utils.time import seconds, wait
 from pytesseract import pytesseract
 from configer import configer
+from utils.screen import Screen
 from utils.browser import browser
 import threading
 import numpy as np
@@ -15,7 +16,7 @@ import re
 
 
 
-class Graphic:
+class Graphic(Screen):
 	def __init__(self):
 		super(Graphic, self).__init__()
 		self.timeframe = 1

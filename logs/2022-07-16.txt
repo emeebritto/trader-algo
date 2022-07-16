@@ -1,0 +1,18 @@
+[2022-07-16 00:22:55.251106]: Browser -> initializing browser.
+[2022-07-16 00:23:23.867954]: Browser -> initializing browser.
+[2022-07-16 00:24:20.521325]: Browser -> initializing browser.
+
+[2022-07-16 00:24:29.465038]: initialized log file.
+[2022-07-16 00:24:29.486915]: Browser -> getting aplication web.
+[2022-07-16 00:24:40.200333]: Browser -> insering account login.
+[2022-07-16 00:24:42.431285]: Browser -> sleeping.
+[2022-07-16 00:25:13.580371]: Browser -> selecting assets box.
+[2022-07-16 00:25:15.811976]: Browser -> sleeping.
+[2022-07-16 00:25:20.836402]: Browser -> selecting asset (EUR/USD).
+[2022-07-16 00:25:22.313538]: Browser -> sleeping.
+[2022-07-16 00:25:28.314381]: Browser -> sleeping.
+[2022-07-16 00:25:33.184460]: Browser -> selecting chart time.
+[2022-07-16 00:25:39.249705]: Browser -> chart ready.
+[2022-07-16 00:25:42.157313]: listening price
+[2022-07-16 00:25:42.176736]: Graphic was started
+[2022-07-16 00:25:43.072725]: Trading window was opened
