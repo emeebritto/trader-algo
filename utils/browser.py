@@ -30,7 +30,7 @@ class Browser:
         firefox_options.add_argument(option)
 
     firefox_service = Service(
-      executable_path=os.environ.get('GECKODRIVER_PATH') or FIREFOX_DRIVER_PATH
+      executable_path=FIREFOX_DRIVER_PATH
     )
 
     browser = webdriver.Firefox(
@@ -128,3 +128,6 @@ class Browser:
 
 
 browser = Browser()
+
+
+# os.environ.get('GECKODRIVER_PATH')
