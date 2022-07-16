@@ -16,3 +16,7 @@
 [2022-07-16 00:25:42.157313]: listening price
 [2022-07-16 00:25:42.176736]: Graphic was started
 [2022-07-16 00:25:43.072725]: Trading window was opened
+[2022-07-16 03:01:14.547439]: Browser -> initializing browser.
+
+[2022-07-16 03:01:32.808075]: initialized log file.
+[2022-07-16 03:01:32.809047]: Browser -> getting aplication web.
