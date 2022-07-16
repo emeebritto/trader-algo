@@ -49,7 +49,7 @@ class Browser:
 
   def openChart(self):
     logger.log("Browser -> getting aplication web.")
-    self.instance.get('https://binomo.com/trading')
+    self.instance.get('http://binomo.com/trading')
     sleep(8)
     self.send_screen_to_author()
 
