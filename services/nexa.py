@@ -18,7 +18,8 @@ class Nexa:
 	def filter_msg(self, user, msgs):
 		filtered_msg = []
 		for msg in msgs:
-			if msg["message"]["from"]["username"] == user:
+			if not msg.get("message"): continue
+			elif msg["message"]["from"]["username"] == user:
 				filtered_msg.append(msg)
 		return filtered_msg
 

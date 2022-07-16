@@ -16,6 +16,7 @@ logger.init() # default folder "logs"
 graphic = Graphic()
 speculator = Speculator()
 
+
 browser.openChart()
 graphic.start()
 

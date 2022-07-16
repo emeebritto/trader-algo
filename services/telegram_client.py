@@ -7,7 +7,7 @@ from services.nexa import nexa
 
 class Nexa_Telegram:
   def __init__(self):
-    super(Telegram, self).__init__()
+    super(Nexa_Telegram, self).__init__()
     self.api_id = "16533245"
     self.api_hash = "77a7ed7f8a140b7d3d124ed34e6f4170"
     self.phone = "+5573991973084"
@@ -23,7 +23,7 @@ class Nexa_Telegram:
 
 
   def send_to_author(self, msg):
-    return self.send_message(user=self.author, msg)
+    return self.send_message(user=self.author, msg=msg)
 
 
   def received_from_author(self):
@@ -62,5 +62,6 @@ class Nexa_Telegram:
 
 
 nexa_Telegram = Nexa_Telegram()
+# nexa_Telegram.send_file_to_author("../app_chart.png")
 # print(nexa_Telegram.received_message("Emerson Britto"))
 # telegram.send_message(user="Emerson_Britto", msg="From Nexa")

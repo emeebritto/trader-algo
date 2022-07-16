@@ -20,3 +20,1345 @@
 
 [2022-07-16 03:01:32.808075]: initialized log file.
 [2022-07-16 03:01:32.809047]: Browser -> getting aplication web.
+[2022-07-16 03:17:34.961078]: Browser -> initializing browser.
+
+[2022-07-16 03:17:47.521450]: initialized log file.
+[2022-07-16 03:17:47.521824]: Browser -> getting aplication web.
+[2022-07-16 03:18:09.648839]: Browser -> insering account login.
+[2022-07-16 03:18:11.453011]: Browser -> sleeping.
+[2022-07-16 03:18:42.408371]: Browser -> selecting assets box.
+[2022-07-16 03:18:44.901125]: Browser -> sleeping.
+[2022-07-16 03:18:49.810831]: Browser -> selecting asset (EUR/USD).
+[2022-07-16 03:18:51.457682]: Browser -> sleeping.
+[2022-07-16 03:18:57.163357]: Browser -> sleeping.
+[2022-07-16 03:19:02.070228]: Browser -> selecting chart time.
+[2022-07-16 03:19:09.182137]: Browser -> chart ready.
+[2022-07-16 03:19:12.158527]: listening price
+[2022-07-16 03:19:12.159486]: Graphic was started
+[2022-07-16 03:19:13.166002]: Trading window was opened
+[2022-07-16 03:19:31.326291]: creating Fibonacci (Fibo_0 - From 1186974 to 1186968)
+[2022-07-16 03:19:32.126074]: updating Fibonacci (start_child_1 - From 1186974 to 1186971.708))
+[2022-07-16 03:19:33.070246]: updating Fibonacci (end_child_2 - From 1186970.292 to 1186968.0))
+[2022-07-16 03:19:34.001259]: price was out of range (f100) of the current fibonacci
+[2022-07-16 03:19:34.944976]: updating Fibonacci (Fibo_0 - From 1186968 to 1187020))
+[2022-07-16 03:19:35.827817]: updating Fibonacci (start_child_1 - From 1186968 to 1186987.864))
+[2022-07-16 03:19:36.775625]: updating Fibonacci (end_child_2 - From 1187000.136 to 1187020.0))
+[2022-07-16 03:19:37.627661]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 2
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186968
+   - entry: 1186970
+   - exit: 1187030
+   - maxTraced: 1187030
+  > metrics ======================
+   - entryTraceLength: 2
+   - body: 60
+   - exitTraceLength: 0
+
+[2022-07-16 03:19:38.491787]: 
+  started at 0
+  maxValue: 1187030
+  ^ price (current): 1187030
+  | price (last): 1187020
+  minValue: 1186968
+
+[2022-07-16 03:19:39.360095]: 
+  name: Fibo_0
+  inactive: True
+  height: 52 (require: 1400)
+  start: 1186968
+  end: 1187020
+
+  ^ metrics =====================
+  | 0: 1187020.0 (matches: 0) [inactive]
+  | 38.2: 1187000.136 (matches: 0) [inactive]
+  | 50: 1186994.0 (matches: 0) [inactive]
+  | 61.8: 1186987.864 (matches: 0) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:19:41.162859]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:19:42.037299]: updating Fibonacci (Fibo_0 - From 1186968 to 1187070))
+[2022-07-16 03:19:42.789160]: updating Fibonacci (start_child_1 - From 1186968 to 1187006.964))
+[2022-07-16 03:19:43.674589]: updating Fibonacci (end_child_2 - From 1187031.036 to 1187070.0))
+[2022-07-16 03:19:44.608697]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 2
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186968
+   - entry: 1186970
+   - exit: 1187070
+   - maxTraced: 1187070
+  > metrics ======================
+   - entryTraceLength: 2
+   - body: 100
+   - exitTraceLength: 0
+
+[2022-07-16 03:19:45.530034]: 
+  started at 0
+  maxValue: 1187070
+  - price (current): 1187070
+  - price (last): 1187070
+  minValue: 1186968
+
+[2022-07-16 03:19:46.540864]: 
+  name: Fibo_0
+  inactive: True
+  height: 102 (require: 1400)
+  start: 1186968
+  end: 1187070
+
+  ^ metrics =====================
+  | 0: 1187070.0 (matches: 0) [inactive]
+  | 38.2: 1187031.036 (matches: 0) [inactive]
+  | 50: 1187019.0 (matches: 0) [inactive]
+  | 61.8: 1187006.964 (matches: 0) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:19:51.331600]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:19:52.202700]: updating Fibonacci (Fibo_0 - From 1186968 to 1187090))
+[2022-07-16 03:19:53.031056]: updating Fibonacci (start_child_1 - From 1186968 to 1187014.604))
+[2022-07-16 03:19:54.149180]: updating Fibonacci (end_child_2 - From 1187043.396 to 1187090.0))
+[2022-07-16 03:19:55.088724]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 2
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186968
+   - entry: 1186970
+   - exit: 1187098
+   - maxTraced: 1187098
+  > metrics ======================
+   - entryTraceLength: 2
+   - body: 128
+   - exitTraceLength: 0
+
+[2022-07-16 03:19:56.091230]: 
+  started at 0
+  maxValue: 1187098
+  | price (last): 1187098
+  v price (current): 1187080
+  minValue: 1186968
+
+[2022-07-16 03:19:57.101368]: 
+  name: Fibo_0
+  inactive: True
+  height: 122 (require: 1400)
+  start: 1186968
+  end: 1187090
+
+  ^ metrics =====================
+  | 0: 1187090.0 (matches: 0) [inactive]
+  | 38.2: 1187043.396 (matches: 0) [inactive]
+  | 50: 1187029.0 (matches: 0) [inactive]
+  | 61.8: 1187014.604 (matches: 0) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:20:00.945910]: 
+  type: 0
+  entryTraceIsMax: False
+  hasEntryTrace: False
+  traceDifference: 0
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187070
+   - entry: 1187070
+   - exit: 1187070
+   - maxTraced: 1187070
+  > metrics ======================
+   - entryTraceLength: 0
+   - body: 0
+   - exitTraceLength: 0
+
+[2022-07-16 03:20:01.890985]: 
+  started at 0
+  maxValue: 1187098
+  | price (last): 1187080
+  v price (current): 1187070
+  minValue: 1186968
+
+[2022-07-16 03:20:02.808864]: 
+  name: Fibo_0
+  inactive: True
+  height: 122 (require: 1400)
+  start: 1186968
+  end: 1187090
+
+  ^ metrics =====================
+  | 0: 1187090.0 (matches: 0) [inactive]
+  | 38.2: 1187043.396 (matches: 0) [inactive]
+  | 50: 1187029.0 (matches: 0) [inactive]
+  | 61.8: 1187014.604 (matches: 0) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:20:31.612594]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:20:32.677089]: updating Fibonacci (Fibo_0 - From 1186968 to 1187150))
+[2022-07-16 03:20:33.465918]: updating Fibonacci (start_child_1 - From 1186968 to 1187037.524))
+[2022-07-16 03:20:34.500896]: updating Fibonacci (end_child_2 - From 1187080.476 to 1187150.0))
+[2022-07-16 03:20:35.513229]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 80
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186990
+   - entry: 1187070
+   - exit: 1187150
+   - maxTraced: 1187150
+  > metrics ======================
+   - entryTraceLength: 80
+   - body: 80
+   - exitTraceLength: 0
+
+[2022-07-16 03:20:36.450185]: 
+  started at 0
+  maxValue: 1187150
+  - price (current): 1187150
+  - price (last): 1187150
+  minValue: 1186968
+
+[2022-07-16 03:20:37.371871]: 
+  name: Fibo_0
+  inactive: True
+  height: 182 (require: 1400)
+  start: 1186968
+  end: 1187150
+
+  ^ metrics =====================
+  | 0: 1187150.0 (matches: 1) [inactive]
+  | 38.2: 1187080.476 (matches: 1) [inactive]
+  | 50: 1187059.0 (matches: 1) [inactive]
+  | 61.8: 1187037.524 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:20:41.178496]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 80
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186990
+   - entry: 1187070
+   - exit: 1187150
+   - maxTraced: 1187150
+  > metrics ======================
+   - entryTraceLength: 80
+   - body: 80
+   - exitTraceLength: 0
+
+[2022-07-16 03:20:42.038169]: 
+  started at 0
+  maxValue: 1187170
+  ^ price (current): 1187170
+  | price (last): 1187150
+  minValue: 1186968
+
+[2022-07-16 03:20:42.974680]: 
+  name: Fibo_0
+  inactive: True
+  height: 182 (require: 1400)
+  start: 1186968
+  end: 1187150
+
+  ^ metrics =====================
+  | 0: 1187150.0 (matches: 1) [inactive]
+  | 38.2: 1187080.476 (matches: 1) [inactive]
+  | 50: 1187059.0 (matches: 1) [inactive]
+  | 61.8: 1187037.524 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:20:51.713495]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:20:52.683539]: updating Fibonacci (Fibo_0 - From 1186968 to 1187170))
+[2022-07-16 03:20:53.500778]: updating Fibonacci (start_child_1 - From 1186968 to 1187045.164))
+[2022-07-16 03:20:54.390353]: updating Fibonacci (end_child_2 - From 1187092.836 to 1187170.0))
+[2022-07-16 03:20:55.298971]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 60
+  hasExitTrace: True
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186990
+   - entry: 1187070
+   - exit: 1187150
+   - maxTraced: 1187170
+  > metrics ======================
+   - entryTraceLength: 80
+   - body: 80
+   - exitTraceLength: 20
+
+[2022-07-16 03:20:56.139144]: 
+  started at 0
+  maxValue: 1187170
+  | price (last): 1187150
+  v price (current): 1187140
+  minValue: 1186968
+
+[2022-07-16 03:20:56.969241]: 
+  name: Fibo_0
+  inactive: True
+  height: 202 (require: 1400)
+  start: 1186968
+  end: 1187170
+
+  ^ metrics =====================
+  | 0: 1187170.0 (matches: 0) [inactive]
+  | 38.2: 1187092.836 (matches: 1) [inactive]
+  | 50: 1187069.0 (matches: 1) [inactive]
+  | 61.8: 1187045.164 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:21:00.736472]: 
+  type: 0
+  entryTraceIsMax: False
+  hasEntryTrace: False
+  traceDifference: 0
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187080
+   - entry: 1187080
+   - exit: 1187080
+   - maxTraced: 1187080
+  > metrics ======================
+   - entryTraceLength: 0
+   - body: 0
+   - exitTraceLength: 0
+
+[2022-07-16 03:21:01.595137]: 
+  started at 0
+  maxValue: 1187170
+  | price (last): 1187170
+  v price (current): 1187080
+  minValue: 1186968
+
+[2022-07-16 03:21:02.463204]: 
+  name: Fibo_0
+  inactive: True
+  height: 202 (require: 1400)
+  start: 1186968
+  end: 1187170
+
+  ^ metrics =====================
+  | 0: 1187170.0 (matches: 0) [inactive]
+  | 38.2: 1187092.836 (matches: 1) [inactive]
+  | 50: 1187069.0 (matches: 1) [inactive]
+  | 61.8: 1187045.164 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:21:31.443503]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:21:32.421854]: updating Fibonacci (Fibo_0 - From 1186968 to 1187190))
+[2022-07-16 03:21:33.246195]: updating Fibonacci (start_child_1 - From 1186968 to 1187052.804))
+[2022-07-16 03:21:34.201075]: updating Fibonacci (end_child_2 - From 1187105.196 to 1187190.0))
+[2022-07-16 03:21:35.168694]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 40
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187040
+   - entry: 1187080
+   - exit: 1187190
+   - maxTraced: 1187190
+  > metrics ======================
+   - entryTraceLength: 40
+   - body: 110
+   - exitTraceLength: 0
+
+[2022-07-16 03:21:36.125111]: 
+  started at 0
+  maxValue: 1187190
+  | price (last): 1187190
+  v price (current): 1187170
+  minValue: 1186968
+
+[2022-07-16 03:21:37.029202]: 
+  name: Fibo_0
+  inactive: True
+  height: 222 (require: 1400)
+  start: 1186968
+  end: 1187190
+
+  ^ metrics =====================
+  | 0: 1187190.0 (matches: 1) [inactive]
+  | 38.2: 1187105.196 (matches: 2) [inactive]
+  | 50: 1187079.0 (matches: 1) [inactive]
+  | 61.8: 1187052.804 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:21:41.899258]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 8
+  hasExitTrace: True
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187040
+   - entry: 1187080
+   - exit: 1187158
+   - maxTraced: 1187190
+  > metrics ======================
+   - entryTraceLength: 40
+   - body: 78
+   - exitTraceLength: 32
+
+[2022-07-16 03:21:42.722407]: 
+  started at 0
+  maxValue: 1187190
+  | price (last): 1187158
+  v price (current): 1187150
+  minValue: 1186968
+
+[2022-07-16 03:21:43.704281]: 
+  name: Fibo_0
+  inactive: True
+  height: 222 (require: 1400)
+  start: 1186968
+  end: 1187190
+
+  ^ metrics =====================
+  | 0: 1187190.0 (matches: 1) [inactive]
+  | 38.2: 1187105.196 (matches: 2) [inactive]
+  | 50: 1187079.0 (matches: 1) [inactive]
+  | 61.8: 1187052.804 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:21:51.564392]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:21:52.520097]: updating Fibonacci (Fibo_0 - From 1186968 to 1187210))
+[2022-07-16 03:21:53.228962]: updating Fibonacci (start_child_1 - From 1186968 to 1187060.444))
+[2022-07-16 03:21:54.059337]: updating Fibonacci (end_child_2 - From 1187117.556 to 1187210.0))
+[2022-07-16 03:21:54.961664]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 40
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187040
+   - entry: 1187080
+   - exit: 1187210
+   - maxTraced: 1187210
+  > metrics ======================
+   - entryTraceLength: 40
+   - body: 130
+   - exitTraceLength: 0
+
+[2022-07-16 03:21:55.965275]: 
+  started at 0
+  maxValue: 1187210
+  - price (current): 1187210
+  - price (last): 1187210
+  minValue: 1186968
+
+[2022-07-16 03:21:56.832723]: 
+  name: Fibo_0
+  inactive: True
+  height: 242 (require: 1400)
+  start: 1186968
+  end: 1187210
+
+  ^ metrics =====================
+  | 0: 1187210.0 (matches: 1) [inactive]
+  | 38.2: 1187117.556 (matches: 2) [inactive]
+  | 50: 1187089.0 (matches: 1) [inactive]
+  | 61.8: 1187060.444 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:22:00.627223]: 
+  type: 0
+  entryTraceIsMax: False
+  hasEntryTrace: False
+  traceDifference: 0
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187190
+   - entry: 1187190
+   - exit: 1187190
+   - maxTraced: 1187190
+  > metrics ======================
+   - entryTraceLength: 0
+   - body: 0
+   - exitTraceLength: 0
+
+[2022-07-16 03:22:01.570860]: 
+  started at 0
+  maxValue: 1187211
+  | price (last): 1187190
+  v price (current): 1187170
+  minValue: 1186968
+
+[2022-07-16 03:22:02.541730]: 
+  name: Fibo_0
+  inactive: True
+  height: 242 (require: 1400)
+  start: 1186968
+  end: 1187210
+
+  ^ metrics =====================
+  | 0: 1187210.0 (matches: 1) [inactive]
+  | 38.2: 1187117.556 (matches: 2) [inactive]
+  | 50: 1187089.0 (matches: 1) [inactive]
+  | 61.8: 1187060.444 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:22:31.366200]: 
+  type: -1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 30
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187220
+   - entry: 1187190
+   - exit: 1187160
+   - maxTraced: 1187160
+  > metrics ======================
+   - entryTraceLength: 30
+   - body: 30
+   - exitTraceLength: 0
+
+[2022-07-16 03:22:32.343993]: 
+  started at 0
+  maxValue: 1187220
+  | price (last): 1187180
+  v price (current): 1187160
+  minValue: 1186968
+
+[2022-07-16 03:22:33.471392]: 
+  name: Fibo_0
+  inactive: True
+  height: 242 (require: 1400)
+  start: 1186968
+  end: 1187210
+
+  ^ metrics =====================
+  | 0: 1187210.0 (matches: 1) [inactive]
+  | 38.2: 1187117.556 (matches: 2) [inactive]
+  | 50: 1187089.0 (matches: 1) [inactive]
+  | 61.8: 1187060.444 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:22:41.354550]: 
+  type: -1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 30
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187220
+   - entry: 1187190
+   - exit: 1187130
+   - maxTraced: 1187130
+  > metrics ======================
+   - entryTraceLength: 30
+   - body: 60
+   - exitTraceLength: 0
+
+[2022-07-16 03:22:42.449589]: 
+  started at 0
+  maxValue: 1187220
+  - price (current): 1187130
+  - price (last): 1187130
+  minValue: 1186968
+
+[2022-07-16 03:22:43.419346]: 
+  name: Fibo_0
+  inactive: True
+  height: 242 (require: 1400)
+  start: 1186968
+  end: 1187210
+
+  ^ metrics =====================
+  | 0: 1187210.0 (matches: 1) [inactive]
+  | 38.2: 1187117.556 (matches: 2) [inactive]
+  | 50: 1187089.0 (matches: 1) [inactive]
+  | 61.8: 1187060.444 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:22:51.428154]: 
+  type: -1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 30
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187220
+   - entry: 1187190
+   - exit: 1187120
+   - maxTraced: 1187120
+  > metrics ======================
+   - entryTraceLength: 30
+   - body: 70
+   - exitTraceLength: 0
+
+[2022-07-16 03:22:52.475279]: 
+  started at 0
+  maxValue: 1187220
+  | price (last): 1187128
+  v price (current): 1187120
+  minValue: 1186968
+
+[2022-07-16 03:22:53.510176]: 
+  name: Fibo_0
+  inactive: True
+  height: 242 (require: 1400)
+  start: 1186968
+  end: 1187210
+
+  ^ metrics =====================
+  | 0: 1187210.0 (matches: 1) [inactive]
+  | 38.2: 1187117.556 (matches: 2) [inactive]
+  | 50: 1187089.0 (matches: 1) [inactive]
+  | 61.8: 1187060.444 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:23:00.516507]: Fibo_0 -> detected match range [50, 61.8, 38.2]
+[2022-07-16 03:23:01.440824]: 
+  type: -1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 30
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187220
+   - entry: 1187190
+   - exit: 1187020
+   - maxTraced: 1187020
+  > metrics ======================
+   - entryTraceLength: 30
+   - body: 170
+   - exitTraceLength: 0
+
+[2022-07-16 03:23:02.405829]: 
+  started at 0
+  maxValue: 1187220
+  ^ price (current): 1186995
+  | price (last): 1186984
+  minValue: 1186968
+
+[2022-07-16 03:23:03.420074]: 
+  name: Fibo_0
+  inactive: True
+  height: 242 (require: 1400)
+  start: 1186968
+  end: 1187210
+
+  ^ metrics =====================
+  | 0: 1187210.0 (matches: 1) [inactive]
+  | 38.2: 1187117.556 (matches: 2) [inactive]
+  | 50: 1187089.0 (matches: 1) [inactive]
+  | 61.8: 1187060.444 (matches: 1) [inactive]
+  | 100: 1186968 (matches: 0) [inactive]
+
+
+[2022-07-16 03:23:31.378702]: Fibo_0 -> detected match range [100]
+[2022-07-16 03:23:32.084525]: price was out of range (f100) of the current fibonacci
+[2022-07-16 03:23:33.130028]: updating Fibonacci (Fibo_0 - From 1187210 to 1186860))
+[2022-07-16 03:23:33.899436]: updating Fibonacci (start_child_1 - From 1187210 to 1187076.3))
+[2022-07-16 03:23:34.962581]: updating Fibonacci (end_child_2 - From 1186993.7 to 1186860.0))
+[2022-07-16 03:23:35.789616]: 
+  type: -1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 11
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186995
+   - entry: 1186984
+   - exit: 1186860
+   - maxTraced: 1186860
+  > metrics ======================
+   - entryTraceLength: 11
+   - body: 124
+   - exitTraceLength: 0
+
+[2022-07-16 03:23:36.828834]: 
+  started at 0
+  maxValue: 1187220
+  - price (current): 1186860
+  - price (last): 1186860
+  minValue: 1186860
+
+[2022-07-16 03:23:37.884098]: 
+  name: Fibo_0
+  inactive: True
+  height: 350 (require: 1400)
+  start: 1187210
+  end: 1186860
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187076.3 (matches: 2) [inactive]
+  | 50: 1187035.0 (matches: 2) [inactive]
+  | 38.2: 1186993.7 (matches: 1) [inactive]
+  v 0: 1186860.0 (matches: 0) [inactive]
+
+
+[2022-07-16 03:23:41.748236]: Fibo_0 -> detected match range [0]
+[2022-07-16 03:23:42.688808]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:23:43.593468]: updating Fibonacci (Fibo_0 - From 1187210 to 1186850))
+[2022-07-16 03:23:44.358843]: updating Fibonacci (start_child_1 - From 1187210 to 1187072.48))
+[2022-07-16 03:23:45.290848]: updating Fibonacci (end_child_2 - From 1186987.52 to 1186850.0))
+[2022-07-16 03:23:46.229734]: 
+  type: -1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 11
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186995
+   - entry: 1186984
+   - exit: 1186830
+   - maxTraced: 1186830
+  > metrics ======================
+   - entryTraceLength: 11
+   - body: 154
+   - exitTraceLength: 0
+
+[2022-07-16 03:23:47.131735]: 
+  started at 0
+  maxValue: 1187220
+  | price (last): 1186830
+  v price (current): 1186820
+  minValue: 1186820
+
+[2022-07-16 03:23:48.123843]: 
+  name: Fibo_0
+  inactive: True
+  height: 360 (require: 1400)
+  start: 1187210
+  end: 1186850
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187072.48 (matches: 2) [inactive]
+  | 50: 1187030.0 (matches: 2) [inactive]
+  | 38.2: 1186987.52 (matches: 1) [inactive]
+  v 0: 1186850.0 (matches: 0) [inactive]
+
+
+[2022-07-16 03:23:52.011912]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:23:52.879250]: updating Fibonacci (Fibo_0 - From 1187210 to 1186820))
+[2022-07-16 03:23:53.750855]: updating Fibonacci (start_child_1 - From 1187210 to 1187061.02))
+[2022-07-16 03:23:54.763882]: updating Fibonacci (end_child_2 - From 1186968.98 to 1186820.0))
+[2022-07-16 03:23:55.777132]: 
+  type: -1
+  entryTraceIsMax: False
+  hasEntryTrace: True
+  traceDifference: 59
+  hasExitTrace: True
+  exitTraceIsMax: True
+  > prices =======================
+   - minTraced: 1186995
+   - entry: 1186984
+   - exit: 1186890
+   - maxTraced: 1186820
+  > metrics ======================
+   - entryTraceLength: 11
+   - body: 94
+   - exitTraceLength: 70
+
+[2022-07-16 03:23:56.670838]: 
+  started at 0
+  maxValue: 1187220
+  - price (current): 1186890
+  - price (last): 1186890
+  minValue: 1186820
+
+[2022-07-16 03:23:57.728815]: 
+  name: Fibo_0
+  inactive: True
+  height: 390 (require: 1400)
+  start: 1187210
+  end: 1186820
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187061.02 (matches: 2) [inactive]
+  | 50: 1187015.0 (matches: 1) [inactive]
+  | 38.2: 1186968.98 (matches: 1) [inactive]
+  v 0: 1186820.0 (matches: 0) [inactive]
+
+
+[2022-07-16 03:24:00.568693]: Fibo_0 -> detected match range [38.2]
+[2022-07-16 03:24:01.493526]: 
+  type: -1
+  entryTraceIsMax: False
+  hasEntryTrace: True
+  traceDifference: 49
+  hasExitTrace: True
+  exitTraceIsMax: True
+  > prices =======================
+   - minTraced: 1186995
+   - entry: 1186984
+   - exit: 1186880
+   - maxTraced: 1186820
+  > metrics ======================
+   - entryTraceLength: 11
+   - body: 104
+   - exitTraceLength: 60
+
+[2022-07-16 03:24:02.410574]: 
+  started at 0
+  maxValue: 1187220
+  - price (current): 1186880
+  - price (last): 1186880
+  minValue: 1186820
+
+[2022-07-16 03:24:03.495501]: 
+  name: Fibo_0
+  inactive: True
+  height: 390 (require: 1400)
+  start: 1187210
+  end: 1186820
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187061.02 (matches: 2) [inactive]
+  | 50: 1187015.0 (matches: 1) [inactive]
+  | 38.2: 1186968.98 (matches: 1) [inactive]
+  v 0: 1186820.0 (matches: 0) [inactive]
+
+
+[2022-07-16 03:24:31.329559]: Fibo_0 -> detected match range [0]
+[2022-07-16 03:24:32.123316]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:24:33.188540]: updating Fibonacci (Fibo_0 - From 1187210 to 1186800))
+[2022-07-16 03:24:34.039762]: updating Fibonacci (start_child_1 - From 1187210 to 1187053.38))
+[2022-07-16 03:24:35.023406]: updating Fibonacci (end_child_2 - From 1186956.62 to 1186800.0))
+[2022-07-16 03:24:36.027785]: 
+  type: -1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 10
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186890
+   - entry: 1186880
+   - exit: 1186800
+   - maxTraced: 1186800
+  > metrics ======================
+   - entryTraceLength: 10
+   - body: 80
+   - exitTraceLength: 0
+
+[2022-07-16 03:24:36.992685]: 
+  started at 0
+  maxValue: 1187220
+  | price (last): 1186800
+  v price (current): 1186780
+  minValue: 1186780
+
+[2022-07-16 03:24:37.909507]: 
+  name: Fibo_0
+  inactive: True
+  height: 410 (require: 1400)
+  start: 1187210
+  end: 1186800
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187053.38 (matches: 2) [inactive]
+  | 50: 1187005.0 (matches: 1) [inactive]
+  | 38.2: 1186956.62 (matches: 1) [inactive]
+  v 0: 1186800.0 (matches: 1) [inactive]
+
+
+[2022-07-16 03:24:41.863789]: Fibo_0 -> detected match range [0]
+[2022-07-16 03:24:42.710181]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:24:43.802044]: updating Fibonacci (Fibo_0 - From 1187210 to 1186779))
+[2022-07-16 03:24:44.611201]: updating Fibonacci (start_child_1 - From 1187210 to 1187045.358))
+[2022-07-16 03:24:45.788391]: updating Fibonacci (end_child_2 - From 1186943.642 to 1186779.0))
+[2022-07-16 03:24:46.711740]: 
+  type: -1
+  entryTraceIsMax: False
+  hasEntryTrace: True
+  traceDifference: 11
+  hasExitTrace: True
+  exitTraceIsMax: True
+  > prices =======================
+   - minTraced: 1186890
+   - entry: 1186880
+   - exit: 1186800
+   - maxTraced: 1186779
+  > metrics ======================
+   - entryTraceLength: 10
+   - body: 80
+   - exitTraceLength: 21
+
+[2022-07-16 03:24:47.640406]: 
+  started at 0
+  maxValue: 1187220
+  ^ price (current): 1186800
+  | price (last): 1186779
+  minValue: 1186779
+
+[2022-07-16 03:24:48.553440]: 
+  name: Fibo_0
+  inactive: True
+  height: 431 (require: 1400)
+  start: 1187210
+  end: 1186779
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187045.358 (matches: 2) [inactive]
+  | 50: 1186994.5 (matches: 1) [inactive]
+  | 38.2: 1186943.642 (matches: 0) [inactive]
+  v 0: 1186779.0 (matches: 1) [inactive]
+
+
+[2022-07-16 03:24:51.426878]: 
+  type: -1
+  entryTraceIsMax: False
+  hasEntryTrace: True
+  traceDifference: 11
+  hasExitTrace: True
+  exitTraceIsMax: True
+  > prices =======================
+   - minTraced: 1186890
+   - entry: 1186880
+   - exit: 1186800
+   - maxTraced: 1186779
+  > metrics ======================
+   - entryTraceLength: 10
+   - body: 80
+   - exitTraceLength: 21
+
+[2022-07-16 03:24:52.358145]: 
+  started at 0
+  maxValue: 1187220
+  ^ price (current): 1186800
+  | price (last): 1186779
+  minValue: 1186779
+
+[2022-07-16 03:24:53.270708]: 
+  name: Fibo_0
+  inactive: True
+  height: 431 (require: 1400)
+  start: 1187210
+  end: 1186779
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187045.358 (matches: 2) [inactive]
+  | 50: 1186994.5 (matches: 1) [inactive]
+  | 38.2: 1186943.642 (matches: 0) [inactive]
+  v 0: 1186779.0 (matches: 1) [inactive]
+
+
+[2022-07-16 03:25:00.103533]: 
+  type: -1
+  entryTraceIsMax: False
+  hasEntryTrace: True
+  traceDifference: 51
+  hasExitTrace: True
+  exitTraceIsMax: True
+  > prices =======================
+   - minTraced: 1186890
+   - entry: 1186880
+   - exit: 1186840
+   - maxTraced: 1186779
+  > metrics ======================
+   - entryTraceLength: 10
+   - body: 40
+   - exitTraceLength: 61
+
+[2022-07-16 03:25:01.223469]: 
+  started at 0
+  maxValue: 1187220
+  - price (current): 1186840
+  - price (last): 1186840
+  minValue: 1186779
+
+[2022-07-16 03:25:02.173669]: 
+  name: Fibo_0
+  inactive: True
+  height: 431 (require: 1400)
+  start: 1187210
+  end: 1186779
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187045.358 (matches: 2) [inactive]
+  | 50: 1186994.5 (matches: 1) [inactive]
+  | 38.2: 1186943.642 (matches: 0) [inactive]
+  v 0: 1186779.0 (matches: 1) [inactive]
+
+
+[2022-07-16 03:25:31.138774]: Fibo_0 -> detected match range [0]
+[2022-07-16 03:25:31.939596]: price was out of range (f0) of the current fibonacci
+[2022-07-16 03:25:32.897131]: updating Fibonacci (Fibo_0 - From 1187210 to 1186760))
+[2022-07-16 03:25:33.589490]: updating Fibonacci (start_child_1 - From 1187210 to 1187038.1))
+[2022-07-16 03:25:34.494875]: updating Fibonacci (end_child_2 - From 1186931.9 to 1186760.0))
+[2022-07-16 03:25:35.479776]: 
+  type: -1
+  entryTraceIsMax: False
+  hasEntryTrace: False
+  traceDifference: 40
+  hasExitTrace: True
+  exitTraceIsMax: True
+  > prices =======================
+   - minTraced: 1186840
+   - entry: 1186840
+   - exit: 1186800
+   - maxTraced: 1186760
+  > metrics ======================
+   - entryTraceLength: 0
+   - body: 40
+   - exitTraceLength: 40
+
+[2022-07-16 03:25:36.314469]: 
+  started at 0
+  maxValue: 1187220
+  - price (current): 1186800
+  - price (last): 1186800
+  minValue: 1186760
+
+[2022-07-16 03:25:37.359271]: 
+  name: Fibo_0
+  inactive: True
+  height: 450 (require: 1400)
+  start: 1187210
+  end: 1186760
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187038.1 (matches: 2) [inactive]
+  | 50: 1186985.0 (matches: 1) [inactive]
+  | 38.2: 1186931.9 (matches: 0) [inactive]
+  v 0: 1186760.0 (matches: 2) [inactive]
+
+
+[2022-07-16 03:25:41.099276]: 
+  type: -1
+  entryTraceIsMax: False
+  hasEntryTrace: False
+  traceDifference: 40
+  hasExitTrace: True
+  exitTraceIsMax: True
+  > prices =======================
+   - minTraced: 1186840
+   - entry: 1186840
+   - exit: 1186800
+   - maxTraced: 1186760
+  > metrics ======================
+   - entryTraceLength: 0
+   - body: 40
+   - exitTraceLength: 40
+
+[2022-07-16 03:25:42.042415]: 
+  started at 0
+  maxValue: 1187220
+  ^ price (current): 1186810
+  | price (last): 1186800
+  minValue: 1186760
+
+[2022-07-16 03:25:42.955569]: 
+  name: Fibo_0
+  inactive: True
+  height: 450 (require: 1400)
+  start: 1187210
+  end: 1186760
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187038.1 (matches: 2) [inactive]
+  | 50: 1186985.0 (matches: 1) [inactive]
+  | 38.2: 1186931.9 (matches: 0) [inactive]
+  v 0: 1186760.0 (matches: 2) [inactive]
+
+
+[2022-07-16 03:25:51.848404]: 
+  type: -1
+  entryTraceIsMax: False
+  hasEntryTrace: False
+  traceDifference: 70
+  hasExitTrace: True
+  exitTraceIsMax: True
+  > prices =======================
+   - minTraced: 1186840
+   - entry: 1186840
+   - exit: 1186830
+   - maxTraced: 1186760
+  > metrics ======================
+   - entryTraceLength: 0
+   - body: 10
+   - exitTraceLength: 70
+
+[2022-07-16 03:25:52.761323]: 
+  started at 0
+  maxValue: 1187220
+  | price (last): 1186830
+  v price (current): 1186820
+  minValue: 1186760
+
+[2022-07-16 03:25:53.703649]: 
+  name: Fibo_0
+  inactive: True
+  height: 450 (require: 1400)
+  start: 1187210
+  end: 1186760
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187038.1 (matches: 2) [inactive]
+  | 50: 1186985.0 (matches: 1) [inactive]
+  | 38.2: 1186931.9 (matches: 0) [inactive]
+  v 0: 1186760.0 (matches: 2) [inactive]
+
+
+[2022-07-16 03:26:00.675400]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 80
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186760
+   - entry: 1186840
+   - exit: 1186869
+   - maxTraced: 1186869
+  > metrics ======================
+   - entryTraceLength: 80
+   - body: 29
+   - exitTraceLength: 0
+
+[2022-07-16 03:26:01.632523]: 
+  started at 0
+  maxValue: 1187220
+  ^ price (current): 1186869
+  | price (last): 1186840
+  minValue: 1186760
+
+[2022-07-16 03:26:02.518035]: 
+  name: Fibo_0
+  inactive: True
+  height: 450 (require: 1400)
+  start: 1187210
+  end: 1186760
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187038.1 (matches: 2) [inactive]
+  | 50: 1186985.0 (matches: 1) [inactive]
+  | 38.2: 1186931.9 (matches: 0) [inactive]
+  v 0: 1186760.0 (matches: 2) [inactive]
+
+
+[2022-07-16 03:26:31.477117]: 
+  type: 1
+  entryTraceIsMax: False
+  hasEntryTrace: True
+  traceDifference: 1
+  hasExitTrace: True
+  exitTraceIsMax: True
+  > prices =======================
+   - minTraced: 1186840
+   - entry: 1186869
+   - exit: 1186900
+   - maxTraced: 1186930
+  > metrics ======================
+   - entryTraceLength: 29
+   - body: 31
+   - exitTraceLength: 30
+
+[2022-07-16 03:26:32.514535]: 
+  started at 0
+  maxValue: 1187220
+  - price (current): 1186900
+  - price (last): 1186900
+  minValue: 1186760
+
+[2022-07-16 03:26:33.479696]: 
+  name: Fibo_0
+  inactive: True
+  height: 450 (require: 1400)
+  start: 1187210
+  end: 1186760
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187038.1 (matches: 2) [inactive]
+  | 50: 1186985.0 (matches: 1) [inactive]
+  | 38.2: 1186931.9 (matches: 0) [inactive]
+  v 0: 1186760.0 (matches: 2) [inactive]
+
+
+[2022-07-16 03:26:41.496408]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 19
+  hasExitTrace: True
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186840
+   - entry: 1186869
+   - exit: 1186920
+   - maxTraced: 1186930
+  > metrics ======================
+   - entryTraceLength: 29
+   - body: 51
+   - exitTraceLength: 10
+
+[2022-07-16 03:26:42.556163]: 
+  started at 0
+  maxValue: 1187220
+  - price (current): 1186920
+  - price (last): 1186920
+  minValue: 1186760
+
+[2022-07-16 03:26:43.592815]: 
+  name: Fibo_0
+  inactive: True
+  height: 450 (require: 1400)
+  start: 1187210
+  end: 1186760
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187038.1 (matches: 2) [inactive]
+  | 50: 1186985.0 (matches: 1) [inactive]
+  | 38.2: 1186931.9 (matches: 0) [inactive]
+  v 0: 1186760.0 (matches: 2) [inactive]
+
+
+[2022-07-16 03:26:51.628111]: 
+  type: 1
+  entryTraceIsMax: True
+  hasEntryTrace: True
+  traceDifference: 29
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1186840
+   - entry: 1186869
+   - exit: 1186990
+   - maxTraced: 1186990
+  > metrics ======================
+   - entryTraceLength: 29
+   - body: 121
+   - exitTraceLength: 0
+
+[2022-07-16 03:26:52.673100]: 
+  started at 0
+  maxValue: 1187220
+  - price (current): 1186990
+  - price (last): 1186990
+  minValue: 1186760
+
+[2022-07-16 03:26:53.623153]: 
+  name: Fibo_0
+  inactive: True
+  height: 450 (require: 1400)
+  start: 1187210
+  end: 1186760
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187038.1 (matches: 2) [inactive]
+  | 50: 1186985.0 (matches: 1) [inactive]
+  | 38.2: 1186931.9 (matches: 0) [inactive]
+  v 0: 1186760.0 (matches: 2) [inactive]
+
+
+[2022-07-16 03:27:00.567125]: 
+  type: 0
+  entryTraceIsMax: False
+  hasEntryTrace: False
+  traceDifference: 0
+  hasExitTrace: False
+  exitTraceIsMax: False
+  > prices =======================
+   - minTraced: 1187020
+   - entry: 1187020
+   - exit: 1187020
+   - maxTraced: 1187020
+  > metrics ======================
+   - entryTraceLength: 0
+   - body: 0
+   - exitTraceLength: 0
+
+[2022-07-16 03:27:01.542150]: 
+  started at 0
+  maxValue: 1187220
+  ^ price (current): 1187020
+  | price (last): 1186990
+  minValue: 1186760
+
+[2022-07-16 03:27:02.562659]: 
+  name: Fibo_0
+  inactive: True
+  height: 450 (require: 1400)
+  start: 1187210
+  end: 1186760
+
+  | metrics =====================
+  | 100: 1187210 (matches: 2) [inactive]
+  | 61.8: 1187038.1 (matches: 2) [inactive]
+  | 50: 1186985.0 (matches: 1) [inactive]
+  | 38.2: 1186931.9 (matches: 0) [inactive]
+  v 0: 1186760.0 (matches: 2) [inactive]
+
+
+[2022-07-16 03:47:20.264214]: Browser -> initializing browser.
+[2022-07-16 03:48:07.871244]: Browser -> initializing browser.
+[2022-07-16 03:48:43.393438]: Browser -> initializing browser.
+[2022-07-16 03:56:06.304426]: Browser -> initializing browser.
+[2022-07-16 03:57:53.069427]: Browser -> initializing browser.
+[2022-07-16 03:58:41.563451]: Browser -> initializing browser.
+[2022-07-16 04:00:45.183920]: Browser -> initializing browser.
+[2022-07-16 04:02:11.486094]: Browser -> initializing browser.
+[2022-07-16 04:03:47.823514]: Browser -> initializing browser.
+
+[2022-07-16 04:04:07.152492]: initialized log file.
+[2022-07-16 04:04:07.924283]: Browser -> getting aplication web.
+[2022-07-16 04:07:51.140779]: Browser -> initializing browser.
+
+[2022-07-16 04:08:00.451842]: initialized log file.
+[2022-07-16 04:08:01.040587]: Browser -> getting aplication web.

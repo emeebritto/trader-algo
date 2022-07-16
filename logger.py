@@ -19,13 +19,13 @@ class Logger:
 	def log(self, msgs):
 		if not self.folderPath: raise AttributeError("folder path was not provided")
 		if type(msgs) == list:
-			for msg in msgs: self._createLog(msg)
+			for msg in msgs: self._createLog(str(msg))
 		else: self._createLog(msgs)
 
 
 	def _createLog(self, msg):
 		self._createNewLine(msg)
-		nexa.send_to_author(f"[log]: {msg}")
+		nexa.send_to_author(f"{msg}")
 
 
 	def _createNewLine(self, lineContent):

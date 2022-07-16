@@ -1,12 +1,13 @@
 from PIL import Image
 from logger import logger
-import os
 from selenium import webdriver
+from services.telegram_client import nexa_Telegram
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from time import sleep
+import os
 FIREFOX_DRIVER_PATH = './bin/geckodriver'
 
 
@@ -14,7 +15,7 @@ FIREFOX_DRIVER_PATH = './bin/geckodriver'
 class Browser:
   def __init__(self):
     super(Browser, self).__init__()
-    self.options = ('--none', '--headless',)
+    self.options = ('--none',)
     self.instance = None
     self._init_firefox()
 
@@ -42,10 +43,16 @@ class Browser:
     self.instance = browser
 
 
+  def _detect_noRobot_box(self):
+    pass
+
+
   def openChart(self):
     logger.log("Browser -> getting aplication web.")
     self.instance.get('https://binomo.com/trading')
-    sleep(4)
+    sleep(8)
+    self.send_screen_to_author()
+
     logger.log("Browser -> insering account login.")
     mail_input_wrapper = self.instance.find_element(By.TAG_NAME, "vui-input-text")
     mail_input = mail_input_wrapper.find_element(By.TAG_NAME, "input")
@@ -56,7 +63,9 @@ class Browser:
     password_input.send_keys(Keys.ENTER)
 
     logger.log("Browser -> sleeping.")
-    sleep(30)
+    sleep(4)
+    self.send_screen_to_author()
+    sleep(60)
 
     logger.log("Browser -> selecting assets box.")
 
@@ -120,6 +129,15 @@ class Browser:
     # (left, upper, right, lower)
     cropped_img = img.crop((int(w / 1.275), 0, w, h))
     return cropped_img
+
+
+  def take_screenshot(self):
+    self.instance.save_screenshot("screen.png")
+
+
+  def send_screen_to_author(self):
+    self.take_screenshot()
+    nexa_Telegram.send_file_to_author("screen.png")
 
 
   def quit(self):
