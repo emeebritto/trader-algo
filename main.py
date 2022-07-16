@@ -36,6 +36,10 @@ def main(historic, price, candle, close):
 	print(price)
 	print(speculator.fibonaccis)
 
+	logger.log(candle)
+	logger.log(price)
+	logger.log(speculator.fibonaccis)
+
 graphic.tradingWindow(main, interval=1)
 
 
