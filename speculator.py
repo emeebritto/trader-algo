@@ -4,7 +4,7 @@ from itertools import count
 from configer import configer
 from logger import logger
 from utils.browser import browser
-# from utils.sound import sound
+from utils.sound import sound
 
 
 class Speculator:
@@ -91,14 +91,14 @@ class Speculator:
 
 	def purchase(self):
 		browser.click_dealUpBtn()
-		# sound.play("notifications_11.mp3")
-		logger.log("speculator -> bought")
+		sound.play("notifications_11.mp3")
+		logger.fullog("speculator -> bought")
 
 
 	def sell(self):
 		browser.click_dealDownBtn()
-		# sound.play("notifications_11.mp3")
-		logger.log("speculator -> sold")
+		sound.play("notifications_11.mp3")
+		logger.fullog("speculator -> sold")
 
 
 	def checkFiboMatches(self, value):

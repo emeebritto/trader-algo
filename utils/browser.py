@@ -1,6 +1,7 @@
 from PIL import Image
 from logger import logger
 from selenium import webdriver
+from services.nexa import nexa
 from utils.targets.binomo import Binomo
 from utils.targets.iqoption import IqOption
 from services.telegram_client import nexa_Telegram
@@ -14,7 +15,7 @@ FIREFOX_DRIVER_PATH = './bin/geckodriver'
 
 
 
-class Browser(IqOption):
+class Browser(Binomo):
   def __init__(self):
     super(Browser, self).__init__()
     self.options = ('--none', '--headless',)
@@ -45,12 +46,12 @@ class Browser(IqOption):
     self.instance = browser
 
 
-  def _detect_noRobot_box(self):
-    pass
-
-
   def take_screenshot(self):
     self.instance.save_screenshot("screen.png")
+
+
+  def send_msg_to_author(self, msg):
+    nexa.send_to_author(msg)
 
 
   def send_screen_to_author(self):

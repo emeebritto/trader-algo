@@ -1,7 +1,8 @@
 from collections import deque
 from configer import configer
 from logger import logger
-# from utils.sound import sound
+from services.nexa import nexa
+from utils.sound import sound
 from entities.resistance import Resistance
 
 
@@ -88,7 +89,7 @@ class Fibonacci:
 		if self._inactive == val: return
 		self._inactive = val
 		if not self._inactive:
-			# sound.play("notice.mp3")
+			sound.play("notice.mp3")
 			logger.log([
 				f"{self.name} -> Fibonacci is active now",
 				f"{self.name} -> Fibonacci heigth is {self.height}"
@@ -133,7 +134,7 @@ class Fibonacci:
   | 50: {self.f50}
   | 61.8: {self.f61x8}
   | 100: {self.f100}
-"""			
+"""
 
 
 	def validateZoneWith(self, values):
@@ -235,28 +236,22 @@ class Fibonacci:
 		isShortFibonacci = self.height <= 2000
 
 		if self.f50.isMatch(value, tolerance):
-			print(f"{self.name} -> detected touch at f50")
-			logger.log(f"{self.name} -> detected touch at f50")
+			logger.fullog(f"{self.name} -> detected touch at f50")
 			return self.f50
 		elif self.f61x8.isMatch(value, tolerance):
-			print(f"{self.name} -> detected touch at f61.8")
-			logger.log(f"{self.name} -> detected touch at f61.8")
+			logger.fullog(f"{self.name} -> detected touch at f61.8")
 			return self.f61x8
 		elif self.f38x2.isMatch(value, tolerance) and not isShortFibonacci:
 		# elif self.f38x2.isMatch(value, tolerance):
-			print(f"{self.name} -> detected touch at f38.2")
-			logger.log(f"{self.name} -> detected touch at f38.2")
+			logger.fullog(f"{self.name} -> detected touch at f38.2")
 			return self.f38x2
 		elif self.f100.isMatch(value, tolerance):
-			print(f"{self.name} -> detected touch at f100")
-			logger.log(f"{self.name} -> detected touch at f100")
+			logger.fullog(f"{self.name} -> detected touch at f100")
 			return self.f100
 		elif self.f0.isMatch(value, tolerance):
-			print(f"{self.name} -> detected touch at f0")
-			logger.log(f"{self.name} -> detected touch at f0")
+			logger.fullog(f"{self.name} -> detected touch at f0")
 			return self.f0
 		else:
-			print(f"{self.name} -> not detected any touch")
 			return None
 
 
@@ -281,7 +276,7 @@ class Fibonacci:
 class FibonacciFactory:
 	@staticmethod
 	def create(name, start, end, minDifference, validateWith):
-		logger.log(f"creating Fibonacci ({name} - From {start} to {end})")
+		logger.fullog(f"creating Fibonacci ({name} - From {start} to {end})")
 		fibonacci = Fibonacci(name, start, end, minDifference)
 		fibonacci.validateZoneWith(validateWith)
 		fibonacci.startChild = Fibonacci("start_child_1", minDifference=minDifference)

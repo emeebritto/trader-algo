@@ -1,0 +1,14 @@
+[2022-07-17 02:09:11.632649]: Browser -> initializing browser.
+[2022-07-17 02:09:24.495450]: Browser -> getting aplication web.
+[2022-07-17 02:09:44.106380]: Browser -> insering account login.
+[2022-07-17 02:09:44.651418]: Browser -> sleeping.
+[2022-07-17 02:10:49.670604]: Browser -> selecting assets box.
+[2022-07-17 02:10:50.939577]: Browser -> sleeping.
+[2022-07-17 02:10:54.943204]: Browser -> selecting asset (EUR/USD).
+[2022-07-17 02:10:55.438821]: Browser -> sleeping.
+[2022-07-17 02:11:00.368438]: Browser -> sleeping.
+[2022-07-17 02:11:04.370626]: Browser -> selecting chart time.
+[2022-07-17 02:11:09.717450]: Browser -> chart ready.
+[2022-07-17 02:46:55.819874]: Browser -> initializing browser.
+[2022-07-17 02:54:51.741030]: Browser -> initializing browser.
+[2022-07-17 02:55:04.981732]: Browser -> getting aplication web.
