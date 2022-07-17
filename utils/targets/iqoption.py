@@ -9,32 +9,36 @@ class IqOption:
 	def __init__(self):
 		super(IqOption, self).__init__()
 
+	
+	def _createLog(self, msg):
+		logger.fullog(msg)
+
 
 	def openChart(self):
-		logger.log("Browser -> getting aplication web.")
+		self._createLog("Browser -> getting aplication web.")
 		self.instance.get('https://login.iqoption.com/en/login')
 		sleep(8)
 		self.send_screen_to_author()
 
-		logger.log("Browser -> insering account login.")
+		self._createLog("Browser -> insering account login.")
 		mail_input = self.instance.find_element(By.NAME, "identifier")
 		password_input = self.instance.find_element(By.NAME, "password")
 		mail_input.send_keys("emersonbritto987@gmail.com")
 		password_input.send_keys(r"y1q8uw2a")
 		password_input.send_keys(Keys.ENTER)
 
-		logger.log("Browser -> sleeping.")
+		self._createLog("Browser -> sleeping.")
 		sleep(4)
 		self.send_screen_to_author()
 		sleep(20)
 
-		logger.log("Browser -> selecting Trade Now (Button).")
+		self._createLog("Browser -> selecting Trade Now (Button).")
 
 		header = self.instance.find_element(By.TAG_NAME, "header")
 		tradeNowButton = header.find_element(By.CLASS_NAME, "Button_orange")
 		tradeNowButton.click()
 
-		logger.log("Browser -> sleeping.")
+		self._createLog("Browser -> sleeping.")
 		# incomplete steps
 		pass
 
