@@ -2,6 +2,7 @@ from PIL import Image
 from logger import logger
 from selenium import webdriver
 from utils.targets.binomo import Binomo
+from utils.targets.iqoption import IqOption
 from services.telegram_client import nexa_Telegram
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.common.by import By
@@ -13,7 +14,7 @@ FIREFOX_DRIVER_PATH = './bin/geckodriver'
 
 
 
-class Browser(Binomo):
+class Browser(IqOption):
   def __init__(self):
     super(Browser, self).__init__()
     self.options = ('--none', '--headless',)
