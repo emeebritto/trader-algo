@@ -1,4 +1,0 @@
-
-[2022-07-15 15:01:55.115215]: initialized log file.
-
-[2022-07-15 15:08:53.522599]: initialized log file.

@@ -279,6 +279,6 @@ class FibonacciFactory:
 		logger.fullog(f"creating Fibonacci ({name} - From {start} to {end})")
 		fibonacci = Fibonacci(name, start, end, minDifference)
 		fibonacci.validateZoneWith(validateWith)
-		fibonacci.startChild = Fibonacci("start_child_1", minDifference=minDifference)
-		fibonacci.endChild = Fibonacci("end_child_2", minDifference=minDifference)
+		# fibonacci.startChild = Fibonacci("start_child_1", minDifference=minDifference)
+		# fibonacci.endChild = Fibonacci("end_child_2", minDifference=minDifference)
 		return fibonacci

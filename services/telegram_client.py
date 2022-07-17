@@ -31,7 +31,10 @@ class Nexa_Telegram:
 
 
   def send_file_to_author(self, filePATH):
-    self.client.send_file(self.author, filePATH)
+    try:
+      self.client.send_file(self.author, filePATH)
+    except Exception as e:
+      print(e)
 
 
   def send_message(self, user, msg):
