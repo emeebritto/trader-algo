@@ -84,14 +84,14 @@ class Binomo:
 
 
 	def click_dealUpBtn(self):
-		dealUpButton = self.instance.find_element(By.CLASS_NAME, "qa_trading_dealUpButton")
+		dealUpButton = self.instance.find_element(By.ID, "qa_trading_dealUpButton")
 		dealUpButton.click()
 		self.send_msg_to_author("deal up button was clicked")
 		self.send_screen_to_author()
 
 
 	def click_dealDownBtn(self):
-		dealDownButton = self.instance.find_element(By.CLASS_NAME, "qa_trading_dealDownButton")
+		dealDownButton = self.instance.find_element(By.ID, "qa_trading_dealDownButton")
 		dealDownButton.click()
 		self.send_msg_to_author("deal down button was clicked")
 		self.send_screen_to_author()
@@ -108,7 +108,7 @@ class Binomo:
 
 
 	def send_screen_to_author(self):
-		pass
+		raise AttributeError("it should be implemented")
 
 
 	def send_msg_to_author(self, msg):

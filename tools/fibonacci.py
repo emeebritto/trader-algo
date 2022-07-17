@@ -233,7 +233,7 @@ class Fibonacci:
 		hasChildrenMatches = self._checkChildrenMatches(value, tolerance)
 		if hasChildrenMatches: return hasChildrenMatches
 
-		isShortFibonacci = self.height <= 2000
+		isShortFibonacci = self.height <= 800
 
 		if self.f50.isMatch(value, tolerance):
 			logger.fullog(f"{self.name} -> detected touch at f50")

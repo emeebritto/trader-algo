@@ -1,5 +1,5 @@
 from utils.time import seconds
-# from utils.sound import sound
+from utils.sound import sound
 from entities.graphic import Graphic
 from speculator import Speculator
 from datetime import datetime
@@ -11,7 +11,7 @@ import os
 
 configer.init("config/default.json")
 logger.init() # default folder "logs"
-# sound.folder("sounds")
+sound.folder("sounds")
 
 graphic = Graphic()
 speculator = Speculator()
@@ -37,9 +37,6 @@ def main(historic, price, candle, close):
 	print(price)
 	print(speculator.fibonaccis)
 
-	logger.log(candle)
-	logger.log(price)
-	logger.log(speculator.fibonaccis)
 
 graphic.tradingWindow(main, interval=1)
 

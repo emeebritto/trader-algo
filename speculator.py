@@ -62,7 +62,7 @@ class Speculator:
 		if hasValidMatches and isNotSaturatedZone:
 			self._analyzeFiboZone(fibosMatches, curFiboMatchRange)
 
-		if self.currentFibo.height >= 3000: self.createFiboFromCandle(self.currentCandle)
+		if self.currentFibo.height >= 2000: self.createFiboFromCandle(self.currentCandle)
 		else: self.updateCurrentFibo()
 
 
@@ -80,7 +80,7 @@ class Speculator:
 		isRedCandle = self.currentCandle.cType == -1
 		isUpTrend = self.currentFibo.direction == 1
 		isDownTrend = self.currentFibo.direction == -1
-		hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) >= 2
+		hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) >= 1
 
 		if (hasMinMatches or isInitialState) and isRedCandle and isUpTrend:
 			self.purchase()

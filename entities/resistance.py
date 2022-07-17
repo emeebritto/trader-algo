@@ -39,7 +39,7 @@ class Resistance:
 	def updateStatus(func):
 		def function(*args, **kwargs):
 			returnFc = func(*args, **kwargs)
-			if args[0].matchesNumber > 3 or args[0].forceActive: args[0]._isActive = True
+			if args[0].matchesNumber > 1 or args[0].forceActive: args[0]._isActive = True
 			else: args[0]._isActive = False
 			return returnFc
 		return function

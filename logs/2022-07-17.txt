@@ -1,14 +1,728 @@
-[2022-07-17 02:09:11.632649]: Browser -> initializing browser.
-[2022-07-17 02:09:24.495450]: Browser -> getting aplication web.
-[2022-07-17 02:09:44.106380]: Browser -> insering account login.
-[2022-07-17 02:09:44.651418]: Browser -> sleeping.
-[2022-07-17 02:10:49.670604]: Browser -> selecting assets box.
-[2022-07-17 02:10:50.939577]: Browser -> sleeping.
-[2022-07-17 02:10:54.943204]: Browser -> selecting asset (EUR/USD).
-[2022-07-17 02:10:55.438821]: Browser -> sleeping.
-[2022-07-17 02:11:00.368438]: Browser -> sleeping.
-[2022-07-17 02:11:04.370626]: Browser -> selecting chart time.
-[2022-07-17 02:11:09.717450]: Browser -> chart ready.
-[2022-07-17 02:46:55.819874]: Browser -> initializing browser.
-[2022-07-17 02:54:51.741030]: Browser -> initializing browser.
-[2022-07-17 02:55:04.981732]: Browser -> getting aplication web.
+[2022-07-17 06:29:52.667944]: Browser -> initializing browser.
+[2022-07-17 06:30:03.809859]: Browser -> getting aplication web.
+[2022-07-17 06:30:26.962159]: Browser -> insering account login.
+[2022-07-17 06:30:28.594066]: Browser -> sleeping.
+[2022-07-17 06:31:34.154628]: Browser -> selecting assets box.
+[2022-07-17 06:31:40.001117]: Browser -> sleeping.
+[2022-07-17 06:31:44.910588]: Browser -> selecting asset (EUR/USD).
+[2022-07-17 06:31:47.575487]: Browser -> sleeping.
+[2022-07-17 06:31:53.783035]: Browser -> sleeping.
+[2022-07-17 06:31:58.598623]: Browser -> selecting chart time.
+[2022-07-17 06:32:05.155778]: Browser -> chart ready.
+[2022-07-17 06:32:08.862875]: listening price
+[2022-07-17 06:32:08.866854]: Graphic was started
+[2022-07-17 06:32:08.871410]: Trading window was opened
+[2022-07-17 06:32:31.939426]: creating Fibonacci (Fibo_0 - From 1174190 to 1174290)
+[2022-07-17 06:32:32.665481]: updating Fibonacci (start_child_1 - From 1174190 to 1174228.2))
+[2022-07-17 06:32:32.666636]: updating Fibonacci (end_child_2 - From 1174251.8 to 1174290.0))
+[2022-07-17 06:32:51.791437]: Fibo_0 -> detected match range [100]
+[2022-07-17 06:32:51.794754]: price was out of range (f100) of the current fibonacci
+[2022-07-17 06:32:51.795207]: updating Fibonacci (Fibo_0 - From 1174290 to 1174163))
+[2022-07-17 06:32:51.795641]: updating Fibonacci (start_child_1 - From 1174290 to 1174241.486))
+[2022-07-17 06:32:51.795903]: updating Fibonacci (end_child_2 - From 1174211.514 to 1174163.0))
+[2022-07-17 06:33:00.851963]: Fibo_0 -> detected match range [0]
+[2022-07-17 06:33:00.852932]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:33:00.853176]: updating Fibonacci (Fibo_0 - From 1174290 to 1174140))
+[2022-07-17 06:33:00.853454]: updating Fibonacci (start_child_1 - From 1174290 to 1174232.7))
+[2022-07-17 06:33:00.853699]: updating Fibonacci (end_child_2 - From 1174197.3 to 1174140.0))
+[2022-07-17 06:34:31.227819]: Fibo_0 -> detected match range [0]
+[2022-07-17 06:34:31.229017]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:34:31.229383]: updating Fibonacci (Fibo_0 - From 1174290 to 1174100))
+[2022-07-17 06:34:31.229900]: updating Fibonacci (start_child_1 - From 1174290 to 1174217.42))
+[2022-07-17 06:34:31.231885]: updating Fibonacci (end_child_2 - From 1174172.58 to 1174100.0))
+[2022-07-17 06:34:41.332052]: Fibo_0 -> detected match range [38.2]
+[2022-07-17 06:34:51.417658]: Fibo_0 -> detected match range [38.2, 0]
+[2022-07-17 06:34:51.418474]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:34:51.418740]: updating Fibonacci (Fibo_0 - From 1174290 to 1174090))
+[2022-07-17 06:34:51.419095]: updating Fibonacci (start_child_1 - From 1174290 to 1174213.6))
+[2022-07-17 06:34:51.419355]: updating Fibonacci (end_child_2 - From 1174166.4 to 1174090.0))
+[2022-07-17 06:35:00.491245]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:35:00.491610]: updating Fibonacci (Fibo_0 - From 1174290 to 1174060))
+[2022-07-17 06:35:00.492085]: updating Fibonacci (start_child_1 - From 1174290 to 1174202.14))
+[2022-07-17 06:35:00.492446]: updating Fibonacci (end_child_2 - From 1174147.86 to 1174060.0))
+[2022-07-17 06:36:00.740248]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:36:00.740571]: updating Fibonacci (Fibo_0 - From 1174290 to 1174040))
+[2022-07-17 06:36:00.740991]: updating Fibonacci (start_child_1 - From 1174290 to 1174194.5))
+[2022-07-17 06:36:00.741251]: updating Fibonacci (end_child_2 - From 1174135.5 to 1174040.0))
+[2022-07-17 06:36:51.955899]: Fibo_0 -> detected match range [0]
+[2022-07-17 06:36:51.956378]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:36:51.956652]: updating Fibonacci (Fibo_0 - From 1174290 to 1174013))
+[2022-07-17 06:36:51.957205]: updating Fibonacci (start_child_1 - From 1174290 to 1174184.186))
+[2022-07-17 06:36:51.957576]: updating Fibonacci (end_child_2 - From 1174118.814 to 1174013.0))
+[2022-07-17 06:37:01.023421]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:37:01.023787]: updating Fibonacci (Fibo_0 - From 1174290 to 1173980))
+[2022-07-17 06:37:01.024362]: updating Fibonacci (start_child_1 - From 1174290 to 1174171.58))
+[2022-07-17 06:37:01.024733]: updating Fibonacci (end_child_2 - From 1174098.42 to 1173980.0))
+[2022-07-17 06:39:31.603170]: Fibo_0 -> detected match range [50, 38.2]
+[2022-07-17 06:39:41.641616]: Fibo_0 -> detected match range [50]
+[2022-07-17 06:39:51.727800]: Fibo_0 -> detected match range [50]
+[2022-07-17 06:40:31.826808]: Fibo_0 -> detected match range [50, 61.8, 38.2, 0]
+[2022-07-17 06:40:31.828477]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:40:31.828843]: updating Fibonacci (Fibo_0 - From 1174290 to 1173970))
+[2022-07-17 06:40:31.829373]: updating Fibonacci (start_child_1 - From 1174290 to 1174167.76))
+[2022-07-17 06:40:31.829646]: updating Fibonacci (end_child_2 - From 1174092.24 to 1173970.0))
+[2022-07-17 06:40:41.910130]: Fibo_0 -> detected match range [50, 61.8, 38.2]
+[2022-07-17 06:40:51.964280]: Fibo_0 -> detected match range [50, 61.8, 38.2]
+[2022-07-17 06:42:51.488258]: Fibo_0 -> detected match range [0]
+[2022-07-17 06:42:51.490945]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:42:51.491240]: updating Fibonacci (Fibo_0 - From 1174290 to 1173920))
+[2022-07-17 06:42:51.491761]: updating Fibonacci (start_child_1 - From 1174290 to 1174148.66))
+[2022-07-17 06:42:51.492060]: updating Fibonacci (end_child_2 - From 1174061.34 to 1173920.0))
+[2022-07-17 06:44:41.857614]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:44:41.857896]: updating Fibonacci (Fibo_0 - From 1174290 to 1173900))
+[2022-07-17 06:44:41.859165]: updating Fibonacci (start_child_1 - From 1174290 to 1174141.02))
+[2022-07-17 06:44:41.859540]: updating Fibonacci (end_child_2 - From 1174048.98 to 1173900.0))
+[2022-07-17 06:45:31.075615]: Fibo_0 -> detected match range [0]
+[2022-07-17 06:45:31.076822]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:45:31.077096]: updating Fibonacci (Fibo_0 - From 1174290 to 1173748))
+[2022-07-17 06:45:31.083097]: Fibo_0 -> Fibonacci is active now
+[2022-07-17 06:45:31.083364]: Fibo_0 -> Fibonacci heigth is 542
+[2022-07-17 06:45:31.083908]: updating Fibonacci (start_child_1 - From 1174290 to 1174082.956))
+[2022-07-17 06:45:31.084175]: updating Fibonacci (end_child_2 - From 1173955.044 to 1173748.0))
+[2022-07-17 06:45:53.563722]: not detected price. skipping interaction
+[2022-07-17 06:45:56.223777]: not detected price. skipping interaction
+[2022-07-17 06:46:07.411500]: not detected price. skipping interaction
+[2022-07-17 06:47:00.615768]: Fibo_0 -> detected touch at f0
+[2022-07-17 06:47:31.779664]: Fibo_0 -> detected touch at f0
+[2022-07-17 06:47:32.532401]: Fibo_0 -> detected match range [0]
+[2022-07-17 06:47:32.533624]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:47:32.534151]: updating Fibonacci (Fibo_0 - From 1174290 to 1173700))
+[2022-07-17 06:47:32.534951]: updating Fibonacci (start_child_1 - From 1174290 to 1174064.62))
+[2022-07-17 06:47:32.540946]: updating Fibonacci (end_child_2 - From 1173925.38 to 1173700.0))
+[2022-07-17 06:47:41.598245]: Fibo_0 -> detected match range [0]
+[2022-07-17 06:47:41.606210]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:47:41.606562]: updating Fibonacci (Fibo_0 - From 1174290 to 1173670))
+[2022-07-17 06:47:41.607841]: updating Fibonacci (start_child_1 - From 1174290 to 1174053.16))
+[2022-07-17 06:47:41.608257]: updating Fibonacci (end_child_2 - From 1173906.84 to 1173670.0))
+[2022-07-17 06:47:52.798245]: not detected price. skipping interaction
+[2022-07-17 06:48:00.671792]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:48:00.672023]: updating Fibonacci (Fibo_0 - From 1174290 to 1173590))
+[2022-07-17 06:48:00.672410]: updating Fibonacci (start_child_1 - From 1174290 to 1174022.6))
+[2022-07-17 06:48:00.672623]: updating Fibonacci (end_child_2 - From 1173857.4 to 1173590.0))
+[2022-07-17 06:48:31.733121]: Fibo_0 -> detected match range [0]
+[2022-07-17 06:48:31.734166]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:48:31.734668]: updating Fibonacci (Fibo_0 - From 1174290 to 1173420))
+[2022-07-17 06:48:31.735401]: updating Fibonacci (start_child_1 - From 1174290 to 1173957.66))
+[2022-07-17 06:48:31.736802]: updating Fibonacci (end_child_2 - From 1173752.34 to 1173420.0))
+[2022-07-17 06:48:41.814206]: Fibo_0 -> detected match range [0]
+[2022-07-17 06:48:41.815341]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:48:41.815592]: updating Fibonacci (Fibo_0 - From 1174290 to 1173380))
+[2022-07-17 06:48:41.816042]: updating Fibonacci (start_child_1 - From 1174290 to 1173942.38))
+[2022-07-17 06:48:41.816284]: updating Fibonacci (end_child_2 - From 1173727.62 to 1173380.0))
+[2022-07-17 06:49:41.075754]: Fibo_0 -> detected match range [0]
+[2022-07-17 06:49:51.108858]: Fibo_0 -> detected touch at f0
+[2022-07-17 06:50:01.036389]: Fibo_0 -> detected touch at f0
+[2022-07-17 06:51:41.229439]: Fibo_0 -> detected touch at f38.2
+[2022-07-17 06:51:42.126186]: speculator -> detected current fibonacci matches (f38x2 - 1173727.62 (matches: 3))
+[2022-07-17 06:51:49.435173]: There is no current event loop in thread 'Thread-3'.
+[2022-07-17 06:51:49.510917]: speculator -> sold
+[2022-07-17 06:51:50.394244]: creating Fibonacci (Fibo_1 - From 1173380 to 1173738)
+[2022-07-17 06:51:51.194539]: updating Fibonacci (start_child_1 - From 1173380 to 1173516.756))
+[2022-07-17 06:51:51.196185]: updating Fibonacci (end_child_2 - From 1173601.244 to 1173738.0))
+[2022-07-17 06:52:31.369891]: Fibo_0 -> detected touch at f38.2
+[2022-07-17 06:52:41.204021]: Fibo_0 -> detected touch at f38.2
+[2022-07-17 06:52:51.984617]: Fibo_0 -> detected touch at f38.2
+[2022-07-17 06:53:00.807634]: Fibo_0 -> detected touch at f38.2
+[2022-07-17 06:53:31.575814]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:53:32.375305]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:53:32.375659]: updating Fibonacci (Fibo_1 - From 1173380 to 1173810))
+[2022-07-17 06:53:32.378192]: Fibo_1 -> Fibonacci is active now
+[2022-07-17 06:53:32.378500]: Fibo_1 -> Fibonacci heigth is 430
+[2022-07-17 06:53:32.379287]: updating Fibonacci (start_child_1 - From 1173380 to 1173544.26))
+[2022-07-17 06:53:32.379792]: updating Fibonacci (end_child_2 - From 1173645.74 to 1173810.0))
+[2022-07-17 06:53:41.439994]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:53:42.207710]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:53:42.972502]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:53:42.972783]: updating Fibonacci (Fibo_1 - From 1173380 to 1173840))
+[2022-07-17 06:53:42.973333]: updating Fibonacci (start_child_1 - From 1173380 to 1173555.72))
+[2022-07-17 06:53:42.973645]: updating Fibonacci (end_child_2 - From 1173664.28 to 1173840.0))
+[2022-07-17 06:53:52.058143]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:53:52.817871]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:53:53.521667]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:53:53.524551]: updating Fibonacci (Fibo_1 - From 1173380 to 1173860))
+[2022-07-17 06:53:53.525365]: updating Fibonacci (start_child_1 - From 1173380 to 1173563.36))
+[2022-07-17 06:53:53.525893]: updating Fibonacci (end_child_2 - From 1173676.64 to 1173860.0))
+[2022-07-17 06:54:00.638393]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:54:01.437594]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:54:02.182807]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:54:02.183089]: updating Fibonacci (Fibo_1 - From 1173380 to 1173900))
+[2022-07-17 06:54:02.183653]: updating Fibonacci (start_child_1 - From 1173380 to 1173578.64))
+[2022-07-17 06:54:02.183936]: updating Fibonacci (end_child_2 - From 1173701.36 to 1173900.0))
+[2022-07-17 06:54:31.255224]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:54:32.045827]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:54:32.797743]: Fibo_1 -> detected match range [0]
+[2022-07-17 06:54:41.865599]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:54:42.666631]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:54:43.349187]: Fibo_1 -> detected match range [0]
+[2022-07-17 06:54:51.395336]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:54:52.124910]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:54:52.854455]: Fibo_1 -> detected match range [0]
+[2022-07-17 06:55:00.879055]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:55:01.610151]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:55:31.427159]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:55:32.209127]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:55:32.975495]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:55:32.975835]: updating Fibonacci (Fibo_1 - From 1173380 to 1173902))
+[2022-07-17 06:55:32.976848]: updating Fibonacci (start_child_1 - From 1173380 to 1173579.404))
+[2022-07-17 06:55:32.978828]: updating Fibonacci (end_child_2 - From 1173702.596 to 1173902.0))
+[2022-07-17 06:55:42.024418]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:55:42.895247]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:55:51.801594]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:55:52.532372]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:56:00.311518]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:56:01.065889]: Fibo_0 -> detected touch at f50
+[2022-07-17 06:56:31.903599]: Fibo_0 -> detected touch at f61.8
+[2022-07-17 06:56:32.642431]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:56:32.643081]: updating Fibonacci (Fibo_1 - From 1173380 to 1174020))
+[2022-07-17 06:56:32.644757]: updating Fibonacci (start_child_1 - From 1173380 to 1173624.48))
+[2022-07-17 06:56:32.645638]: updating Fibonacci (end_child_2 - From 1173775.52 to 1174020.0))
+[2022-07-17 06:56:41.704640]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:56:42.563146]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:56:42.563456]: updating Fibonacci (Fibo_1 - From 1173380 to 1174030))
+[2022-07-17 06:56:42.564056]: updating Fibonacci (start_child_1 - From 1173380 to 1173628.3))
+[2022-07-17 06:56:42.569886]: updating Fibonacci (end_child_2 - From 1173781.7 to 1174030.0))
+[2022-07-17 06:56:51.629482]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:57:00.526897]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:57:01.357484]: Fibo_0 -> detected touch at f61.8
+[2022-07-17 06:57:31.142398]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:57:31.826979]: Fibo_0 -> detected touch at f61.8
+[2022-07-17 06:57:41.692149]: Fibo_0 -> detected touch at f61.8
+[2022-07-17 06:57:51.513654]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:58:00.384582]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:58:01.169618]: Fibo_0 -> detected touch at f61.8
+[2022-07-17 06:58:02.831449]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:58:02.831780]: updating Fibonacci (Fibo_1 - From 1173380 to 1174040))
+[2022-07-17 06:58:02.832341]: updating Fibonacci (start_child_1 - From 1173380 to 1173632.12))
+[2022-07-17 06:58:02.832667]: updating Fibonacci (end_child_2 - From 1173787.88 to 1174040.0))
+[2022-07-17 06:58:31.957294]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:58:31.957688]: updating Fibonacci (Fibo_1 - From 1173380 to 1174130))
+[2022-07-17 06:58:31.958802]: updating Fibonacci (start_child_1 - From 1173380 to 1173666.5))
+[2022-07-17 06:58:31.959599]: updating Fibonacci (end_child_2 - From 1173843.5 to 1174130.0))
+[2022-07-17 06:58:42.033649]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:58:51.941953]: Fibo_0 -> detected touch at f61.8
+[2022-07-17 06:59:31.837022]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:59:32.610099]: price was out of range (f0) of the current fibonacci
+[2022-07-17 06:59:32.611090]: updating Fibonacci (Fibo_1 - From 1173380 to 1174140))
+[2022-07-17 06:59:32.611807]: updating Fibonacci (start_child_1 - From 1173380 to 1173670.32))
+[2022-07-17 06:59:32.612173]: updating Fibonacci (end_child_2 - From 1173849.68 to 1174140.0))
+[2022-07-17 06:59:41.656009]: Fibo_1 -> detected touch at f0
+[2022-07-17 06:59:51.545562]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:00:00.315562]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:00:31.169310]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:01:31.172697]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:01:41.081056]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:01:51.895750]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:02:00.734544]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:02:31.694412]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:02:32.512925]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:02:32.513605]: updating Fibonacci (Fibo_1 - From 1173380 to 1174160))
+[2022-07-17 07:02:32.514394]: updating Fibonacci (start_child_1 - From 1173380 to 1173677.96))
+[2022-07-17 07:02:32.516857]: updating Fibonacci (end_child_2 - From 1173862.04 to 1174160.0))
+[2022-07-17 07:02:41.565961]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:02:51.385518]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:03:00.294040]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:03:31.159745]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:03:31.906298]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:03:31.906921]: updating Fibonacci (Fibo_1 - From 1173380 to 1174190))
+[2022-07-17 07:03:31.907822]: updating Fibonacci (start_child_1 - From 1173380 to 1173689.42))
+[2022-07-17 07:03:31.908564]: updating Fibonacci (end_child_2 - From 1173880.58 to 1174190.0))
+[2022-07-17 07:03:41.981430]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:03:51.782227]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:04:00.736588]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:04:01.499608]: Fibo_0 -> detected touch at f100
+[2022-07-17 07:04:02.201429]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:04:02.201820]: updating Fibonacci (Fibo_1 - From 1173380 to 1174260))
+[2022-07-17 07:04:02.210945]: updating Fibonacci (start_child_1 - From 1173380 to 1173716.16))
+[2022-07-17 07:04:02.211308]: updating Fibonacci (end_child_2 - From 1173923.84 to 1174260.0))
+[2022-07-17 07:04:31.264190]: Fibo_0 -> detected touch at f100
+[2022-07-17 07:04:32.113323]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:04:32.115536]: updating Fibonacci (Fibo_1 - From 1173380 to 1174370))
+[2022-07-17 07:04:32.119255]: updating Fibonacci (start_child_1 - From 1173380 to 1173758.18))
+[2022-07-17 07:04:32.119824]: updating Fibonacci (end_child_2 - From 1173991.82 to 1174370.0))
+[2022-07-17 07:04:41.181406]: Fibo_0 -> detected touch at f100
+[2022-07-17 07:04:52.025407]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:04:52.025759]: updating Fibonacci (Fibo_1 - From 1173380 to 1174420))
+[2022-07-17 07:04:52.026493]: updating Fibonacci (start_child_1 - From 1173380 to 1173777.28))
+[2022-07-17 07:04:52.026780]: updating Fibonacci (end_child_2 - From 1174022.72 to 1174420.0))
+[2022-07-17 07:05:00.098744]: Fibo_0 -> detected touch at f100
+[2022-07-17 07:05:31.854036]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:05:31.854466]: updating Fibonacci (Fibo_1 - From 1173380 to 1174430))
+[2022-07-17 07:05:31.856353]: updating Fibonacci (start_child_1 - From 1173380 to 1173781.1))
+[2022-07-17 07:05:31.857574]: start_child_1 -> Fibonacci is active now
+[2022-07-17 07:05:31.857807]: start_child_1 -> Fibonacci heigth is 401.10000000009313
+[2022-07-17 07:05:31.858051]: updating Fibonacci (end_child_2 - From 1174028.9 to 1174430.0))
+[2022-07-17 07:05:31.859676]: end_child_2 -> Fibonacci is active now
+[2022-07-17 07:05:31.859916]: end_child_2 -> Fibonacci heigth is 401.10000000009313
+[2022-07-17 07:05:41.921265]: end_child_2 -> detected touch at f0
+[2022-07-17 07:05:42.881456]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:05:42.882093]: updating Fibonacci (Fibo_1 - From 1173380 to 1174480))
+[2022-07-17 07:05:42.883076]: updating Fibonacci (start_child_1 - From 1173380 to 1173800.2))
+[2022-07-17 07:05:42.883671]: updating Fibonacci (end_child_2 - From 1174059.8 to 1174480.0))
+[2022-07-17 07:05:51.922595]: end_child_2 -> detected touch at f0
+[2022-07-17 07:05:52.813553]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:05:52.813987]: updating Fibonacci (Fibo_1 - From 1173380 to 1174500))
+[2022-07-17 07:05:52.816460]: updating Fibonacci (start_child_1 - From 1173380 to 1173807.84))
+[2022-07-17 07:05:52.816938]: updating Fibonacci (end_child_2 - From 1174072.16 to 1174500.0))
+[2022-07-17 07:06:00.872827]: end_child_2 -> detected touch at f0
+[2022-07-17 07:06:31.819973]: end_child_2 -> detected touch at f0
+[2022-07-17 07:06:32.713791]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:06:32.714453]: updating Fibonacci (Fibo_1 - From 1173380 to 1174520))
+[2022-07-17 07:06:32.716024]: updating Fibonacci (start_child_1 - From 1173380 to 1173815.48))
+[2022-07-17 07:06:32.723265]: updating Fibonacci (end_child_2 - From 1174084.52 to 1174520.0))
+[2022-07-17 07:06:41.751810]: end_child_2 -> detected touch at f0
+[2022-07-17 07:06:51.779790]: end_child_2 -> detected touch at f0
+[2022-07-17 07:06:52.661855]: Fibo_1 -> detected touch at f0
+[2022-07-17 07:07:00.401766]: end_child_2 -> detected touch at f50
+[2022-07-17 07:07:31.377110]: end_child_2 -> detected touch at f50
+[2022-07-17 07:07:32.274960]: Fibo_0 -> detected touch at f100
+[2022-07-17 07:07:42.012417]: end_child_2 -> detected touch at f50
+[2022-07-17 07:07:43.105302]: Fibo_0 -> detected touch at f100
+[2022-07-17 07:07:51.935263]: end_child_2 -> detected touch at f50
+[2022-07-17 07:07:52.839092]: Fibo_0 -> detected touch at f100
+[2022-07-17 07:08:00.638892]: end_child_2 -> detected touch at f50
+[2022-07-17 07:08:01.614021]: Fibo_0 -> detected touch at f100
+[2022-07-17 07:08:25.102615]: not detected price. skipping interaction
+[2022-07-17 07:08:31.339699]: end_child_2 -> detected touch at f61.8
+[2022-07-17 07:08:41.234749]: end_child_2 -> detected touch at f100
+[2022-07-17 07:08:42.185692]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:08:42.999142]: speculator -> detected current fibonacci matches (f38x2 - 1174084.52 (matches: 11))
+[2022-07-17 07:08:46.352153]: There is no current event loop in thread 'Thread-3'.
+[2022-07-17 07:08:46.356617]: speculator -> bought
+[2022-07-17 07:08:47.296678]: creating Fibonacci (Fibo_2 - From 1174520 to 1174160)
+[2022-07-17 07:08:48.101850]: updating Fibonacci (start_child_1 - From 1174520 to 1174382.48))
+[2022-07-17 07:08:48.102333]: updating Fibonacci (end_child_2 - From 1174297.52 to 1174160.0))
+[2022-07-17 07:08:51.184509]: end_child_2 -> detected touch at f100
+[2022-07-17 07:08:52.131132]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:08:52.794052]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:08:52.795790]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:08:52.796300]: updating Fibonacci (Fibo_2 - From 1174520 to 1174080))
+[2022-07-17 07:08:52.797921]: Fibo_2 -> Fibonacci is active now
+[2022-07-17 07:08:52.798526]: Fibo_2 -> Fibonacci heigth is 440
+[2022-07-17 07:08:52.799278]: updating Fibonacci (start_child_1 - From 1174520 to 1174351.92))
+[2022-07-17 07:08:52.799627]: updating Fibonacci (end_child_2 - From 1174248.08 to 1174080.0))
+[2022-07-17 07:09:00.855342]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:09:01.563358]: end_child_2 -> detected touch at f100
+[2022-07-17 07:09:02.395934]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:09:03.143948]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:09:03.144924]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:09:03.145416]: updating Fibonacci (Fibo_2 - From 1174520 to 1174070))
+[2022-07-17 07:09:03.146433]: updating Fibonacci (start_child_1 - From 1174520 to 1174348.1))
+[2022-07-17 07:09:03.151386]: updating Fibonacci (end_child_2 - From 1174241.9 to 1174070.0))
+[2022-07-17 07:09:31.222208]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:09:32.023597]: end_child_2 -> detected touch at f100
+[2022-07-17 07:09:32.952098]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:09:33.730333]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:09:33.731338]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:09:33.731642]: updating Fibonacci (Fibo_2 - From 1174520 to 1174020))
+[2022-07-17 07:09:33.735286]: updating Fibonacci (start_child_1 - From 1174520 to 1174329.0))
+[2022-07-17 07:09:33.735706]: updating Fibonacci (end_child_2 - From 1174211.0 to 1174020.0))
+[2022-07-17 07:09:41.803157]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:09:42.589207]: end_child_2 -> detected touch at f100
+[2022-07-17 07:09:43.514219]: Fibo_1 -> detected touch at f50
+[2022-07-17 07:09:51.338370]: end_child_2 -> detected touch at f100
+[2022-07-17 07:09:52.120358]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:10:00.876958]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:10:01.625513]: end_child_2 -> detected touch at f100
+[2022-07-17 07:10:02.503512]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:10:31.296505]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:10:32.058460]: end_child_2 -> detected touch at f100
+[2022-07-17 07:10:32.950650]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:10:41.761957]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:10:42.591573]: end_child_2 -> detected touch at f100
+[2022-07-17 07:10:43.479064]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:10:51.329654]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:10:52.130841]: end_child_2 -> detected touch at f100
+[2022-07-17 07:10:52.993396]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:11:00.839079]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:11:01.534665]: end_child_2 -> detected touch at f100
+[2022-07-17 07:11:02.377771]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:11:31.323791]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:11:32.103723]: end_child_2 -> detected touch at f100
+[2022-07-17 07:11:32.896060]: Fibo_1 -> detected touch at f50
+[2022-07-17 07:11:33.605885]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:11:33.606496]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:11:33.606743]: updating Fibonacci (Fibo_2 - From 1174520 to 1174010))
+[2022-07-17 07:11:33.607391]: updating Fibonacci (start_child_1 - From 1174520 to 1174325.18))
+[2022-07-17 07:11:33.607647]: updating Fibonacci (end_child_2 - From 1174204.82 to 1174010.0))
+[2022-07-17 07:11:41.649857]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:11:42.437268]: Fibo_1 -> detected touch at f50
+[2022-07-17 07:11:43.097597]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:11:43.098554]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:11:43.100343]: updating Fibonacci (Fibo_2 - From 1174520 to 1173890))
+[2022-07-17 07:11:43.101139]: updating Fibonacci (start_child_1 - From 1174520 to 1174279.34))
+[2022-07-17 07:11:43.101409]: updating Fibonacci (end_child_2 - From 1174130.66 to 1173890.0))
+[2022-07-17 07:11:51.144463]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:11:51.878821]: Fibo_1 -> detected touch at f50
+[2022-07-17 07:11:52.679270]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:11:52.682695]: updating Fibonacci (Fibo_2 - From 1174520 to 1173850))
+[2022-07-17 07:11:52.684920]: updating Fibonacci (start_child_1 - From 1174520 to 1174264.06))
+[2022-07-17 07:11:52.685464]: updating Fibonacci (end_child_2 - From 1174105.94 to 1173850.0))
+[2022-07-17 07:12:00.750119]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:12:01.596150]: start_child_1 -> detected touch at f0
+[2022-07-17 07:12:02.436456]: Fibo_1 -> detected touch at f50
+[2022-07-17 07:12:31.284486]: end_child_2 -> detected touch at f100
+[2022-07-17 07:12:32.233795]: Fibo_1 -> detected touch at f38.2
+[2022-07-17 07:12:41.044937]: Fibo_1 -> detected touch at f50
+[2022-07-17 07:12:51.882465]: Fibo_1 -> detected touch at f50
+[2022-07-17 07:13:00.840168]: Fibo_1 -> detected touch at f50
+[2022-07-17 07:13:31.732796]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:13:32.501840]: start_child_1 -> detected touch at f0
+[2022-07-17 07:13:33.458086]: Fibo_1 -> detected touch at f61.8
+[2022-07-17 07:13:34.251482]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:13:34.258647]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:13:34.258965]: updating Fibonacci (Fibo_2 - From 1174520 to 1173770))
+[2022-07-17 07:13:34.263294]: updating Fibonacci (start_child_1 - From 1174520 to 1174233.5))
+[2022-07-17 07:13:34.263814]: updating Fibonacci (end_child_2 - From 1174056.5 to 1173770.0))
+[2022-07-17 07:13:41.335067]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:13:42.131793]: start_child_1 -> detected touch at f0
+[2022-07-17 07:13:43.111198]: Fibo_1 -> detected touch at f61.8
+[2022-07-17 07:13:51.919096]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:13:52.710032]: start_child_1 -> detected touch at f0
+[2022-07-17 07:13:53.568676]: Fibo_1 -> detected touch at f61.8
+[2022-07-17 07:13:54.276230]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:14:00.322734]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:14:01.026468]: start_child_1 -> detected touch at f0
+[2022-07-17 07:14:01.879871]: Fibo_1 -> detected touch at f61.8
+[2022-07-17 07:14:02.701902]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:14:31.806064]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:14:32.596687]: start_child_1 -> detected touch at f0
+[2022-07-17 07:14:33.522337]: Fibo_1 -> detected touch at f61.8
+[2022-07-17 07:14:41.372768]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:14:42.154513]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:14:42.155822]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:14:42.156178]: updating Fibonacci (Fibo_2 - From 1174520 to 1173700))
+[2022-07-17 07:14:42.156983]: updating Fibonacci (start_child_1 - From 1174520 to 1174206.76))
+[2022-07-17 07:14:42.157337]: updating Fibonacci (end_child_2 - From 1174013.24 to 1173700.0))
+[2022-07-17 07:14:51.193434]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:14:51.919909]: start_child_1 -> detected touch at f0
+[2022-07-17 07:14:52.907879]: Fibo_1 -> detected touch at f61.8
+[2022-07-17 07:15:00.696091]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:15:15.517376]: not detected price. skipping interaction
+[2022-07-17 07:15:31.546722]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:15:32.396988]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:15:32.397863]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:15:32.398340]: updating Fibonacci (Fibo_2 - From 1174520 to 1173670))
+[2022-07-17 07:15:32.399240]: updating Fibonacci (start_child_1 - From 1174520 to 1174195.3))
+[2022-07-17 07:15:32.399721]: updating Fibonacci (end_child_2 - From 1173994.7 to 1173670.0))
+[2022-07-17 07:15:41.505971]: start_child_1 -> detected touch at f0
+[2022-07-17 07:15:42.410421]: Fibo_1 -> detected touch at f61.8
+[2022-07-17 07:15:51.161874]: start_child_1 -> detected touch at f0
+[2022-07-17 07:15:52.089450]: Fibo_1 -> detected touch at f61.8
+[2022-07-17 07:16:00.958684]: start_child_1 -> detected touch at f0
+[2022-07-17 07:16:01.793039]: Fibo_1 -> detected touch at f61.8
+[2022-07-17 07:16:31.607280]: start_child_1 -> detected touch at f0
+[2022-07-17 07:16:32.527257]: Fibo_1 -> detected touch at f61.8
+[2022-07-17 07:16:41.274730]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:16:51.088437]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:17:00.921111]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:17:31.762907]: start_child_1 -> detected touch at f100
+[2022-07-17 07:17:32.681328]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:17:33.459253]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:17:33.462790]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:17:33.463197]: updating Fibonacci (Fibo_2 - From 1174520 to 1173385))
+[2022-07-17 07:17:33.464011]: updating Fibonacci (start_child_1 - From 1174520 to 1174086.43))
+[2022-07-17 07:17:33.498356]: start_child_1 -> Fibonacci is active now
+[2022-07-17 07:17:33.498954]: start_child_1 -> Fibonacci heigth is 433.5700000000652
+[2022-07-17 07:17:33.499364]: updating Fibonacci (end_child_2 - From 1173818.57 to 1173385.0))
+[2022-07-17 07:17:33.504034]: end_child_2 -> Fibonacci is active now
+[2022-07-17 07:17:33.504270]: end_child_2 -> Fibonacci heigth is 433.5700000000652
+[2022-07-17 07:17:41.539261]: end_child_2 -> detected touch at f0
+[2022-07-17 07:17:42.436385]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:17:43.223307]: start_child_1 -> detected touch at f100
+[2022-07-17 07:17:44.228766]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:17:52.034237]: start_child_1 -> detected touch at f61.8
+[2022-07-17 07:18:00.973863]: end_child_2 -> detected touch at f0
+[2022-07-17 07:18:02.017351]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:18:02.809587]: start_child_1 -> detected touch at f100
+[2022-07-17 07:18:03.723092]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:18:31.567746]: end_child_2 -> detected touch at f0
+[2022-07-17 07:18:32.543671]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:18:33.254451]: start_child_1 -> detected touch at f100
+[2022-07-17 07:18:34.134677]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:18:34.875698]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:18:34.877893]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:18:34.878337]: updating Fibonacci (Fibo_2 - From 1174520 to 1173350))
+[2022-07-17 07:18:34.882775]: updating Fibonacci (start_child_1 - From 1174520 to 1174073.06))
+[2022-07-17 07:18:34.883165]: updating Fibonacci (end_child_2 - From 1173796.94 to 1173350.0))
+[2022-07-17 07:18:41.916635]: end_child_2 -> detected touch at f0
+[2022-07-17 07:18:42.801909]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:18:43.507534]: start_child_1 -> detected touch at f100
+[2022-07-17 07:18:44.370023]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:18:45.127449]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:18:45.128648]: updating Fibonacci (Fibo_2 - From 1174520 to 1173319))
+[2022-07-17 07:18:45.132884]: updating Fibonacci (start_child_1 - From 1174520 to 1174061.218))
+[2022-07-17 07:18:45.134796]: updating Fibonacci (end_child_2 - From 1173777.782 to 1173319.0))
+[2022-07-17 07:18:51.214084]: start_child_1 -> detected touch at f100
+[2022-07-17 07:18:52.096878]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:19:00.845510]: end_child_2 -> detected touch at f0
+[2022-07-17 07:19:01.651782]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:19:02.436088]: start_child_1 -> detected touch at f100
+[2022-07-17 07:19:03.344094]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:19:31.120533]: start_child_1 -> detected touch at f100
+[2022-07-17 07:19:32.054906]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:19:51.934518]: end_child_2 -> detected touch at f50
+[2022-07-17 07:19:52.938882]: start_child_1 -> detected touch at f61.8
+[2022-07-17 07:20:00.990394]: end_child_2 -> detected touch at f50
+[2022-07-17 07:20:01.933708]: start_child_1 -> detected touch at f61.8
+[2022-07-17 07:20:31.925857]: end_child_2 -> detected touch at f50
+[2022-07-17 07:20:32.868832]: start_child_1 -> detected touch at f50
+[2022-07-17 07:20:41.810002]: end_child_2 -> detected touch at f50
+[2022-07-17 07:20:42.781008]: start_child_1 -> detected touch at f50
+[2022-07-17 07:20:51.747729]: end_child_2 -> detected touch at f50
+[2022-07-17 07:20:52.660479]: start_child_1 -> detected touch at f50
+[2022-07-17 07:21:00.704947]: end_child_2 -> detected touch at f50
+[2022-07-17 07:21:01.539632]: start_child_1 -> detected touch at f50
+[2022-07-17 07:21:31.564788]: end_child_2 -> detected touch at f50
+[2022-07-17 07:21:32.453224]: start_child_1 -> detected touch at f50
+[2022-07-17 07:21:41.329997]: end_child_2 -> detected touch at f50
+[2022-07-17 07:21:42.201056]: start_child_1 -> detected touch at f50
+[2022-07-17 07:21:51.185673]: end_child_2 -> detected touch at f50
+[2022-07-17 07:21:52.040074]: start_child_1 -> detected touch at f50
+[2022-07-17 07:22:00.969970]: start_child_1 -> detected touch at f100
+[2022-07-17 07:22:01.939066]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:22:31.699811]: start_child_1 -> detected touch at f100
+[2022-07-17 07:22:32.520480]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:22:41.300206]: start_child_1 -> detected touch at f100
+[2022-07-17 07:22:42.237399]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:22:51.961608]: end_child_2 -> detected touch at f0
+[2022-07-17 07:22:52.983757]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:22:53.708136]: start_child_1 -> detected touch at f100
+[2022-07-17 07:22:54.589810]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:23:00.338843]: end_child_2 -> detected touch at f0
+[2022-07-17 07:23:01.199270]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:23:01.972151]: start_child_1 -> detected touch at f100
+[2022-07-17 07:23:02.846667]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:23:31.748408]: end_child_2 -> detected touch at f0
+[2022-07-17 07:23:32.614891]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:23:33.382775]: start_child_1 -> detected touch at f100
+[2022-07-17 07:23:34.256021]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:23:41.066175]: end_child_2 -> detected touch at f0
+[2022-07-17 07:23:42.007310]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:23:42.802465]: start_child_1 -> detected touch at f100
+[2022-07-17 07:23:43.718754]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:23:51.515914]: start_child_1 -> detected touch at f100
+[2022-07-17 07:23:52.474996]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:24:00.411536]: end_child_2 -> detected touch at f50
+[2022-07-17 07:24:01.422579]: start_child_1 -> detected touch at f61.8
+[2022-07-17 07:24:31.452785]: start_child_1 -> detected touch at f100
+[2022-07-17 07:24:32.360125]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:24:41.091998]: start_child_1 -> detected touch at f100
+[2022-07-17 07:24:42.028794]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:24:51.847414]: start_child_1 -> detected touch at f100
+[2022-07-17 07:24:52.598722]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:25:00.298805]: end_child_2 -> detected touch at f0
+[2022-07-17 07:25:01.180424]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:25:01.877591]: start_child_1 -> detected touch at f100
+[2022-07-17 07:25:02.723211]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:25:31.577860]: end_child_2 -> detected touch at f50
+[2022-07-17 07:25:32.452259]: start_child_1 -> detected touch at f61.8
+[2022-07-17 07:25:41.451274]: end_child_2 -> detected touch at f50
+[2022-07-17 07:25:42.281060]: start_child_1 -> detected touch at f61.8
+[2022-07-17 07:25:51.248920]: start_child_1 -> detected touch at f100
+[2022-07-17 07:25:52.180977]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:26:00.901401]: start_child_1 -> detected touch at f100
+[2022-07-17 07:26:01.756599]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:26:31.621795]: end_child_2 -> detected touch at f0
+[2022-07-17 07:26:32.508043]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:26:33.231053]: start_child_1 -> detected touch at f100
+[2022-07-17 07:26:34.104355]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:26:41.879419]: end_child_2 -> detected touch at f0
+[2022-07-17 07:26:42.810968]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:26:43.510880]: start_child_1 -> detected touch at f100
+[2022-07-17 07:26:44.435469]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:26:51.245806]: end_child_2 -> detected touch at f0
+[2022-07-17 07:26:52.073312]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:26:52.761480]: start_child_1 -> detected touch at f100
+[2022-07-17 07:26:53.562843]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:27:00.307670]: end_child_2 -> detected touch at f0
+[2022-07-17 07:27:01.198961]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:27:01.937668]: start_child_1 -> detected touch at f100
+[2022-07-17 07:27:02.911603]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:27:31.801920]: end_child_2 -> detected touch at f0
+[2022-07-17 07:27:32.768273]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:27:33.525873]: start_child_1 -> detected touch at f100
+[2022-07-17 07:27:34.394057]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:27:35.177509]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:27:35.183029]: updating Fibonacci (Fibo_2 - From 1174520 to 1173300))
+[2022-07-17 07:27:35.188200]: updating Fibonacci (start_child_1 - From 1174520 to 1174053.96))
+[2022-07-17 07:27:35.188717]: updating Fibonacci (end_child_2 - From 1173766.04 to 1173300.0))
+[2022-07-17 07:27:41.244016]: end_child_2 -> detected touch at f0
+[2022-07-17 07:27:42.153444]: Fibo_2 -> detected touch at f0
+[2022-07-17 07:27:42.899874]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:27:42.902647]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:27:42.903136]: updating Fibonacci (Fibo_2 - From 1174520 to 1173240))
+[2022-07-17 07:27:42.908614]: updating Fibonacci (start_child_1 - From 1174520 to 1174031.04))
+[2022-07-17 07:27:42.909231]: updating Fibonacci (end_child_2 - From 1173728.96 to 1173240.0))
+[2022-07-17 07:27:51.989869]: end_child_2 -> detected touch at f0
+[2022-07-17 07:27:53.011212]: Fibo_2 -> detected match range [0]
+[2022-07-17 07:27:53.012098]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:27:53.012419]: updating Fibonacci (Fibo_2 - From 1174520 to 1173230))
+[2022-07-17 07:27:53.013325]: updating Fibonacci (start_child_1 - From 1174520 to 1174027.22))
+[2022-07-17 07:27:53.013673]: updating Fibonacci (end_child_2 - From 1173722.78 to 1173230.0))
+[2022-07-17 07:28:00.101571]: end_child_2 -> detected touch at f0
+[2022-07-17 07:28:01.029254]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:28:01.030218]: updating Fibonacci (Fibo_2 - From 1174520 to 1173200))
+[2022-07-17 07:28:01.035775]: updating Fibonacci (start_child_1 - From 1174520 to 1174015.76))
+[2022-07-17 07:28:01.036385]: updating Fibonacci (end_child_2 - From 1173704.24 to 1173200.0))
+[2022-07-17 07:28:31.123728]: end_child_2 -> detected touch at f50
+[2022-07-17 07:28:32.046380]: start_child_1 -> detected touch at f100
+[2022-07-17 07:28:32.998955]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:28:41.875112]: start_child_1 -> detected touch at f100
+[2022-07-17 07:28:42.764749]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:28:51.604203]: start_child_1 -> detected touch at f100
+[2022-07-17 07:28:52.501959]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:29:00.302706]: end_child_2 -> detected touch at f50
+[2022-07-17 07:29:01.169418]: start_child_1 -> detected touch at f100
+[2022-07-17 07:29:02.033969]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:29:31.878361]: start_child_1 -> detected touch at f100
+[2022-07-17 07:29:32.841083]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:29:41.651452]: start_child_1 -> detected touch at f100
+[2022-07-17 07:29:42.585714]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:29:51.322147]: start_child_1 -> detected touch at f100
+[2022-07-17 07:29:52.126239]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:30:00.858804]: start_child_1 -> detected touch at f100
+[2022-07-17 07:30:01.731546]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:30:31.557327]: end_child_2 -> detected touch at f0
+[2022-07-17 07:30:41.518715]: start_child_1 -> detected touch at f100
+[2022-07-17 07:30:42.486336]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:30:51.212963]: start_child_1 -> detected touch at f100
+[2022-07-17 07:30:52.084076]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:31:00.872507]: start_child_1 -> detected touch at f100
+[2022-07-17 07:31:01.779642]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:31:31.612401]: end_child_2 -> detected touch at f50
+[2022-07-17 07:31:32.477935]: start_child_1 -> detected touch at f100
+[2022-07-17 07:31:33.409341]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:31:41.267781]: end_child_2 -> detected touch at f50
+[2022-07-17 07:31:42.164441]: start_child_1 -> detected touch at f100
+[2022-07-17 07:31:43.086644]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:31:51.897645]: end_child_2 -> detected touch at f50
+[2022-07-17 07:31:52.837382]: start_child_1 -> detected touch at f100
+[2022-07-17 07:31:53.672506]: Fibo_1 -> detected touch at f100
+[2022-07-17 07:32:00.402691]: end_child_2 -> detected touch at f50
+[2022-07-17 07:32:01.283671]: start_child_1 -> detected touch at f61.8
+[2022-07-17 07:32:31.189573]: end_child_2 -> detected touch at f100
+[2022-07-17 07:32:32.107494]: Fibo_2 -> detected touch at f38.2
+[2022-07-17 07:32:32.840983]: start_child_1 -> detected touch at f50
+[2022-07-17 07:32:33.724015]: speculator -> detected current fibonacci matches (f38x2 - 1173704.24 (matches: 8))
+[2022-07-17 07:32:36.712948]: There is no current event loop in thread 'Thread-3'.
+[2022-07-17 07:32:36.720906]: speculator -> sold
+[2022-07-17 07:32:37.595799]: creating Fibonacci (Fibo_3 - From 1173200 to 1173660)
+[2022-07-17 07:32:38.340522]: updating Fibonacci (start_child_1 - From 1173200 to 1173375.72))
+[2022-07-17 07:32:38.341070]: updating Fibonacci (end_child_2 - From 1173484.28 to 1173660.0))
+[2022-07-17 07:32:41.454441]: end_child_2 -> detected touch at f61.8
+[2022-07-17 07:32:51.336179]: end_child_2 -> detected touch at f61.8
+[2022-07-17 07:33:00.243253]: end_child_2 -> detected touch at f61.8
+[2022-07-17 07:33:31.284754]: end_child_2 -> detected touch at f50
+[2022-07-17 07:33:41.252954]: Fibo_3 -> detected touch at f50
+[2022-07-17 07:33:41.934767]: end_child_2 -> detected touch at f50
+[2022-07-17 07:33:51.765238]: end_child_2 -> detected touch at f50
+[2022-07-17 07:33:52.538904]: Fibo_3 -> detected match range [38.2]
+[2022-07-17 07:34:00.656595]: Fibo_3 -> detected touch at f50
+[2022-07-17 07:34:01.407993]: end_child_2 -> detected touch at f50
+[2022-07-17 07:34:31.330015]: Fibo_3 -> detected touch at f61.8
+[2022-07-17 07:34:32.135857]: Fibo_3 -> detected match range [50, 61.8]
+[2022-07-17 07:34:32.136296]: speculator -> detected current fibonacci matches (f61x8 - 1173375.72 (matches: 11))
+[2022-07-17 07:34:35.493897]: There is no current event loop in thread 'Thread-3'.
+[2022-07-17 07:34:35.496064]: speculator -> bought
+[2022-07-17 07:34:36.331746]: creating Fibonacci (Fibo_4 - From 1173660 to 1173310)
+[2022-07-17 07:34:37.071642]: updating Fibonacci (start_child_1 - From 1173660 to 1173526.3))
+[2022-07-17 07:34:37.072077]: updating Fibonacci (end_child_2 - From 1173443.7 to 1173310.0))
+[2022-07-17 07:34:41.152371]: Fibo_4 -> detected match range [38.2, 0]
+[2022-07-17 07:34:41.153203]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:34:41.153733]: updating Fibonacci (Fibo_4 - From 1173660 to 1173220))
+[2022-07-17 07:34:41.166414]: Fibo_4 -> Fibonacci is active now
+[2022-07-17 07:34:41.166654]: Fibo_4 -> Fibonacci heigth is 440
+[2022-07-17 07:34:41.167468]: updating Fibonacci (start_child_1 - From 1173660 to 1173491.92))
+[2022-07-17 07:34:41.167718]: updating Fibonacci (end_child_2 - From 1173388.08 to 1173220.0))
+[2022-07-17 07:34:51.200311]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:34:51.979585]: Fibo_4 -> detected match range [50, 38.2]
+[2022-07-17 07:35:01.005509]: Fibo_4 -> detected touch at f0
+[2022-07-17 07:35:01.715592]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:35:02.536955]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:35:02.537333]: updating Fibonacci (Fibo_4 - From 1173660 to 1173180))
+[2022-07-17 07:35:02.550186]: updating Fibonacci (start_child_1 - From 1173660 to 1173476.64))
+[2022-07-17 07:35:02.550666]: updating Fibonacci (end_child_2 - From 1173363.36 to 1173180.0))
+[2022-07-17 07:35:31.648952]: Fibo_4 -> detected touch at f0
+[2022-07-17 07:35:32.403435]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:35:41.202377]: Fibo_4 -> detected touch at f0
+[2022-07-17 07:35:41.924777]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:35:51.711428]: Fibo_4 -> detected touch at f0
+[2022-07-17 07:35:52.446233]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:35:53.177304]: Fibo_4 -> detected match range [0]
+[2022-07-17 07:35:53.183737]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:35:53.185454]: updating Fibonacci (Fibo_4 - From 1173660 to 1173130))
+[2022-07-17 07:35:53.186630]: updating Fibonacci (start_child_1 - From 1173660 to 1173457.54))
+[2022-07-17 07:35:53.194054]: updating Fibonacci (end_child_2 - From 1173332.46 to 1173130.0))
+[2022-07-17 07:36:00.235857]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:36:01.021010]: Fibo_4 -> detected match range [0]
+[2022-07-17 07:36:01.023753]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:36:01.024217]: updating Fibonacci (Fibo_4 - From 1173660 to 1173120))
+[2022-07-17 07:36:01.025322]: updating Fibonacci (start_child_1 - From 1173660 to 1173453.72))
+[2022-07-17 07:36:01.025890]: updating Fibonacci (end_child_2 - From 1173326.28 to 1173120.0))
+[2022-07-17 07:36:31.095490]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:37:01.005030]: Fibo_4 -> detected touch at f50
+[2022-07-17 07:37:01.946473]: Fibo_3 -> detected touch at f50
+[2022-07-17 07:37:31.796065]: Fibo_4 -> detected touch at f50
+[2022-07-17 07:37:32.549239]: Fibo_3 -> detected touch at f61.8
+[2022-07-17 07:37:33.262482]: Fibo_4 -> detected match range [50]
+[2022-07-17 07:37:41.355741]: Fibo_4 -> detected touch at f50
+[2022-07-17 07:37:42.116063]: Fibo_3 -> detected touch at f61.8
+[2022-07-17 07:37:42.894381]: Fibo_4 -> detected match range [50, 38.2]
+[2022-07-17 07:37:51.974203]: Fibo_3 -> detected touch at f61.8
+[2022-07-17 07:37:52.783565]: Fibo_4 -> detected match range [50, 38.2]
+[2022-07-17 07:38:00.822668]: Fibo_3 -> detected touch at f61.8
+[2022-07-17 07:38:31.822187]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:38:41.636455]: Fibo_4 -> detected touch at f50
+[2022-07-17 07:38:42.476733]: Fibo_3 -> detected touch at f61.8
+[2022-07-17 07:38:51.352401]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:39:00.179744]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:39:31.044697]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:39:41.956132]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:39:51.840441]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:40:00.779477]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:40:31.620390]: Fibo_4 -> detected touch at f0
+[2022-07-17 07:40:32.417315]: Fibo_4 -> detected match range [0]
+[2022-07-17 07:40:32.438169]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:40:32.440844]: updating Fibonacci (Fibo_4 - From 1173660 to 1173113))
+[2022-07-17 07:40:32.453534]: updating Fibonacci (start_child_1 - From 1173660 to 1173451.046))
+[2022-07-17 07:40:32.455690]: updating Fibonacci (end_child_2 - From 1173321.954 to 1173113.0))
+[2022-07-17 07:40:41.537017]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:40:42.388019]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:40:42.412616]: updating Fibonacci (Fibo_4 - From 1173660 to 1173090))
+[2022-07-17 07:40:42.416263]: updating Fibonacci (start_child_1 - From 1173660 to 1173442.26))
+[2022-07-17 07:40:42.428187]: updating Fibonacci (end_child_2 - From 1173307.74 to 1173090.0))
+[2022-07-17 07:40:51.490543]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:41:00.374046]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:41:51.441084]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:42:00.328301]: Fibo_3 -> detected touch at f100
+[2022-07-17 07:42:31.351958]: Fibo_4 -> detected touch at f50
+[2022-07-17 07:42:32.133596]: Fibo_3 -> detected touch at f61.8
+[2022-07-17 07:42:41.068743]: Fibo_4 -> detected touch at f50
+[2022-07-17 07:42:41.846972]: Fibo_3 -> detected touch at f50
+[2022-07-17 07:42:51.596286]: Fibo_4 -> detected touch at f61.8
+[2022-07-17 07:42:52.444449]: Fibo_3 -> detected touch at f50
+[2022-07-17 07:42:53.235371]: speculator -> detected current fibonacci matches (f61x8 - 1173442.26 (matches: 12))
+[2022-07-17 07:42:58.251278]: There is no current event loop in thread 'Thread-3'.
+[2022-07-17 07:42:58.299758]: speculator -> sold
+[2022-07-17 07:42:59.227798]: creating Fibonacci (Fibo_5 - From 1173090 to 1173480)
+[2022-07-17 07:43:00.076909]: updating Fibonacci (start_child_1 - From 1173090 to 1173238.98))
+[2022-07-17 07:43:00.093404]: updating Fibonacci (end_child_2 - From 1173331.02 to 1173480.0))
+[2022-07-17 07:43:31.198874]: Fibo_4 -> detected touch at f61.8
+[2022-07-17 07:43:32.007836]: Fibo_5 -> detected match range [0]
+[2022-07-17 07:43:41.119793]: Fibo_4 -> detected touch at f61.8
+[2022-07-17 07:43:41.971477]: Fibo_5 -> detected match range [0]
+[2022-07-17 07:43:51.032687]: Fibo_4 -> detected touch at f61.8
+[2022-07-17 07:43:51.834154]: Fibo_5 -> detected match range [0]
+[2022-07-17 07:44:00.925794]: Fibo_4 -> detected touch at f61.8
+[2022-07-17 07:44:31.786883]: price was out of range (f0) of the current fibonacci
+[2022-07-17 07:44:31.787292]: updating Fibonacci (Fibo_5 - From 1173090 to 1173620))
+[2022-07-17 07:44:31.801597]: Fibo_5 -> Fibonacci is active now
+[2022-07-17 07:44:31.801874]: Fibo_5 -> Fibonacci heigth is 530
+[2022-07-17 07:44:31.803251]: updating Fibonacci (start_child_1 - From 1173090 to 1173292.46))
+[2022-07-17 07:44:31.804017]: updating Fibonacci (end_child_2 - From 1173417.54 to 1173620.0))
+[2022-07-17 07:44:51.939329]: Fibo_4 -> detected touch at f61.8
+[2022-07-17 07:45:00.979524]: Fibo_4 -> detected touch at f61.8
+[2022-07-17 07:45:31.820143]: Fibo_5 -> detected touch at f50
+[2022-07-17 07:45:32.628022]: Fibo_4 -> detected touch at f50
+[2022-07-17 07:45:33.395652]: Fibo_5 -> detected match range [50, 38.2]
+[2022-07-17 07:45:33.433110]: speculator -> detected current fibonacci matches (f50 - 1173355.0 (matches: 14))
