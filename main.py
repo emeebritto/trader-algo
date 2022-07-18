@@ -4,7 +4,6 @@ from entities.graphic import Graphic
 from speculator import Speculator
 from datetime import datetime
 from configer import configer
-from utils.browser import browser
 from logger import logger
 # import pyautogui as ctr
 import os
@@ -14,12 +13,9 @@ logger.init() # default folder "logs"
 sound.folder("sounds")
 
 graphic = Graphic()
-speculator = Speculator()
+speculator = Speculator(reverseMode=False)
 
-
-browser.openChart()
 graphic.start()
-
 speculator.use("graphic", graphic)
 # speculator.use("controller", ctr)
 

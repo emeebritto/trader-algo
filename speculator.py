@@ -3,12 +3,11 @@ from random import randint
 from itertools import count
 from configer import configer
 from logger import logger
-from utils.browser import browser
 from utils.sound import sound
 
 
 class Speculator:
-	def __init__(self):
+	def __init__(self, reverseMode=False):
 		self.maxValue = 0
 		self.minValue = 0
 		self.currentCandle = None
@@ -16,6 +15,8 @@ class Speculator:
 		self.fibonaccis = []
 		self._counter = count()
 		self.__modules = []
+		self._reverseMode = reverseMode
+		if reverseMode: self.__reverseOperations()
 
 
 	@property
@@ -31,6 +32,26 @@ class Speculator:
 	@property
 	def activeModules(self):
 		return self.__modules
+
+
+	@property
+	def reverseMode(self):
+		return self._reverseMode
+
+
+	@reverseMode.setter
+	def reverseMode(self, val):
+		if val in [True, False] and val != self._reverseMode:
+			self._reverseMode = val
+			self.__reverseOperations()
+
+
+	def __reverseOperations(self):
+		status = "Activated" if self._reverseMode else "Desactivated"
+		logger.outlog(f"speculator -> ReverseMode was {status}")
+		temp = getattr(self, "purchase")
+		setattr(self, "purchase", getattr(self, "sell"))
+		setattr(self, "sell", temp)
 
 
 	def use(self, name, element):
@@ -90,13 +111,13 @@ class Speculator:
 
 
 	def purchase(self):
-		browser.click_dealUpBtn()
+		self.graphic.purchase()
 		sound.play("notifications_11.mp3")
 		logger.fullog("speculator -> bought")
 
 
 	def sell(self):
-		browser.click_dealDownBtn()
+		self.graphic.sell()
 		sound.play("notifications_11.mp3")
 		logger.fullog("speculator -> sold")
 

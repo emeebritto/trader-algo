@@ -8,7 +8,7 @@ from utils.time import seconds, wait
 from pytesseract import pytesseract
 from configer import configer
 from utils.screen import Screen
-from utils.browser import browser
+from utils.browser import Browser, browser
 import threading
 import numpy as np
 import cv2
@@ -16,7 +16,7 @@ import re
 
 
 
-class Graphic(Screen):
+class Graphic(Browser, Screen):
 	def __init__(self):
 		super(Graphic, self).__init__()
 		self.timeframe = 1
@@ -37,6 +37,8 @@ class Graphic(Screen):
 
 
 	def start(self):
+		logger.fullog("Starting Graphic")
+		self.openChart()
 		self.active = True
 		priceThr = threading.Thread(
 			target=self._listenPrice,
@@ -50,7 +52,7 @@ class Graphic(Screen):
 		)
 		priceThr.start()
 		candlesThr.start()
-		logger.log("Graphic was started")
+		logger.fullog("Graphic was started")
 
 
 	def tradingWindow(self, callback, interval=0):
@@ -61,7 +63,7 @@ class Graphic(Screen):
 			kwargs={}
 		)
 		tradingThr.start()
-		logger.log("Trading window was opened")
+		logger.outlog(f"Trading window was opened (timeframe: {self.timeframe})")
 
 
 	def __closeWindow(self):
@@ -96,14 +98,13 @@ class Graphic(Screen):
 			# 140, 40, 136 or 180, 80, 226
 			thresh = cv2.threshold(np.array(cropped_img), 140, 40, 136, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
 			rawStr = pytesseract.image_to_string(thresh, config='--psm 6')
-			# print("rawStr: ", rawStr)
 			# cv2.imshow("thresh", thresh)
 			# cv2.waitKey(0)
 			priceFormat = r"[0-9]*\.[0-9]*"
 			matches = re.findall(priceFormat, rawStr)
 
 			if not len(matches):
-				print("not detected price. trying second method")
+				# print("not detected price. trying second method")
 				thresh = cv2.threshold(np.array(cropped_img), 180, 80, 226, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
 				rawStr = pytesseract.image_to_string(thresh, config='--psm 6')
 				matches = re.findall(priceFormat, rawStr)

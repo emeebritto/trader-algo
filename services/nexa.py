@@ -45,7 +45,8 @@ class Nexa:
 
 
 	def last_message(self, user=None):
-		return self.get_updates(user=user)[-1]
+		updates = self.get_updates(user=user)
+		return updates[-1] if len(updates) else None
 
 
 	def wait_new_message(self, user=None, metadata=False):

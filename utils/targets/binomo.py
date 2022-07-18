@@ -78,19 +78,17 @@ class Binomo:
 		fiveMChartTime.click()
 
 		self._createLog("Browser -> chart ready.")
-		self.send_msg_to_author("Browser -> chart ready")
-
 		sleep(2)
 
 
-	def click_dealUpBtn(self):
+	def purchase(self):
 		dealUpButton = self.instance.find_element(By.CLASS_NAME, "qa_trading_dealUpButton")
 		dealUpButton.click()
 		self.send_msg_to_author("deal up button was clicked")
 		self.send_screen_to_author()
 
 
-	def click_dealDownBtn(self):
+	def sell(self):
 		dealDownButton = self.instance.find_element(By.CLASS_NAME, "qa_trading_dealDownButton")
 		dealDownButton.click()
 		self.send_msg_to_author("deal down button was clicked")

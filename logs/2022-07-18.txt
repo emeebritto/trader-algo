@@ -1,0 +1,35 @@
+[2022-07-18 00:56:39.009664]: Browser -> initializing browser.
+[2022-07-18 00:57:32.005550]: Browser -> initializing browser.
+[2022-07-18 00:57:40.644389]: Starting Graphic
+[2022-07-18 00:57:42.215244]: Browser -> getting aplication web.
+[2022-07-18 00:59:08.519934]: Browser -> initializing browser.
+[2022-07-18 00:59:16.086579]: Starting Graphic
+[2022-07-18 00:59:17.039286]: Browser -> getting aplication web.
+[2022-07-18 01:07:58.721421]: Browser -> initializing browser.
+[2022-07-18 01:08:07.300880]: Starting Graphic
+[2022-07-18 01:08:08.626726]: Browser -> getting aplication web.
+[2022-07-18 01:09:44.186533]: Browser -> initializing browser.
+[2022-07-18 01:09:53.259326]: Starting Graphic
+[2022-07-18 01:09:54.450562]: Browser -> getting aplication web.
+[2022-07-18 01:11:28.287344]: Browser -> initializing browser.
+[2022-07-18 01:11:38.066709]: Browser -> initializing browser.
+[2022-07-18 01:11:50.867469]: Starting Graphic
+[2022-07-18 01:11:55.279492]: Browser -> getting aplication web.
+[2022-07-18 01:12:18.632928]: Browser -> insering account login.
+[2022-07-18 01:12:20.096519]: Browser -> sleeping.
+[2022-07-18 01:33:20.974733]: Browser -> initializing browser.
+[2022-07-18 01:33:36.537481]: Browser -> initializing browser.
+[2022-07-18 01:33:52.196706]: Starting Graphic
+[2022-07-18 01:33:53.292953]: Browser -> getting aplication web.
+[2022-07-18 01:34:17.144203]: Browser -> insering account login.
+[2022-07-18 01:34:18.656451]: Browser -> sleeping.
+[2022-07-18 01:35:25.829287]: Browser -> selecting assets box.
+[2022-07-18 01:35:28.919795]: Browser -> sleeping.
+[2022-07-18 01:35:33.742966]: Browser -> selecting asset (EUR/USD).
+[2022-07-18 01:35:35.337582]: Browser -> sleeping.
+[2022-07-18 01:35:41.287714]: Browser -> sleeping.
+[2022-07-18 01:35:46.149948]: Browser -> selecting chart time.
+[2022-07-18 01:35:52.866265]: Browser -> chart ready.
+[2022-07-18 01:35:55.716296]: listening price
+[2022-07-18 01:35:55.718294]: Graphic was started
+[2022-07-18 01:35:56.545524]: Trading window was opened (timeframe: 1)
