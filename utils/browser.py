@@ -1,3 +1,5 @@
+import sys
+import os
 from PIL import Image
 from logger import logger
 from selenium import webdriver
@@ -10,7 +12,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from time import sleep
-import os
 FIREFOX_DRIVER_PATH = './bin/geckodriver'
 
 
@@ -18,7 +19,6 @@ FIREFOX_DRIVER_PATH = './bin/geckodriver'
 class Browser(Binomo):
   def __init__(self):
     super(Browser, self).__init__()
-    self.options = ('--none', '--headless',)
     self.instance = None
     self._init_firefox()
 
@@ -28,10 +28,8 @@ class Browser(Binomo):
     firefox_options = webdriver.FirefoxOptions()
     binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
 
-    # firefox_options.add_argument('--headless')
-    if self.options is not None:
-      for option in self.options:
-        firefox_options.add_argument(option)
+    if "-h" in sys.argv or os.environ.get("IS_SERVER"):
+      firefox_options.add_argument('--headless')
 
     firefox_service = Service(
       executable_path=FIREFOX_DRIVER_PATH

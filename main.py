@@ -6,6 +6,7 @@ from datetime import datetime
 from configer import configer
 from logger import logger
 # import pyautogui as ctr
+import sys
 import os
 
 configer.init("config/default.json")
@@ -13,7 +14,7 @@ logger.init() # default folder "logs"
 sound.folder("sounds")
 
 graphic = Graphic()
-speculator = Speculator(reverseMode=False)
+speculator = Speculator(reverseMode=("-r" in sys.argv))
 
 graphic.start()
 speculator.use("graphic", graphic)

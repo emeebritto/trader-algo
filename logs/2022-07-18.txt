@@ -33,3 +33,19 @@
 [2022-07-18 01:35:55.716296]: listening price
 [2022-07-18 01:35:55.718294]: Graphic was started
 [2022-07-18 01:35:56.545524]: Trading window was opened (timeframe: 1)
+[2022-07-18 02:14:31.915102]: Browser -> initializing browser.
+[2022-07-18 02:15:31.740723]: Browser -> initializing browser.
+[2022-07-18 02:15:52.960933]: Browser -> initializing browser.
+[2022-07-18 02:16:12.973281]: Browser -> initializing browser.
+[2022-07-18 02:16:21.929837]: Browser -> initializing browser.
+[2022-07-18 02:16:34.499624]: Starting Graphic
+[2022-07-18 02:16:36.518927]: Browser -> getting aplication web.
+[2022-07-18 02:19:26.236069]: Browser -> initializing browser.
+[2022-07-18 02:19:34.332284]: Browser -> initializing browser.
+[2022-07-18 02:19:44.794971]: speculator -> ReverseMode was Activated
+[2022-07-18 02:19:44.796101]: Starting Graphic
+[2022-07-18 02:19:46.032029]: Browser -> getting aplication web.
+[2022-07-18 02:19:56.721494]: Browser -> initializing browser.
+[2022-07-18 02:20:05.979415]: Browser -> initializing browser.
+[2022-07-18 02:20:16.455738]: Starting Graphic
+[2022-07-18 02:20:17.294404]: Browser -> getting aplication web.
