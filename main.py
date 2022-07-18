@@ -6,7 +6,7 @@ from datetime import datetime
 from configer import configer
 from utils.browser import browser
 from logger import logger
-# import pyautogui as ctr
+import pyautogui as ctr
 import os
 
 configer.init("config/default.json")
@@ -14,7 +14,7 @@ logger.init() # default folder "logs"
 sound.folder("sounds")
 
 graphic = Graphic()
-speculator = Speculator()
+speculator = Speculator(reverseMode=False)
 
 
 browser.openChart()
@@ -28,14 +28,14 @@ def main(historic, price, candle, close):
 	if not seconds() in [00, 31, 41, 51]: return
 
 	os.system("clear")
-	# ctr.press('shift') # keep screen active
+	ctr.press('shift') # keep screen active
 
 	print("registering candle..", datetime.now())
 	speculator.speculate(candle=candle, price=price)
 
 	print(candle)
 	print(price)
-	print(speculator.fibonaccis)
+	print(speculator.fibonaccis[0])
 
 
 graphic.tradingWindow(main, interval=1)

@@ -18,7 +18,7 @@ FIREFOX_DRIVER_PATH = './bin/geckodriver'
 class Browser(Binomo):
   def __init__(self):
     super(Browser, self).__init__()
-    self.options = ('--none', '--headless',)
+    self.options = ('--none',)
     self.instance = None
     self._init_firefox()
 

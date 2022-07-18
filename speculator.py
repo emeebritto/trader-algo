@@ -8,7 +8,7 @@ from utils.sound import sound
 
 
 class Speculator:
-	def __init__(self):
+	def __init__(self, reverseMode=False):
 		self.maxValue = 0
 		self.minValue = 0
 		self.currentCandle = None
@@ -16,6 +16,8 @@ class Speculator:
 		self.fibonaccis = []
 		self._counter = count()
 		self.__modules = []
+		self._reverseMode = reverseMode
+		if reverseMode: self.__reverseOperations()
 
 
 	@property
@@ -31,6 +33,23 @@ class Speculator:
 	@property
 	def activeModules(self):
 		return self.__modules
+
+
+	@property
+	def reverseMode(self):
+		return self._reverseMode
+
+
+	@reverseMode.setter
+	def reverseMode(self, val):
+		self._reverseMode = val
+
+
+	def __reverseOperations(self):
+		logger.outlog("speculator -> ReverseMode was Activated")
+		temp = getattr(self, "purchase")
+		setattr(self, "purchase", getattr(self, "sell"))
+		setattr(self, "sell", temp)
 
 
 	def use(self, name, element):
@@ -62,7 +81,7 @@ class Speculator:
 		if hasValidMatches and isNotSaturatedZone:
 			self._analyzeFiboZone(fibosMatches, curFiboMatchRange)
 
-		if self.currentFibo.height >= 2000: self.createFiboFromCandle(self.currentCandle)
+		if self.currentFibo.height >= 1100: self.createFiboFromCandle(self.currentCandle)
 		else: self.updateCurrentFibo()
 
 

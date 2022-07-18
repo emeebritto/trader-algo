@@ -233,7 +233,7 @@ class Fibonacci:
 		hasChildrenMatches = self._checkChildrenMatches(value, tolerance)
 		if hasChildrenMatches: return hasChildrenMatches
 
-		isShortFibonacci = self.height <= 800
+		isNotShortFibonacci = self.height >= 400
 
 		if self.f50.isMatch(value, tolerance):
 			logger.fullog(f"{self.name} -> detected touch at f50")
@@ -241,7 +241,7 @@ class Fibonacci:
 		elif self.f61x8.isMatch(value, tolerance):
 			logger.fullog(f"{self.name} -> detected touch at f61.8")
 			return self.f61x8
-		elif self.f38x2.isMatch(value, tolerance) and not isShortFibonacci:
+		elif self.f38x2.isMatch(value, tolerance) and isNotShortFibonacci:
 		# elif self.f38x2.isMatch(value, tolerance):
 			logger.fullog(f"{self.name} -> detected touch at f38.2")
 			return self.f38x2
@@ -279,6 +279,6 @@ class FibonacciFactory:
 		logger.fullog(f"creating Fibonacci ({name} - From {start} to {end})")
 		fibonacci = Fibonacci(name, start, end, minDifference)
 		fibonacci.validateZoneWith(validateWith)
-		fibonacci.startChild = Fibonacci("start_child_1", minDifference=minDifference)
-		fibonacci.endChild = Fibonacci("end_child_2", minDifference=minDifference)
+		# fibonacci.startChild = Fibonacci("start_child_1", minDifference=minDifference)
+		# fibonacci.endChild = Fibonacci("end_child_2", minDifference=minDifference)
 		return fibonacci
