@@ -8,7 +8,7 @@ from utils.time import seconds, wait
 from pytesseract import pytesseract
 from configer import configer
 from utils.screen import Screen
-from utils.browser import Browser, browser
+from utils.browser import Browser
 import threading
 import numpy as np
 import cv2
@@ -78,7 +78,7 @@ class Graphic(Browser, Screen):
 	def _listenPrice(self):
 		logger.log("listening price")
 		while self.active:
-			screenshot = browser.chart_price_screenshot()
+			screenshot = self.chart_price_screenshot()
 			priceBar = self.locateOnImage(
 				screenshot,
 				needleImage='priceBar_target.png',

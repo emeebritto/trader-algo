@@ -62,7 +62,5 @@ class Browser(Binomo):
 
 
 
-browser = Browser()
-
-
+#browser = Browser()
 # os.environ.get('GECKODRIVER_PATH')
