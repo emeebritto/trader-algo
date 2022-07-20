@@ -22,7 +22,7 @@ speculator.use("graphic", graphic)
 
 
 def main(historic, price, candle, close):
-	if not seconds() in [00, 31, 41, 51]: return
+	if not seconds() in [00, 33, 41, 51]: return
 
 	os.system("clear")
 	ctr.press('shift') # keep screen active

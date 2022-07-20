@@ -22,7 +22,7 @@ class Binomo:
 		self._createLog("Browser -> getting aplication web.")
 		self.instance.get('https://binomo.com/trading')
 		sleep(8)
-		self.send_screen_to_author()
+		self.take_screenshot()
 
 		self._createLog("Browser -> insering account login.")
 		mail_input_wrapper = self.instance.find_element(By.TAG_NAME, "vui-input-text")
@@ -35,7 +35,7 @@ class Binomo:
 
 		self._createLog("Browser -> sleeping.")
 		sleep(4)
-		self.send_screen_to_author()
+		self.take_screenshot()
 		sleep(60)
 
 		self._createLog("Browser -> selecting assets box.")
@@ -85,14 +85,14 @@ class Binomo:
 		dealUpButton = self.instance.find_element(By.ID, "qa_trading_dealUpButton")
 		dealUpButton.click()
 		self.send_msg_to_author("deal up button was clicked")
-		self.send_screen_to_author()
+		self.take_screenshot()
 
 
 	def sell(self):
 		dealDownButton = self.instance.find_element(By.ID, "qa_trading_dealDownButton")
 		dealDownButton.click()
 		self.send_msg_to_author("deal down button was clicked")
-		self.send_screen_to_author()
+		self.take_screenshot()
 
 
 	def chart_price_screenshot(self):
@@ -106,6 +106,10 @@ class Binomo:
 
 
 	def send_screen_to_author(self):
+		pass
+
+
+	def take_screenshot(self):
 		pass
 
 
