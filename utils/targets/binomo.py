@@ -82,14 +82,14 @@ class Binomo:
 
 
 	def purchase(self):
-		dealUpButton = self.instance.find_element(By.CLASS_NAME, "qa_trading_dealUpButton")
+		dealUpButton = self.instance.find_element(By.ID, "qa_trading_dealUpButton")
 		dealUpButton.click()
 		self.send_msg_to_author("deal up button was clicked")
 		self.send_screen_to_author()
 
 
 	def sell(self):
-		dealDownButton = self.instance.find_element(By.CLASS_NAME, "qa_trading_dealDownButton")
+		dealDownButton = self.instance.find_element(By.ID, "qa_trading_dealDownButton")
 		dealDownButton.click()
 		self.send_msg_to_author("deal down button was clicked")
 		self.send_screen_to_author()

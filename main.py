@@ -5,7 +5,7 @@ from speculator import Speculator
 from datetime import datetime
 from configer import configer
 from logger import logger
-# import pyautogui as ctr
+import pyautogui as ctr
 import sys
 import os
 

@@ -167,7 +167,7 @@ class Speculator:
 			validateWith=self.graphic.candles.maxTraced()
 		)
 		self.fibonaccis.insert(0, fibo)
-		self.fibonaccis = self.fibonaccis[0:maxActiveFibonaccis -1]
+		self.fibonaccis = self.fibonaccis[0:maxActiveFibonaccis]
 
 
 
