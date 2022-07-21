@@ -4,7 +4,8 @@ from collections import deque
 class Price:
 	def __init__(self, value, maxV=None, minV=None):
 		self.startedAt = value
-		self._values = deque([value], maxlen=8)
+		self._values = deque([value], maxlen=20)
+		self._notified = False
 		self.isEqual = False
 		self._maxValue = maxV or value
 		self._minValue = minV or value
@@ -48,8 +49,12 @@ class Price:
 	@current.setter
 	def current(self, val):
 		self._values.append(val)
-		if self._values.count(val) == 8:
-			nexa.send_to_author("8 updates with same price, maybe samething is wrong.")
+		if self._values.count(val) == 20 and not self._notified:
+			nexa.send_to_author("20 updates with same price, maybe samething is wrong.")
+			self._notified = True
+		elif self._values.count(val) != 20 and self._notified:
+			self._notified = False
+			nexa.send_to_author("price was updated")
 
 
 	@maxValue.setter
