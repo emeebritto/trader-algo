@@ -7,7 +7,7 @@ from selenium import webdriver
 from services.nexa import nexa
 from utils.targets.binomo import Binomo
 from utils.targets.iqoption import IqOption
-# from services.telegram_client import nexa_Telegram
+from services.nexa import nexa
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -43,11 +43,31 @@ class Browser(Binomo):
     )
 
     self.instance = browser
+    print(dir(self.instance))
+
+
+  def _detect_noRobot_box(self):    
+    try:
+      return self.instance.find_element(By.TAG_NAME, "tbody")
+    except Exception as e:
+      return False
+
+
+  def passCaptcha(self, targetNode):
+    logger.fullog("bot was detected")
+    imgs_box = targetNode.find_elements(By.CLASS_NAME, "rc-imageselect-tile")
+    res = nexa.input("please, which box should I click?")
+    res = res.split("-")
+    for idx, box in enumerate(imgs_box):
+      if str(idx) in res:
+        box.click()
 
 
   def take_screenshot(self):
-    time = datetime.datetime.now().strftime('%Y-%m%d_%H-%M-%S-%f')
-    self.instance.save_screenshot(f"screenshots/screen_{time}.png")
+    time = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S-%f')
+    filePath = f"screenshots/screen_{time}.png"
+    self.instance.save_screenshot(filePath)
+    return filePath
 
 
   def send_msg_to_author(self, msg):
@@ -55,8 +75,8 @@ class Browser(Binomo):
 
 
   def send_screen_to_author(self):
-    self.take_screenshot()
-    # nexa_Telegram.send_file_to_author("screen.png") (reason: banned number)
+    filePath = self.take_screenshot()
+    nexa.send_file_to_author(filePath)
 
 
   def quit(self):

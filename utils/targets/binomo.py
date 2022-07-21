@@ -22,7 +22,7 @@ class Binomo:
 		self._createLog("Browser -> getting aplication web.")
 		self.instance.get('https://binomo.com/trading')
 		sleep(8)
-		self.take_screenshot()
+		self.send_screen_to_author()
 
 		self._createLog("Browser -> insering account login.")
 		mail_input_wrapper = self.instance.find_element(By.TAG_NAME, "vui-input-text")
@@ -34,10 +34,14 @@ class Binomo:
 		password_input.send_keys(Keys.ENTER)
 
 		self._createLog("Browser -> sleeping.")
-		sleep(4)
-		self.take_screenshot()
-		sleep(60)
+		sleep(5)
 
+		self.send_screen_to_author()
+		bot_was_detected = self._detect_noRobot_box()
+		if bot_was_detected: self.passCaptcha(targetNode=bot_was_detected)
+		else: logger.fullog("bot wasn't detected")
+
+		sleep(60)
 		self._createLog("Browser -> selecting assets box.")
 
 		assets_tab_wrapper = self.instance.find_element(By.TAG_NAME, "vui-asset-tab")
@@ -85,14 +89,14 @@ class Binomo:
 		dealUpButton = self.instance.find_element(By.ID, "qa_trading_dealUpButton")
 		dealUpButton.click()
 		self.send_msg_to_author("deal up button was clicked")
-		self.take_screenshot()
+		self.send_screen_to_author()
 
 
 	def sell(self):
 		dealDownButton = self.instance.find_element(By.ID, "qa_trading_dealDownButton")
 		dealDownButton.click()
 		self.send_msg_to_author("deal down button was clicked")
-		self.take_screenshot()
+		self.send_screen_to_author()
 
 
 	def chart_price_screenshot(self):

@@ -8,6 +8,7 @@ class Nexa:
 		self.__token = "5435366586:AAE9L0ZVNTEkAIHg12LssdsVgtV36I7BYVc"
 		self.__author = '1242558424'
 		self.__author_name = "Emerson_Britto"
+		self.api_url = f"https://api.telegram.org/bot{self.__token}"
 
 
 	def _request(self, link):
@@ -33,13 +34,26 @@ class Nexa:
 		return self.send_message(self.__author, msg)
 
 
+	def send_file_to_author(self, filePATH):
+		return self.send_file(filePATH, chatID=self.__author)
+
+
 	def send_message(self, chatID, msg):
-		send_text = f"https://api.telegram.org/bot{self.__token}/sendMessage?chat_id={chatID}&parse_mode=Markdown&text={msg}"
+		send_text = f"{self.api_url}/sendMessage?chat_id={chatID}&parse_mode=Markdown&text={msg}"
 		return self._request(send_text)
 
 
+	def send_file(self, filePATH, chatID):
+		with open(filePATH, "rb") as file:
+		  return requests.post(
+		  	f"{self.api_url}/sendDocument",
+				data={'chat_id': chatID},
+				files={'document': file}
+		  ).json()
+
+
 	def get_updates(self, user=None):
-		updates = f"https://api.telegram.org/bot{self.__token}/getUpdates"
+		updates = f"{self.api_url}/getUpdates"
 		if user: return self.filter_msg(user, self._request(updates)["result"])
 		return self._request(updates)["result"]
 
@@ -66,3 +80,5 @@ nexa = Nexa()
 # print("waiting your message..")
 # print(nexa.last_message(user="Emerson-Britto"))
 # print(nexa.wait_new_message(user="Emerson_Britto"))
+# res = nexa.send_file_to_author("../app_chart.png")
+# print(res)

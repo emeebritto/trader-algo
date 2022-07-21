@@ -1,0 +1,111 @@
+
+[2022-07-21 02:18:21.641516]: initialized log file.
+[2022-07-21 02:18:21.641931]: Browser -> initializing browser.
+[2022-07-21 02:18:37.546750]: Starting Graphic
+[2022-07-21 02:18:39.095490]: Browser -> getting aplication web.
+[2022-07-21 02:19:01.692465]: Browser -> insering account login.
+[2022-07-21 02:19:03.477014]: Browser -> sleeping.
+[2022-07-21 02:19:16.316159]: Browser -> initializing browser.
+[2022-07-21 02:19:26.964120]: Starting Graphic
+[2022-07-21 02:19:27.905060]: Browser -> getting aplication web.
+[2022-07-21 02:19:47.127822]: Browser -> insering account login.
+[2022-07-21 02:19:49.242118]: Browser -> sleeping.
+[2022-07-21 02:24:14.640773]: listening price
+[2022-07-21 02:24:14.641185]: Graphic was started
+[2022-07-21 02:24:15.824695]: Trading window was opened (timeframe: 1)
+[2022-07-21 03:30:39.609253]: Browser -> initializing browser.
+[2022-07-21 03:31:29.108279]: Browser -> initializing browser.
+[2022-07-21 03:31:38.704558]: Starting Graphic
+[2022-07-21 03:31:39.894969]: Browser -> getting aplication web.
+[2022-07-21 03:33:06.801753]: Browser -> initializing browser.
+[2022-07-21 03:55:26.268618]: Browser -> initializing browser.
+[2022-07-21 03:55:34.647594]: Starting Graphic
+[2022-07-21 03:55:35.850628]: Browser -> getting aplication web.
+[2022-07-21 03:56:29.972088]: Browser -> initializing browser.
+[2022-07-21 03:56:38.900384]: Starting Graphic
+[2022-07-21 03:56:39.834921]: Browser -> getting aplication web.
+[2022-07-21 04:00:32.951665]: Browser -> initializing browser.
+[2022-07-21 04:00:41.582286]: Starting Graphic
+[2022-07-21 04:00:42.763984]: Browser -> getting aplication web.
+[2022-07-21 04:01:04.141944]: Browser -> insering account login.
+[2022-07-21 04:01:05.808705]: Browser -> sleeping.
+[2022-07-21 04:03:31.719115]: Browser -> initializing browser.
+[2022-07-21 04:03:41.056906]: Starting Graphic
+[2022-07-21 04:03:42.121003]: Browser -> getting aplication web.
+[2022-07-21 04:04:02.802442]: Browser -> insering account login.
+[2022-07-21 04:04:04.289896]: Browser -> sleeping.
+[2022-07-21 04:05:12.288077]: Browser -> initializing browser.
+[2022-07-21 04:05:22.709047]: Starting Graphic
+[2022-07-21 04:05:23.704472]: Browser -> getting aplication web.
+[2022-07-21 04:05:45.550369]: Browser -> insering account login.
+[2022-07-21 04:05:47.150041]: Browser -> sleeping.
+[2022-07-21 04:08:10.224878]: Browser -> initializing browser.
+[2022-07-21 04:08:21.242788]: Starting Graphic
+[2022-07-21 04:08:22.291463]: Browser -> getting aplication web.
+[2022-07-21 04:08:44.592804]: Browser -> insering account login.
+[2022-07-21 04:08:46.186196]: Browser -> sleeping.
+[2022-07-21 04:09:13.424161]: Browser -> initializing browser.
+[2022-07-21 04:09:21.235136]: Starting Graphic
+[2022-07-21 04:09:22.144339]: Browser -> getting aplication web.
+[2022-07-21 04:09:37.086977]: Browser -> insering account login.
+[2022-07-21 04:09:38.499041]: Browser -> sleeping.
+[2022-07-21 04:11:54.479174]: Browser -> initializing browser.
+[2022-07-21 04:12:01.946740]: Starting Graphic
+[2022-07-21 04:12:03.267295]: Browser -> getting aplication web.
+[2022-07-21 04:12:22.581364]: Browser -> insering account login.
+[2022-07-21 04:12:24.029596]: Browser -> sleeping.
+[2022-07-21 04:14:41.170502]: Browser -> initializing browser.
+[2022-07-21 04:14:50.746787]: Starting Graphic
+[2022-07-21 04:14:51.671075]: Browser -> getting aplication web.
+[2022-07-21 04:15:11.717535]: Browser -> insering account login.
+[2022-07-21 04:15:13.436120]: Browser -> sleeping.
+[2022-07-21 04:25:31.843450]: Browser -> initializing browser.
+[2022-07-21 04:25:41.422415]: Starting Graphic
+[2022-07-21 04:25:42.636920]: Browser -> getting aplication web.
+[2022-07-21 04:26:04.563176]: Browser -> insering account login.
+[2022-07-21 04:26:06.469059]: Browser -> sleeping.
+[2022-07-21 04:26:15.600395]: bot wasn't detected
+[2022-07-21 04:29:30.917403]: Browser -> initializing browser.
+[2022-07-21 04:29:41.940610]: Starting Graphic
+[2022-07-21 04:29:42.899551]: Browser -> getting aplication web.
+[2022-07-21 04:30:08.656576]: Browser -> insering account login.
+[2022-07-21 04:30:10.475479]: Browser -> sleeping.
+[2022-07-21 04:30:18.286226]: bot wasn't detected
+[2022-07-21 04:31:19.258572]: Browser -> selecting assets box.
+[2022-07-21 04:31:22.049257]: Browser -> sleeping.
+[2022-07-21 04:31:26.906772]: Browser -> selecting asset (EUR/USD).
+[2022-07-21 04:31:28.398673]: Browser -> sleeping.
+[2022-07-21 04:31:34.307601]: Browser -> sleeping.
+[2022-07-21 04:31:39.218676]: Browser -> selecting chart time.
+[2022-07-21 04:31:45.886909]: Browser -> chart ready.
+[2022-07-21 04:31:48.763213]: listening price
+[2022-07-21 04:31:48.765113]: Graphic was started
+[2022-07-21 04:31:49.732051]: Trading window was opened (timeframe: 1)
+[2022-07-21 04:32:01.097219]: creating Fibonacci (Fibo_0 - From 1020734 to 1020965)
+[2022-07-21 04:32:11.591436]: not detected price. skipping interaction
+[2022-07-21 04:32:18.061268]: not detected price. skipping interaction
+[2022-07-21 04:33:00.469498]: price was out of range (f0) of the current fibonacci
+[2022-07-21 04:33:00.469998]: updating Fibonacci (Fibo_0 - From 1020734 to 1021090))
+[2022-07-21 04:33:33.644723]: price was out of range (f0) of the current fibonacci
+[2022-07-21 04:33:33.645012]: updating Fibonacci (Fibo_0 - From 1020734 to 1021170))
+[2022-07-21 04:34:33.331888]: price was out of range (f0) of the current fibonacci
+[2022-07-21 04:34:33.332207]: updating Fibonacci (Fibo_0 - From 1020734 to 1021435))
+[2022-07-21 04:34:41.477072]: price was out of range (f0) of the current fibonacci
+[2022-07-21 04:34:41.477421]: updating Fibonacci (Fibo_0 - From 1020734 to 1021450))
+[2022-07-21 04:34:51.627141]: price was out of range (f0) of the current fibonacci
+[2022-07-21 04:34:51.627483]: updating Fibonacci (Fibo_0 - From 1020734 to 1021579))
+[2022-07-21 04:35:01.542260]: not detected price. skipping interaction
+[2022-07-21 04:35:34.014707]: price was out of range (f0) of the current fibonacci
+[2022-07-21 04:35:34.015374]: updating Fibonacci (Fibo_0 - From 1020734 to 1021620))
+[2022-07-21 04:36:41.846474]: price was out of range (f0) of the current fibonacci
+[2022-07-21 04:36:41.846844]: updating Fibonacci (Fibo_0 - From 1020734 to 1021648))
+[2022-07-21 04:36:52.008523]: price was out of range (f0) of the current fibonacci
+[2022-07-21 04:36:52.009175]: updating Fibonacci (Fibo_0 - From 1020734 to 1021740))
+[2022-07-21 04:37:33.664602]: Fibo_0 -> detected match range [38.2]
+[2022-07-21 04:37:52.048026]: Fibo_0 -> detected match range [38.2]
+[2022-07-21 04:54:49.899398]: Browser -> initializing browser.
+[2022-07-21 04:55:01.121994]: Starting Graphic
+[2022-07-21 04:55:02.552700]: Browser -> getting aplication web.
+[2022-07-21 04:55:23.296973]: Browser -> insering account login.
+[2022-07-21 04:55:25.236455]: Browser -> sleeping.
+[2022-07-21 04:55:32.799473]: bot wasn't detected

@@ -1,9 +1,11 @@
+from services.nexa import nexa
 from collections import deque
 
 class Price:
 	def __init__(self, value, maxV=None, minV=None):
 		self.startedAt = value
-		self._values = deque([value], maxlen=2)
+		self._values = deque([value], maxlen=8)
+		self.isEqual = False
 		self._maxValue = maxV or value
 		self._minValue = minV or value
 
@@ -23,8 +25,12 @@ class Price:
 
 	@property
 	def last(self):
+		return self.index(-2)
+
+
+	def index(self, idx):
 		try:
-			return self._values[-2]
+			return self._values[idx]
 		except IndexError as e:
 			return None
 
@@ -41,7 +47,9 @@ class Price:
 
 	@current.setter
 	def current(self, val):
-		self._values.append(val) 
+		self._values.append(val)
+		if self._values.count(val) == 8:
+			nexa.send_to_author("8 updates with same price, maybe samething is wrong.")
 
 
 	@maxValue.setter
@@ -58,7 +66,7 @@ class Price:
 
 	def update(self, value):
 		value = value
-		self._values.append(value)
+		self.current = value
 		if value > self._maxValue:
 			self._maxValue = value
 		if value < self._minValue or self._minValue == 0:
