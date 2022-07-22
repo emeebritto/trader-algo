@@ -103,6 +103,16 @@ class Speculator:
 		isDownTrend = self.currentFibo.direction == -1
 		hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) >= 2
 
+		logiclog = f"""
+isInitialState: {isInitialState}
+isGreenCandle: {isGreenCandle}
+isRedCandle: {isRedCandle}
+isUpTrend: {isUpTrend}
+isDownTrend: {isDownTrend}
+hasMinMatches: {hasMinMatches}"""
+
+		logger.fullog(logiclog)
+
 		if (hasMinMatches or isInitialState) and isRedCandle and isUpTrend:
 			self.purchase()
 		elif (hasMinMatches or isInitialState) and isGreenCandle and isDownTrend:

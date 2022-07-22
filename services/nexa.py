@@ -1,4 +1,5 @@
 import requests
+import threading
 from time import sleep
 
 
@@ -9,6 +10,27 @@ class Nexa:
 		self.__author = '1242558424'
 		self.__author_name = "Emerson_Britto"
 		self.api_url = f"https://api.telegram.org/bot{self.__token}"
+		self._commands = {}
+		th = threading.Thread(target=self._listenCommands, args=(), kwargs={})
+		th.start()
+
+
+	def learnModule(self, module):
+		for name, val in module.__dict__.items():
+			if callable(val): self.learn(label=name, action=val)
+
+
+	def learn(self, label, action):
+		print(f"Nexa learned to {label}")
+		self._commands[label] = action
+
+
+	def _listenCommands(self):
+		while True:
+			msg = self.wait_new_message(user=self.__author_name)
+			command = self._commands.get(msg)
+			if command: command()
+			else: self.send_to_author(msg="sorry, I don't know how do it :(")
 
 
 	def _request(self, link):
@@ -39,7 +61,8 @@ class Nexa:
 
 
 	def send_message(self, chatID, msg):
-		send_text = f"{self.api_url}/sendMessage?chat_id={chatID}&parse_mode=Markdown&text={msg}"
+		params = f"chat_id={chatID}&parse_mode=Markdown&text={msg}"
+		send_text = f"{self.api_url}/sendMessage?{params}"
 		return self._request(send_text)
 
 
@@ -67,6 +90,7 @@ class Nexa:
 		lastUpdate = self.last_message(user=user)
 		def compareRequests():
 			newRequest = self.last_message(user=user)
+			if not lastUpdate and newRequest: return False
 			if not newRequest: return True
 			return lastUpdate["update_id"] == newRequest["update_id"]
 
@@ -76,7 +100,13 @@ class Nexa:
 		else: return lastUpdate["message"]["text"]
 
 
+
 nexa = Nexa()
+
+
+
+
+# nexa.learnModule(services.nexaActions)
 # print("waiting your message..")
 # print(nexa.last_message(user="Emerson-Britto"))
 # print(nexa.wait_new_message(user="Emerson_Britto"))

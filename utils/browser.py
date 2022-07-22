@@ -1,13 +1,13 @@
 import sys
 import os
 import datetime
+import threading
 from PIL import Image
 from logger import logger
 from selenium import webdriver
 from services.nexa import nexa
 from utils.targets.binomo import Binomo
 from utils.targets.iqoption import IqOption
-from services.nexa import nexa
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -22,6 +22,14 @@ class Browser(Binomo):
     super(Browser, self).__init__()
     self.instance = None
     self._init_firefox()
+
+
+  # force one instance
+  def __new__(cls, *args, **kwargs):
+    if not hasattr(cls, '_alreadyExists'):
+      cls._alreadyExists = object.__new__(cls)
+      
+    return cls._alreadyExists
 
 
   def _init_firefox(self):
@@ -43,7 +51,28 @@ class Browser(Binomo):
     )
 
     self.instance = browser
-    print(dir(self.instance))
+
+
+  def autoRefresh(self, interval=None):
+    th = threading.Thread(
+      target=self._autoRefresh,
+      args=(),
+      kwargs={"interval": interval}
+    )
+    th.start()
+
+
+  def _autoRefresh(self, interval=None):
+    if type(interval) != int: return
+    logger.fullog(f"auto refresh was activated (interval: {interval})")
+    while True:
+      sleep(interval * 60)
+      self.refresh()
+
+
+  def refresh(self):
+    logger.fullog("Refreshing Browser")
+    self.instance.refresh()
 
 
   def _detect_noRobot_box(self):    
@@ -63,9 +92,10 @@ class Browser(Binomo):
         box.click()
 
 
-  def take_screenshot(self):
+  def take_screenshot(self, filePath=None):
     time = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S-%f')
-    filePath = f"screenshots/screen_{time}.png"
+    filePathDefault = f"screenshots/screen_{time}.png"
+    filePath = filePath if filePath else filePathDefault
     self.instance.save_screenshot(filePath)
     return filePath
 
@@ -74,8 +104,8 @@ class Browser(Binomo):
     nexa.send_to_author(msg)
 
 
-  def send_screen_to_author(self):
-    filePath = self.take_screenshot()
+  def send_screen_to_author(self, filePath=None):
+    filePath = self.take_screenshot(filePath)
     nexa.send_file_to_author(filePath)
 
 
@@ -84,5 +114,5 @@ class Browser(Binomo):
 
 
 
-#browser = Browser()
+# browser = Browser()
 # os.environ.get('GECKODRIVER_PATH')

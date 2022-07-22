@@ -4,6 +4,7 @@ from entities.candleHistoric import CandleHistoric
 from collections import deque
 from time import sleep
 from logger import logger
+from services.nexa import nexa
 from utils.time import seconds, wait
 from pytesseract import pytesseract
 from configer import configer
@@ -16,7 +17,7 @@ import re
 
 
 
-class Graphic(Browser, Screen):
+class Graphic(Screen):
 	def __init__(self):
 		super(Graphic, self).__init__()
 		self.timeframe = 1
@@ -24,6 +25,7 @@ class Graphic(Browser, Screen):
 		self.trading = False
 		self.price = Price(0)
 		self.currentCandle = None
+		self.browser = Browser()
 		self._candles = CandleHistoric([], maxlen=240)
 
 
@@ -38,7 +40,7 @@ class Graphic(Browser, Screen):
 
 	def start(self):
 		logger.fullog("Starting Graphic")
-		self.openChart()
+		self.browser.openChart()
 		self.active = True
 		priceThr = threading.Thread(
 			target=self._listenPrice,
@@ -72,13 +74,23 @@ class Graphic(Browser, Screen):
 
 	def end(self):
 		self.active = False
-		self.closeWindow()
+		self.__closeWindow()
+
+
+	def purchase(self):
+		self.browser.purchase()
+
+
+	def sell(self):
+		self.browser.sell()
 
 
 	def _listenPrice(self):
 		logger.log("listening price")
 		while self.active:
-			screenshot = self.chart_price_screenshot()
+			screenshot = self.browser.chart_price_screenshot()
+			if not screenshot: continue
+
 			priceBar = self.locateOnImage(
 				screenshot,
 				needleImage='priceBar_target.png',
@@ -147,3 +159,25 @@ class Graphic(Browser, Screen):
 				close=self.__closeWindow
 			)
 			sleep(interval)
+
+
+
+graphic = Graphic()
+browser = graphic.browser
+
+nexa.learn(
+  label="/take_screenshot",
+  action=lambda: browser.send_screen_to_author(filePath="screen_to_author.png")
+)
+nexa.learn(
+  label="/refresh_browser",
+  action=browser.refresh
+)
+nexa.learn(
+  label="/purchase",
+  action=graphic.purchase
+)
+nexa.learn(
+  label="/sell",
+  action=graphic.sell
+)

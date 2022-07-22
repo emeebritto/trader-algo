@@ -100,7 +100,13 @@ class Binomo:
 
 
 	def chart_price_screenshot(self):
-		app_chart = self.instance.find_element(By.TAG_NAME, "app-chart")
+		try:
+			app_chart = self.instance.find_element(By.TAG_NAME, "app-chart")
+		except Exception as e:
+			print("chart not found")
+			sleep(1)
+			return None
+
 		app_chart.screenshot('app_chart.png')
 		img = Image.open('app_chart.png')
 		w, h = img.size

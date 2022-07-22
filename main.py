@@ -1,6 +1,6 @@
 from utils.time import seconds
 from utils.sound import sound
-from entities.graphic import Graphic
+from entities.graphic import graphic
 from speculator import Speculator
 from datetime import datetime
 from configer import configer
@@ -13,9 +13,9 @@ configer.init("config/default.json")
 logger.init() # default folder "logs"
 sound.folder("sounds")
 
-graphic = Graphic()
 speculator = Speculator(reverseMode=("-r" in sys.argv))
 
+graphic.browser.autoRefresh(interval=180) # interval in minutes
 graphic.start()
 speculator.use("graphic", graphic)
 # speculator.use("controller", ctr)
