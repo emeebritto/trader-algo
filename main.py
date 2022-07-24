@@ -1,7 +1,8 @@
 from utils.time import seconds
 from utils.sound import sound
+from services.nexa import nexa
 from entities.graphic import graphic
-from speculator import Speculator
+from speculator import speculator
 from datetime import datetime
 from configer import configer
 from logger import logger
@@ -9,12 +10,18 @@ import pyautogui as ctr
 import sys
 import os
 
+
+def stop_program():
+	graphic.browser.quit()
+	os._exit(1)
+
+
+nexa.learn(label="/stop_program", action=stop_program)
 configer.init("config/default.json")
 logger.init() # default folder "logs"
 sound.folder("sounds")
 
-speculator = Speculator(reverseMode=("-r" in sys.argv))
-
+speculator.reverseMode = ("-r" in sys.argv)
 graphic.browser.autoRefresh(interval=180) # interval in minutes
 graphic.start()
 speculator.use("graphic", graphic)

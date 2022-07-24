@@ -1,4 +1,5 @@
 from tools.fibonacci import FibonacciFactory
+from services.nexa import nexa
 from random import randint
 from itertools import count
 from configer import configer
@@ -13,6 +14,7 @@ class Speculator:
 		self.currentCandle = None
 		self.price = None
 		self.fibonaccis = []
+		self._isTrading = True
 		self._counter = count()
 		self.__modules = []
 		self._reverseMode = reverseMode
@@ -39,16 +41,32 @@ class Speculator:
 		return self._reverseMode
 
 
+	@property
+	def isTrading(self):
+		return self._isTrading
+
+
+	@isTrading.setter
+	def isTrading(self, val):
+		if type(val) == bool and val != self._isTrading:
+			isTradingLog = "speculator is trading now"
+			isNotTradingLog = "speculator isn't trading, only analyzing"
+			self._isTrading = val
+			logger.fullog(isTradingLog if val == True else isNotTradingLog)
+
+
 	@reverseMode.setter
 	def reverseMode(self, val):
-		if val in [True, False] and val != self._reverseMode:
+		if type(val) == bool and val != self._reverseMode:
 			self._reverseMode = val
 			self.__reverseOperations()
+		elif val == self._reverseMode:
+			logger.fullog(f"reverseMode already changed to {val}")
 
 
 	def __reverseOperations(self):
 		status = "Activated" if self._reverseMode else "Desactivated"
-		logger.outlog(f"speculator -> ReverseMode was {status}")
+		logger.fullog(f"speculator -> ReverseMode was {status}")
 		temp = getattr(self, "purchase")
 		setattr(self, "purchase", getattr(self, "sell"))
 		setattr(self, "sell", temp)
@@ -113,10 +131,11 @@ hasMinMatches: {hasMinMatches}"""
 
 		logger.fullog(logiclog)
 
-		if (hasMinMatches or isInitialState) and isRedCandle and isUpTrend:
-			self.purchase()
-		elif (hasMinMatches or isInitialState) and isGreenCandle and isDownTrend:
-			self.sell()
+		if (hasMinMatches or isInitialState) and self.isTrading:
+			if isRedCandle and isUpTrend:
+				self.purchase()
+			elif isGreenCandle and isDownTrend:
+				self.sell()
 		self.createFibo(self.currentFibo.end, self.currentCandle.maxTraced)
 
 
@@ -181,6 +200,20 @@ hasMinMatches: {hasMinMatches}"""
 
 
 
+speculator = Speculator(reverseMode=False)
+
+nexa.learn(
+  label="/reverse_mode",
+  action=lambda: setattr(speculator, "reverseMode", not speculator.reverseMode)
+)
+nexa.learn(
+  label="/pause_trading",
+  action=lambda: setattr(speculator, "isTrading", False)
+)
+nexa.learn(
+  label="/return_trading",
+  action=lambda: setattr(speculator, "isTrading", True)
+)
 
 
 # ctr.moveTo(self.view.width / 2.5, self.view.height / 3, 0.3)
