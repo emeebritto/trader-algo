@@ -119,7 +119,7 @@ class Speculator:
 		isRedCandle = self.currentCandle.cType == -1
 		isUpTrend = self.currentFibo.direction == 1
 		isDownTrend = self.currentFibo.direction == -1
-		hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) >= 2
+		hasMinMatches = (len(fibosMatches) - fibosMatches.count(None)) >= 1
 
 		logiclog = f"""
 isInitialState: {isInitialState}
