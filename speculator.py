@@ -98,11 +98,11 @@ class Speculator:
 		hasValidMatches = bool(fibosMatches[0])
 		isNotSaturatedZone = fibosMatches[0] and not fibosMatches[0].isSaturated
 
-		if hasValidMatches and isNotSaturatedZone:
-			self._analyzeFiboZone(fibosMatches, curFiboMatchRange)
-
 		if self.currentFibo.height >= 3000: self.createFiboFromCandle(self.currentCandle)
 		else: self.updateCurrentFibo()
+
+		if hasValidMatches and isNotSaturatedZone:
+			self._analyzeFiboZone(fibosMatches, curFiboMatchRange)
 
 
 	def _analyzeFiboZone(self, fibosMatches, curFiboMatchRange):
