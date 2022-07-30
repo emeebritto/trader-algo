@@ -5,7 +5,7 @@ from collections import deque
 from time import sleep
 from logger import logger
 from services.nexa import nexa
-from utils.time import seconds, wait
+from utils.time import seconds, wait, time
 from pytesseract import pytesseract
 from configer import configer
 from utils.screen import Screen
@@ -24,14 +24,15 @@ class Graphic(Screen):
 		self.active = False
 		self.trading = False
 		self.price = Price(0)
-		self.currentCandle = None
+		self.currentCandle1m = None
 		self.browser = Browser()
-		self._candles = CandleHistoric([], maxlen=240)
+		self._candles1m = CandleHistoric([], maxlen=240)  # 1 minutes
+		self._candles5m = CandleHistoric([], maxlen=240) # 5 minutes
 
 
 	@property
 	def candles(self):
-		return self._candles
+		return self._candles1m
 
 
 	def getPrice(self):
@@ -129,33 +130,39 @@ class Graphic(Screen):
 					if not self.price.last or abs(self.price.last - price) < maxVariation:
 						self.price.update(price)
 				except ValueError as e:
-					print("not detected price. skipping interaction")
-					logger.log("not detected price. skipping interaction")
+					logger.outlog("not detected price. skipping interaction")
 
 
-	def _nextCandle(self):
-		if self.currentCandle: self._candles.append(self.currentCandle)
-		self.currentCandle = Candle(entry=self.price.current)
+	def _nextCandle1m(self):
+		if self.currentCandle1m: self._candles1m.append(self.currentCandle1m)
+		self.currentCandle1m = Candle(entry=self.price.current)
+
+
+	def _nextCandle5m(self):
+		if self.currentCandle5m: self._candles5m.append(self.currentCandle5m)
+		self.currentCandle5m = Candle(entry=self.price.current)
 
 
 	def _processCandles(self):
 		wait(lambda: self.price.current != 0)
-		self._nextCandle()
+		self._nextCandle1m()
 		while self.active:
 			sleep(1)
 			if seconds() == 00:
-				self._nextCandle()
-				continue
-			self.currentCandle.update(value=self.price.current)
+				self._nextCandle1m()
+			if f"{time().minute}"[1] in ['0', '5']:
+				self._nextCandle5m()
+			self.currentCandle1m.update(value=self.price.current)
+			self.currentCandle5m.update(value=self.price.current)
 
 
 	def _listenTrading(self, callback, interval):
-		wait(lambda: self.price.current != 0 and self.currentCandle != None)
+		wait(lambda: self.price.current != 0 and self.currentCandle1m != None)
 		while self.trading:
 			callback(
-				historic=self._candles,
+				historic=self._candles1m,
 				price=self.price,
-				candle=self.currentCandle,
+				candle=self.currentCandle1m,
 				close=self.__closeWindow
 			)
 			sleep(interval)
