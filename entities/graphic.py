@@ -25,6 +25,7 @@ class Graphic(Screen):
 		self.trading = False
 		self.price = Price(0)
 		self.currentCandle1m = None
+		self.currentCandle5m = None
 		self.browser = Browser()
 		self._candles1m = CandleHistoric([], maxlen=240)  # 1 minutes
 		self._candles5m = CandleHistoric([], maxlen=240) # 5 minutes
@@ -146,6 +147,7 @@ class Graphic(Screen):
 	def _processCandles(self):
 		wait(lambda: self.price.current != 0)
 		self._nextCandle1m()
+		self._nextCandle5m()
 		while self.active:
 			sleep(1)
 			if seconds() == 00:
